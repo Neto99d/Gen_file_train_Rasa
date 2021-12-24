@@ -53,9 +53,9 @@ def modYaml(ques, res):  # Recibe preguntas y respuestas
 
             ##########################################
 
-            # f = open('D:\\DOCUMENTOS\\VisualStudio_Projects\\GitHub\\genquest\\Temporal files\\utter.yml', 'a+')
+            # f = open('.\\Temporal files\\utter.yml', 'a+')
             # f.writelines(["%s\n" % item for item in auxutter])
-            # f =  open('D:\\DOCUMENTOS\\VisualStudio_Projects\\GitHub\\genquest\\Archivos_generados\\domain.yml', 'r')
+            # f =  open('.\\Archivos_generados\\domain.yml', 'r')
             # code = yaml.load(f)
             # for i in range(len(ques)):
             # code['responses'] = {'utter_{}'.format(ques[i]): [{'text': res[i]}]}
