@@ -169,7 +169,7 @@ def main():
     # Open the file given as argument in read-only mode.
     # print("Entre la direccion del archivo de texto")  # AGREGADO
     # Si cambia de carpeta o PC cambie la direccion del archivo
-    filehandle = open("D:\\DOCUMENTOS\\VisualStudio_Projects\\GitHub\\Gen_file_train_Rasa\\file.txt",
+    filehandle = open("file.txt",
                       'r')  # cambiado input() para entrar archivo de texto manual (quitar direccion puesta)
     textinput = filehandle.read()
     print('\n-----------INPUT TEXT-------------\n')

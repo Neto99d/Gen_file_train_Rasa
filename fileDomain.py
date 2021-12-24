@@ -30,7 +30,7 @@ def modYaml(ques, res):  # Recibe preguntas y respuestas
             # Si cambia de carpeta o PC cambie la direccion del archivo
 
             yaml_file = open(
-                "D:\\DOCUMENTOS\\VisualStudio_Projects\\GitHub\\Gen_file_train_Rasa\\Archivos_generados\\domain.yml",
+                ".\\Archivos_generados\\domain.yml",
                 mode="a+")
             if yaml_file:
                 print(
