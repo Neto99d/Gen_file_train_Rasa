@@ -168,9 +168,8 @@ def main():
 
     # Open the file given as argument in read-only mode.
     # print("Entre la direccion del archivo de texto")  # AGREGADO
-    # Si cambia de carpeta o PC cambie la direccion del archivo
     filehandle = open("file.txt",
-                      'r')  # cambiado input() para entrar archivo de texto manual (quitar direccion puesta)
+                      'r')  # cambiado input() para entrar archivo de texto manual (quitar "file.txt")
     textinput = filehandle.read()
     print('\n-----------INPUT TEXT-------------\n')
     print(textinput, '\n')

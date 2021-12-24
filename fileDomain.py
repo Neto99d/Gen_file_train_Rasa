@@ -27,7 +27,6 @@ def modYaml(ques, res):  # Recibe preguntas y respuestas
         try:
             ################################################
             # Crear el Archivo
-            # Si cambia de carpeta o PC cambie la direccion del archivo
 
             yaml_file = open(
                 ".\\Archivos_generados\\domain.yml",
