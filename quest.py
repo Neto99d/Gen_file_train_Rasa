@@ -4,11 +4,18 @@
 from textblob import TextBlob
 import nltk
 from textblob import Word
+import sys
+
+####################
+# importaciones agregadas por mi
+
 import fileNLU
 import fileDomain
 import fileStories
 import fileRules
-import sys
+
+
+######################
 
 
 def parse(string):
@@ -25,7 +32,11 @@ def parse(string):
         for sentence in txt.sentences:
             genQuestion(sentence)
             sentenceAux = sentence
+            ###################################
+            # Linea agregada por mi
+
             responses.append(str(sentenceAux))  # Pasando las oraciones del texto como respuestas para archivos Rasa
+            ##################################
 
     except Exception as e:
         raise e
@@ -135,7 +146,11 @@ def genQuestion(line):
     # Print the genetated questions as output.
     if question != '':
         print('\n', 'Question: ' + question)
-        questions.append(question)
+
+        ###################################
+        # Linea agregada por mi
+        questions.append(question)  # Pasando las preguntas generadas con esta lista
+        ##########################
 
 
 # Trabajando archivos de RASA
@@ -145,6 +160,9 @@ def main():
     """
     Accepts a text file as an argument and generates questions from it.
     """
+    #############################################
+    # Elementos agregados por mi
+
     global questions  # Preguntas que se enviaran para archivos de Rasa
     questions = []
 
@@ -156,6 +174,8 @@ def main():
     storiesRasa = fileStories
     global rulesRasa
     rulesRasa = fileRules
+    ########################################################
+
     # verbose mode is activated when we give -v as argument.
     global verbose
     verbose = False
@@ -167,9 +187,9 @@ def main():
             verbose = True
 
     # Open the file given as argument in read-only mode.
-    # print("Entre la direccion del archivo de texto")  # AGREGADO
+    # print("Entre la direccion del archivo de texto")  # AGREGADO por mi
     filehandle = open("file.txt",
-                      'r')  # cambiado input() para entrar archivo de texto manual (quitar "file.txt")
+                      'r')  # (cambiado) poner input() para entrar archivo de texto manual (quitar "file.txt")
     textinput = filehandle.read()
     print('\n-----------INPUT TEXT-------------\n')
     print(textinput, '\n')
@@ -177,8 +197,11 @@ def main():
 
     # Send the content of text file as string to function parse()
 
-    parse(textinput)  # cambiado
+    parse(textinput)
+    #####################
+    # linea agregada por mi, llamada a fileDomain.py
     domainRasa.modYaml(questions, responses)
+    ########################################
 
 
 if __name__ == "__main__":

@@ -1,13 +1,26 @@
 # Generar archivos de entrenamiento para Rasa
-# Codigo Personal
+**- Codigo Personal** 
+   - fileDomain.py (de momento el unico que se esta trabajando)
+   - fileNLU.py
+   - fileRules.py
+   - fileStories.py
 
-Ejecutar quest.py, automaticamente se llama a la funcion que genera el archivo
+---
+**Ejecutar quest.py (codigo original modificado levemente por mi), automaticamente se llama a la funcion que genera el archivo**
+---
 
-Funcionamiento
+**Funcionamiento**
 - Se extraen las preguntas y respuestas (questions, responses)
   - Las respuestas son las oraciones del texto, exactamente se crea un par pregunta _ respuesta.
 - Se le envia esa informacion extraida a la funcion modYaml(ques, res) que esta en fileDomain.py
 - Dicha funcion se encargara de crear el archivo y escribir la informacion en el formato de entrenamiento de Rasa. 
+
+**Una vez ejecutado el codigo y creado el archivo, eliminar el archivo (domain.yaml) de la carpeta [Archivos_generados] para volver a correr el codigo**
+- Si no se elimina el archivo se seguira escribiendo
+
+**Archivos originales echos manualmente modelos de entrenamiento funcionando en la carpeta [Archivos originales Rasa Modelo]**
+
+
 
 
 # Funcionamiento de Generador de preguntas (Codigo Original de terceros)
