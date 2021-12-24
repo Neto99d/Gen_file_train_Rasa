@@ -1,0 +1,24 @@
+version: "3.0"
+
+intents: 
+  - Quien es el presidente del INDER
+  - Que competencia se lleva a cabo
+  - Las principales competencias donde cuba puede ganar medallas
+  
+  
+
+responses:
+  utter_presidente:
+  - text: "El presidente del Instituto Nacional de Deportes, Educacion Fisica y Recreacion es Osvaldo Vento."
+  
+  utter_competencia:
+  - text: "Ahora mismo se lleva a cabo los juegos Panamericanos Junior."
+
+  utter_medallas:
+  - text: "Cuba se ha destacado en la lucha Greco, el boxeo, boleibol de playa, atletismo."
+  
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

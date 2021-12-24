@@ -1,0 +1,18 @@
+version: "3.0"
+
+rules:
+
+- rule: rule uno
+  steps:
+  - intent: Quien es el presidente del INDER
+  - action: utter_presidente
+
+- rule: rule dos
+  steps:
+  - intent: Que competencia se lleva a cabo
+  - action: utter_competencia
+
+- rule: rule dos
+  steps:
+  - intent: Las principales competencias donde cuba puede ganar medallas
+  - action: utter_medallas
