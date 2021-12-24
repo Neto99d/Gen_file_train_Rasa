@@ -1,2 +1,5 @@
 nltk==3.4.5
 textblob==0.15.0
+ruamel.yaml==0.16.13
+ruamel.yaml.clib==0.2.6
+PyYAML==5.1
