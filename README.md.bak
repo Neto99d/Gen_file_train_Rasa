@@ -1,4 +1,6 @@
 # Generar archivos de entrenamiento para Rasa
+**Instalar via linea de comandos (cmd)**
+ - `pip install -r requirements.txt` 
 **- Codigo Personal** 
    - fileDomain.py (de momento el unico que se esta trabajando)
    - fileNLU.py
@@ -18,7 +20,7 @@
 **Una vez ejecutado el codigo y creado el archivo, eliminar el archivo (domain.yaml) de la carpeta [Archivos_generados] para volver a correr el codigo**
 - Si no se elimina el archivo se seguira escribiendo
 
-**Archivos originales echos manualmente modelos de entrenamiento funcionando en la carpeta [Archivos originales Rasa Modelo]**
+**Archivos originales echos manualmente modelos de entrenamiento para Rasa funcionando en la carpeta [Archivos originales Rasa Modelo]**
 
 
 

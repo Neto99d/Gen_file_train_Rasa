@@ -1,4 +1,7 @@
 # Generar archivos de entrenamiento para Rasa
+**Instalar via linea de comandos (cmd)**
+ - `pip install -r requirements.txt` 
+ 
 **- Codigo Personal** 
    - fileDomain.py (de momento el unico que se esta trabajando)
    - fileNLU.py
