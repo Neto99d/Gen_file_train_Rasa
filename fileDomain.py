@@ -18,8 +18,7 @@ def modYaml(ques, res):  # Recibe preguntas y respuestas
 
         versionRasa = {'version': "3.0"}
         intent = {'intents': ques}
-        # responses = {
-        # 'responses': None}  # {'responses': {'utter_{}'.format(ques[0]): [{'text': res[0]}]}} # escrito directamente sin lista, solo un elemento ( escribir una a una) INCOMPLETO
+        # responses = {'responses': {'utter_{}'.format(ques[0]): [{'text': res[0]}]}} # escrito directamente sin lista, solo un elemento ( escribir una a una) INCOMPLETO
         config = {'session_config': {
             'session_expiration_time': 60,
             'carry_over_slots_to_new_session': True, }
