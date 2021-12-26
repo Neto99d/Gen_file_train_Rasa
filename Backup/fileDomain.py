@@ -42,6 +42,7 @@ def modYaml(ques, res):  # Recibe preguntas y respuestas
 
             yaml.dump(versionRasa, yaml_file)
             yaml.dump(intent, yaml_file)
+            yaml.dump({'_responses': ""}, yaml_file)
             yaml.dump({'responses': auxutter}, yaml_file)
             yaml.dump(config, yaml_file)
         ##########################################

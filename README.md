@@ -1,8 +1,10 @@
 # Automatic Question Generation
 
-This program takes a text file as an input and generates questions by analyzing each sentence. 
+This program takes a text file as an input and generates questions by analyzing each sentence.
+Also, create a RASA Virtual Assistan Configuration file copied in /output directory 
+with domain.yml name.
 
-Note: A similar implementatin is [here](https://github.com/indrajithi/question_generation).
+Note: A similar implementatin is [here](https://github.com/Neto99d/Gen_file_train_Rasa).
 
 ## Usage
 

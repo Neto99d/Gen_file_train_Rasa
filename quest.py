@@ -1,6 +1,5 @@
 # Author: Indrajith Indraprastham
 # Date:  Wed Dec 20 00:12:39 IST 2017 (last update)
-
 from textblob import TextBlob
 import nltk
 from textblob import Word
@@ -9,8 +8,9 @@ import fileDomain
 import fileStories
 import fileRules
 import sys
+import os
 
-
+OUTPUT_DIRECTORY = "output";
 def parse(string):
     """
     Parse a paragraph. Devide it into sentences and try to generate quesstions from each sentences.
@@ -167,9 +167,13 @@ def main():
             verbose = True
 
     # Open the file given as argument in read-only mode.
-    # print("Entre la direccion del archivo de texto")  # AGREGADO
-    filehandle = open("file.txt",
-                      'r')  # cambiado input() para entrar archivo de texto manual (quitar "file.txt")
+    print("Entre la direccion del archivo de texto")  # AGREGADO
+    dirname, filename = os.path.split(os.path.abspath(__file__))
+    filename = "file.txt"
+    if os.path.exists(dirname+ os.path.sep + OUTPUT_DIRECTORY) == False:
+          os.makedirs(dirname+ os.path.sep + OUTPUT_DIRECTORY)
+
+    filehandle = open(dirname+ os.path.sep + OUTPUT_DIRECTORY + os.path.sep + filename, 'r')  # cambiado input()
     textinput = filehandle.read()
     print('\n-----------INPUT TEXT-------------\n')
     print(textinput, '\n')

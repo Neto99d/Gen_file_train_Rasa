@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f311585f-d8a9-4192-9ce3-64a628663d8d" name="Default Changelist" comment="" />
+    <list default="true" id="f311585f-d8a9-4192-9ce3-64a628663d8d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Archivos originales Rasa Modelo/domain.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Archivos originales Rasa Modelo/domain.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Archivos originales Rasa Modelo/nlu.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Archivos originales Rasa Modelo/nlu.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Archivos originales Rasa Modelo/rules.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Archivos originales Rasa Modelo/rules.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Archivos originales Rasa Modelo/stories.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Archivos originales Rasa Modelo/stories.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Archivos_generados/domain.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup/fileDomain.py" beforeDir="false" afterPath="$PROJECT_DIR$/Backup/fileDomain.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/file.txt" beforeDir="false" afterPath="$PROJECT_DIR$/file.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileDomain.py" beforeDir="false" afterPath="$PROJECT_DIR$/fileDomain.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen.py" beforeDir="false" afterPath="$PROJECT_DIR$/gen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/in.txt" beforeDir="false" afterPath="$PROJECT_DIR$/in.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/quest.py" beforeDir="false" afterPath="$PROJECT_DIR$/quest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report.md" beforeDir="false" afterPath="$PROJECT_DIR$/report.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test2.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,6 +38,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunManager">
@@ -59,5 +79,16 @@
       <updated>1640364729563</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

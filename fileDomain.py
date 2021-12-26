@@ -1,7 +1,9 @@
 import yaml as ym  # PYyaml
 import sys
 from ruamel.yaml import YAML  # Ramuel.yaml
+import os
 
+GENERATE_FILE = "Archivos_generados";
 
 def modYaml(ques, res):  # Recibe preguntas y respuestas
     print('\n' + "Creando archivo de Rasa domain.yml" + '\n' '..............................')
@@ -27,11 +29,12 @@ def modYaml(ques, res):  # Recibe preguntas y respuestas
         try:
             ################################################
             # Crear el Archivo
-
-            yaml_file = open(
-                ".\\Archivos_generados\\domain.yml",
-                mode="a+")
-            if yaml_file:
+           dirname, filename = os.path.split(os.path.abspath(__file__))
+           if  os.path.exists(dirname+ os.path.sep + GENERATE_FILE) == False:
+                os.makedirs(dirname + os.path.sep + GENERATE_FILE)
+           yaml_file = open(dirname + os.path.sep + GENERATE_FILE + os.path.sep + "domain.yml",
+                             mode="a+")
+           if yaml_file:
                 print(
                     '\n' + "Creado con Exito, en la carpeta Archivos_generados" + '\n' '..............................')
                 print(
@@ -40,28 +43,35 @@ def modYaml(ques, res):  # Recibe preguntas y respuestas
             #########################################
             # Escribiendo la plantilla en el archivo
 
-            yaml = YAML()
-            yaml.indent(mapping=2, sequence=4, offset=2)  # Sangria y margen
-            yaml.dump(versionRasa, yaml_file)
-            yaml.dump(intent, yaml_file)
-            yaml = YAML()
-            for i in range(len(ques)):
-                auxutter.append({'utter_{}'.format(ques[i]): [{'text': res[i]}]})  # Guardando la info de repsonses
-            yaml.dump({'responses': auxutter}, yaml_file)  # Escrito con la lista donde esta la info
-            yaml.dump(config, yaml_file)
+                yaml = YAML()
+                yaml.indent(mapping=2, sequence=4, offset=2)  # Sangria y margen
+                yaml.dump(versionRasa, yaml_file)
+                yaml.dump(intent, yaml_file)
+                yaml = YAML()
+                for i in range(len(ques)):
+                    auxutter.append({'utter_{}'.format(ques[i]): [{'text': res[i]}]})  # Guardando la info de repsonses
 
-            ##########################################
+                toPrintYaml = dict()
+                for element in auxutter:
+                    for key, value in element.items():
+                        toPrintYaml[key] = value
 
-            # f = open('.\\Temporal files\\utter.yml', 'a+')
-            # f.writelines(["%s\n" % item for item in auxutter])
-            # f =  open('.\\Archivos_generados\\domain.yml', 'r')
-            # code = yaml.load(f)
-            # for i in range(len(ques)):
-            # code['responses'] = {'utter_{}'.format(ques[i]): [{'text': res[i]}]}
-            # yaml.dump(code, yaml_file)
 
-            ############################################
-            # Validacion para posibles errores
+                yaml.dump( dict({'responses': toPrintYaml}), yaml_file)  # Escrito con la lista donde esta la info
+                yaml.dump(config, yaml_file)
+
+                ##########################################
+
+                # f = open('D:\\DOCUMENTOS\\VisualStudio_Projects\\GitHub\\genquest\\Temporal files\\utter.yml', 'a+')
+                # f.writelines(["%s\n" % item for item in auxutter])
+                # f =  open('D:\\DOCUMENTOS\\VisualStudio_Projects\\GitHub\\genquest\\Archivos_generados\\domain.yml', 'r')
+                # code = yaml.load(f)
+                # for i in range(len(ques)):
+                # code['responses'] = {'utter_{}'.format(ques[i]): [{'text': res[i]}]}
+                # yaml.dump(code, yaml_file)
+
+                ############################################
+                # Validacion para posibles errores
         except Exception as error:
             print("Error al crear archivo o se creó pero está mal")
             print("Error: ", error)
