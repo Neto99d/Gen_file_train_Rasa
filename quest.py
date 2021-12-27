@@ -168,12 +168,12 @@ def main():
 
     # Open the file given as argument in read-only mode.
     print("Entre la direccion del archivo de texto")  # AGREGADO
-    dirname, filename = os.path.split(os.path.abspath(__file__))
-    filename = "file.txt"
-    if os.path.exists(dirname+ os.path.sep + OUTPUT_DIRECTORY) == False:
-          os.makedirs(dirname+ os.path.sep + OUTPUT_DIRECTORY)
+    #dirname, filename = os.path.split(os.path.abspath(__file__))
+    #filename = "file.txt"
+    #if os.path.exists(dirname+ os.path.sep + OUTPUT_DIRECTORY) == False:
+          #os.makedirs(dirname+ os.path.sep + OUTPUT_DIRECTORY)
 
-    filehandle = open(dirname+ os.path.sep + OUTPUT_DIRECTORY + os.path.sep + filename, 'r')  # cambiado input()
+    filehandle = open(input(), 'r')  # cambiado input()
     textinput = filehandle.read()
     print('\n-----------INPUT TEXT-------------\n')
     print(textinput, '\n')
