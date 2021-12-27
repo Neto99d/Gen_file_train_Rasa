@@ -1,7 +1,17 @@
 # Generar archivos de entrenamiento para Rasa
-**Instalar via linea de comandos (cmd)**
- - `pip install -r requirements.txt` 
- 
+**Instalar dependencias via linea de comandos(cmd)**
+ - `pip install -r requirements.txt` para instalar todo de una vez
+
+- O puede Instalar dependencias una a una `pip install <package_name>` 
+  
+  **nombres de paquetes**
+  - nltk==3.4.5
+  - textblob==0.15.0
+  - ruamel.yaml==0.16.13
+  - ruamel.yaml.clib==0.2.6
+  - six==1.15.0
+---
+
 **- Codigo Personal** 
    - fileDomain.py (de momento el unico que se esta trabajando)
    - fileNLU.py
@@ -9,19 +19,36 @@
    - fileStories.py
 
 ---
-**Ejecutar quest.py (codigo original modificado levemente por mi), automaticamente se llama a la funcion que genera el archivo**
+**Ejecutar quest.py (codigo original modificado levemente)**
 ---
 
-**Funcionamiento**
-- Se extraen las preguntas y respuestas (questions, responses)
-  - Las respuestas son las oraciones del texto, exactamente se crea un par pregunta _ respuesta.
-- Se le envia esa informacion extraida a la funcion modYaml(ques, res) que esta en fileDomain.py
-- Dicha funcion se encargara de crear el archivo y escribir la informacion en el formato de entrenamiento de Rasa. 
+**Funcionamiento** 
+- Se le pedira entrar la direccion del fichero de texto con el contenido (solo ingles de momento) y luego de entrar la direccion presionar ENTER
 
-**Una vez ejecutado el codigo y creado el archivo, eliminar el archivo (domain.yaml) de la carpeta [Archivos_generados] para volver a correr el codigo**
-- Si no se elimina el archivo se seguira escribiendo
+  **Automaticamente se hace lo siguiente:**
+   - Se extraen las preguntas y respuestas (questions, responses)
+   - Las respuestas son las oraciones del texto, exactamente se crea un par pregunta _ respuesta.
+   - Se le envia esa informacion extraida a los diferentes ficheros mencionados que se trabajan que tienen las funciones para generacion del archivo en el formato que Rasa maneja
+   - Se crearan los archivos 
+---
+**Una vez ejecutado el programa, generado los archivos y haber copiado dichos archivos a la carpeta del bot para entrenar:**
+   - Eliminar los archivos creados de la carpeta `Archivos_generados` para volver a correr el programa
+   - Si no se eliminan los archivos se seguiran escribiendo y no serviran
+---
 
 **Archivos originales echos manualmente modelos de entrenamiento para Rasa funcionando en la carpeta [Archivos originales Rasa Modelo]**
+---
+---
+**Copia de los ficheros generados para entrenar el bot de Rasa (de momento de forma manual)**
+- En la carpeta donde se creo el bot de Rasa
+   - Copiar el archivo generado `domain.yaml` (reemplazar por el que ya esta que es el original)
+- En la carpeta `data` copiar los archivos `nlu.yaml`, `rules.yaml`, `stories.yaml` (reemplazar por los que ya estan que son los originales)
+
+**Probar entrenamiento con los nuevos archivos (de momento de forma manual)**
+  - **Ejecutar estos comandos via cmd a la carpeta donde se creo el bot de Rasa**
+    - Ejecutar comando (cmd) `rasa train`  para entrenar el bot con los nuevos archivos
+    - Ejecutar comando (cmd) `rasa visualize` para ver la gráfica de aprendizaje y verificar entrenamiento
+    - Ejecutar comando (cmd) `rasa shell`  para conversar con el bot
 
 
 
