@@ -16,10 +16,28 @@ def modYaml(ques, res):  # Recibe preguntas y respuestas
 
         #######################################################
         # PLANTILLA para Archivo RASA
+        saludo = ['greet', 'goodbye',
+                  'affirm',
+                  'deny',
+                  'mood_great',
+                  'mood_unhappy',
+                  'bot_challenge']
+        utterSaludo = [{'utter_greet':
+                            [{'text': "Hey! How are you?"}]},
 
+                       {'utter_did_that_help':
+                            [{'text': "Did that help you?"}]},
+
+                       {'utter_happy':
+                            [{'text': "Great, carry on!"}]},
+
+                       {'utter_goodbye':
+                            [{'text': "Bye"}]},
+
+                       {'utter_iamabot':
+                            [{'text': "I am a bot, powered by Rasa."}]}]
         versionRasa = {'version': "3.0"}
-        intent = {'intents': ques}
-        # responses = {'responses': {'utter_{}'.format(ques[0]): [{'text': res[0]}]}} # escrito directamente sin lista, solo un elemento ( escribir una a una) INCOMPLETO
+        intent = {'intents': ques + saludo}
         config = {'session_config': {
             'session_expiration_time': 60,
             'carry_over_slots_to_new_session': True, }
@@ -53,6 +71,10 @@ def modYaml(ques, res):  # Recibe preguntas y respuestas
 
                 toPrintYaml = dict()
                 for element in auxutter:
+                    for key, value in element.items():
+                        toPrintYaml[key] = value
+
+                for element in utterSaludo:
                     for key, value in element.items():
                         toPrintYaml[key] = value
 
