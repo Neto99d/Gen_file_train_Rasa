@@ -81,7 +81,8 @@ def nluYaml(ques, res):  # Recibe preguntas y respuestas
                   'examples': ['are you a bot?',
                                'are you a human?',
                                'am I talking to a bot?',
-                               'am I talking to a human?']}
+                               'am I talking to a human?']},
+                 auxutter
                  ]
         }
 
