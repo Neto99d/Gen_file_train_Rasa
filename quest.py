@@ -11,6 +11,8 @@ import sys
 import os
 
 OUTPUT_DIRECTORY = "output";
+
+
 def parse(string):
     """
     Parse a paragraph. Devide it into sentences and try to generate quesstions from each sentences.
@@ -168,10 +170,10 @@ def main():
 
     # Open the file given as argument in read-only mode.
     print("Entre la direccion del archivo de texto")  # AGREGADO
-    #dirname, filename = os.path.split(os.path.abspath(__file__))
-    #filename = "file.txt"
-    #if os.path.exists(dirname+ os.path.sep + OUTPUT_DIRECTORY) == False:
-          #os.makedirs(dirname+ os.path.sep + OUTPUT_DIRECTORY)
+    # dirname, filename = os.path.split(os.path.abspath(__file__))
+    # filename = "file.txt"
+    # if os.path.exists(dirname+ os.path.sep + OUTPUT_DIRECTORY) == False:
+    # os.makedirs(dirname+ os.path.sep + OUTPUT_DIRECTORY)
 
     filehandle = open(input(), 'r')  # cambiado input()
     textinput = filehandle.read()
@@ -182,7 +184,7 @@ def main():
     # Send the content of text file as string to function parse()
 
     parse(textinput)  # cambiado
-    #domainRasa.domYaml(questions, responses) OK
+    # domainRasa.domYaml(questions, responses) OK OK
     nluRasa.nluYaml(questions, responses)
 
 
