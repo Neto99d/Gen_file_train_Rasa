@@ -6,7 +6,7 @@ import os
 GENERATE_FILE = "Archivos_generados";
 
 
-def modYaml(ques, res):  # Recibe preguntas y respuestas
+def domYaml(ques, res):  # Recibe preguntas y respuestas
     print('\n' + "Creando archivo de Rasa domain.yml" + '\n' '..............................')
 
     try:
@@ -56,7 +56,8 @@ def modYaml(ques, res):  # Recibe preguntas y respuestas
                 print(
                     '\n' + "Creado con Exito, en la carpeta Archivos_generados" + '\n' '..............................')
                 print(
-                    "Por favor corte y pegue los archivos en la carpeta de entrenamiento. No deje los archivos en la carpeta")
+                    "Por favor una vez que copie los archivos generados en la carpeta de entrenamiento del bot de Rasa "
+                    ">>> Elimine los archivos de la carpeta Archivos_generados")
 
                 #########################################
                 # Escribiendo la plantilla en el archivo
@@ -70,7 +71,7 @@ def modYaml(ques, res):  # Recibe preguntas y respuestas
                     auxutter.append({'utter_{}'.format(ques[i]): [{'text': res[i]}]})  # Guardando la info de repsonses
 
                 toPrintYaml = dict()
-                for element in auxutter:
+                for element in auxutter:        # Poniendo informacion en un diccionario, clave = valor
                     for key, value in element.items():
                         toPrintYaml[key] = value
 
