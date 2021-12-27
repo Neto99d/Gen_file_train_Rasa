@@ -19,7 +19,7 @@
    - fileStories.py
 
 ---
-**Ejecutar quest.py (codigo original modificado levemente por mi), automaticamente se llama a la funcion que genera el archivo**
+**Ejecutar quest.py (codigo original modificado levemente)**
 ---
 
 **Funcionamiento** 
@@ -28,7 +28,7 @@
   **Automaticamente se hace lo siguiente:**
    - Se extraen las preguntas y respuestas (questions, responses)
    - Las respuestas son las oraciones del texto, exactamente se crea un par pregunta _ respuesta.
-   - Se le envia esa informacion extraida a los diferentes ficheros mencionados que se trabajan que tienen las funciones para generacion del archivo en el formato que Rasa maneja
+   - Se le envia esa informacion extraida a los diferentes ficheros mencionados que se trabajan y tienen las funciones para la generacion del archivo en el formato que Rasa maneja
    - Se crearan los archivos 
 ---
 **Una vez ejecutado el programa, generado los archivos y haber copiado dichos archivos a la carpeta del bot para entrenar:**

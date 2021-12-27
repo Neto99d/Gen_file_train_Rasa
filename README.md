@@ -23,17 +23,17 @@
 ---
 
 **Funcionamiento** 
-- Se le pedira entrar la direccion del fichero de texto con el contenido (solo ingles de momento) y luego de entrar la direccion presionar ENTER
+- Se le pedira entrar la direccion del fichero de texto con el contenido (solo ingles de momento) y luego de entrar la direccion presionar ENTER.
 
   **Automaticamente se hace lo siguiente:**
-   - Se extraen las preguntas y respuestas (questions, responses)
+   - Se extraen las preguntas y respuestas (questions, responses).
    - Las respuestas son las oraciones del texto, exactamente se crea un par pregunta _ respuesta.
-   - Se le envia esa informacion extraida a los diferentes ficheros mencionados que se trabajan que tienen las funciones para generacion del archivo en el formato que Rasa maneja
-   - Se crearan los archivos 
+   - Se le envia esa informacion extraida a los diferentes ficheros mencionados que se trabajan y tienen las funciones para la generacion del archivo en el formato que Rasa maneja.
+   - Se crearan los archivos.
 ---
 **Una vez ejecutado el programa, generado los archivos y haber copiado dichos archivos a la carpeta del bot para entrenar:**
-   - Eliminar los archivos creados de la carpeta `Archivos_generados` para volver a correr el programa
-   - Si no se eliminan los archivos se seguiran escribiendo y no serviran
+   - Eliminar los archivos creados de la carpeta `Archivos_generados` para volver a correr el programa.
+   - Si no se eliminan los archivos se seguiran escribiendo y no serviran.
 ---
 
 **Archivos originales echos manualmente modelos de entrenamiento para Rasa funcionando en la carpeta [Archivos originales Rasa Modelo]**
