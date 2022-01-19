@@ -13,8 +13,8 @@
 ---
 
 **- Codigo Personal** 
-   - fileDomain.py (de momento el unico que se esta trabajando)
-   - fileNLU.py
+   - fileDomain.py  (OK)
+   - fileNLU.py    (de momento el unico que se esta trabajando)
    - fileRules.py
    - fileStories.py
 

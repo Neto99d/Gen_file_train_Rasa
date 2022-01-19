@@ -183,9 +183,11 @@ def main():
 
     # Send the content of text file as string to function parse()
 
-    parse(textinput)  # cambiado
-    # domainRasa.domYaml(questions, responses) OK OK
-    nluRasa.nluYaml(questions, responses)
+    parse(textinput)
+    domainRasa.domYaml(questions, responses)
+    nluRasa.nluYaml(questions, responses)         # FALTA DETALLE
+    storiesRasa.storiesYaml(questions, responses)
+    rulesRasa.rulesYaml(questions, responses)
 
 
 if __name__ == "__main__":

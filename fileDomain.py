@@ -37,7 +37,7 @@ def domYaml(ques, res):  # Recibe preguntas y respuestas
                        {'utter_iamabot':
                             [{'text': "I am a bot, powered by Rasa."}]}]
         versionRasa = {'version': "3.0"}
-        intent = {'intents': ques + saludo}
+        intent = {'intents': saludo + ques}
         config = {'session_config': {
             'session_expiration_time': 60,
             'carry_over_slots_to_new_session': True, }
@@ -71,11 +71,11 @@ def domYaml(ques, res):  # Recibe preguntas y respuestas
                     auxutter.append({'utter_{}'.format(ques[i]): [{'text': res[i]}]})  # Guardando la info de repsonses
 
                 toPrintYaml = dict()
-                for element in auxutter:        # Poniendo informacion en un diccionario, clave = valor
+                for element in utterSaludo:
                     for key, value in element.items():
                         toPrintYaml[key] = value
 
-                for element in utterSaludo:
+                for element in auxutter:  # Poniendo informacion en un diccionario, clave = valor
                     for key, value in element.items():
                         toPrintYaml[key] = value
 

@@ -31,7 +31,7 @@
    - Se le envia esa informacion extraida a los diferentes ficheros mencionados que se trabajan y tienen las funciones para la generacion del archivo en el formato que Rasa maneja.
    - Se crearan los archivos en la carpeta `Archivos_generados`.
 ---
-**Archivos originales echos manualmente modelos de entrenamiento para Rasa funcionando en la carpeta [Archivos originales Rasa Modelo]**
+**Archivos originales creados manualmente modelos de entrenamiento para Rasa funcionando en la carpeta [Archivos originales Rasa Modelo]**
 ---
 ---
 **Copia de los ficheros generados para entrenar el bot de Rasa (de momento de forma manual)**

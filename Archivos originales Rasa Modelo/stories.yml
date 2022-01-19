@@ -6,7 +6,7 @@ stories:
 - story: camino 1
   steps:
   - intent: Quien es el presidente del INDER
-  - action: utter_presidentez
+  - action: utter_presidente
 
 - story: camino 2
   steps:

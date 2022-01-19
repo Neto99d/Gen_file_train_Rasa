@@ -20,11 +20,7 @@ def nluYaml(ques, res):  # Recibe preguntas y respuestas
         # PLANTILLA para Archivo RASA
         for i in range(len(ques)):
             auxutter.append({"intent": ques[i], 'examples': [ques[i]]})
-        toPrintYaml = dict()
-        for element in auxutter:
-            for key, value in element.items():
-                toPrintYaml[key] = value
-        print(toPrintYaml)
+
         nlu = {
             'nlu':
                 [{'intent': 'greet',
@@ -87,7 +83,7 @@ def nluYaml(ques, res):  # Recibe preguntas y respuestas
         }
 
         for iUtter in auxutter:
-             nlu['nlu'].append(iUtter)
+            nlu['nlu'].append(iUtter)
         versionRasa = {'version': "3.0"}
         #################################################################
 
@@ -110,21 +106,9 @@ def nluYaml(ques, res):  # Recibe preguntas y respuestas
                 # Escribiendo la plantilla en el archivo
 
                 yaml = YAML()
-                #   # Sangria y margen
+                yaml.indent(mapping=2, sequence=3, offset=1)  # Sangria y margen
                 yaml.dump(versionRasa, yaml_file)
-                yaml.indent(mapping=2, sequence=2)
                 yaml.dump(nlu, yaml_file)
-                # yaml = YAML()
-                # Guardando la info de repsonses
-
-                # toPrintYaml = dict()
-                # for element in auxutter:        # Poniendo informacion en un diccionario, clave = valor
-                # for key, value in element.items():
-                # toPrintYaml[key] = value
-
-                # for element in utterSaludo:
-                # for key, value in element.items():
-                # toPrintYaml[key] = value
 
                 ############################################
                 # Validacion para posibles errores

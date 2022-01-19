@@ -1,57 +1,68 @@
-import yaml
-import sys
+from ruamel.yaml import YAML  # Ramuel.yaml
+import os
 
-def modYaml(ques, res):  # Recibe preguntas y respuestas
+GENERATE_FILE = "Archivos_generados";
+
+
+def rulesYaml(ques, res):  # Recibe preguntas y respuestas
     print('\n' + "Creando archivo de Rasa rules.yml" + '\n' '..............................')
 
     try:
-        global auxres  # Arreglo donde se guardan preguntas y respuestas
-        auxres = []
+        global auxutter  # Arreglo donde se guardan preguntas y respuestas
 
-        ##################################################
-        # Bucle para guardar pares de preguntas y respuestas
+        auxutter = []
 
-        for i in range(len(ques)):
-            for i in range(len(res)):
-                auxres.append({'utter_' + ques[i]: [{'text': res[i]}]})  # se guarda la pregunta: respuesta
-            break  # Para impedir que haga doble la busqueda o siga (no es infinito pero sale repetido)
+        #######################################################
 
-        ##########################################
         # PLANTILLA para Archivo RASA
+        for i in range(len(ques)):
+            auxutter.append(
+                {"rule": 'option ' + str(i + 1),
+                 'steps': [{"intent": ques[i]}, {"action": 'utter_{}'.format(ques[i])}]})
 
-        domain = {
-            'version': "3.0",
+        rules = {
+            'rules': [{'rule': 'Say goodbye anytime the user says goodbye',
+                       'steps': [{'intent': 'goodbye'}, {'action': 'utter_goodbye'}]},
+                      {'rule': "Say 'I am a bot' anytime the user challenges",
+                       'steps': [{'intent': 'bot_challenge'}, {'action': 'utter_iamabot'}]}]}
 
-            'intents': ques,  # preguntas
 
-            'responses': auxres,  # utter_preguntas: text_respuestas
 
-            'session_config': {
-                'session_expiration_time': 60,
-                'carry_over_slots_to_new_session': True, }
-        }
+        for iUtter in auxutter:
+          rules['rules'].append(iUtter)
+        versionRasa = {'version': "3.0"}
         #################################################################
 
         try:
             ################################################
-            # Crear el Archivo y escribir la plantilla en el mismo
-            yaml_file = open("D:\\DOCUMENTOS\\VisualStudio_Projects\\GitHub\\genquest\\Archivos_generados\\rules.yml",
-                             mode="a")
+            # Crear el Archivo
+            dirname, filename = os.path.split(os.path.abspath(__file__))
+            if os.path.exists(dirname + os.path.sep + GENERATE_FILE) == False:
+                os.makedirs(dirname + os.path.sep + GENERATE_FILE)
+            yaml_file = open(dirname + os.path.sep + GENERATE_FILE + os.path.sep + "rules.yml",
+                             mode="a+")
             if yaml_file:
                 print(
                     '\n' + "Creado con Exito, en la carpeta Archivos_generados" + '\n' '..............................')
                 print(
-                    "Por favor corte y pegue los archivos en la carpeta de entrenamiento. No deje los archivos en la carpeta")
-            yaml.dump(domain, yaml_file)
-            # yaml.dump(domain, sys.stdout)
+                    "Por favor una vez que copie los archivos generados en la carpeta de entrenamiento del bot de Rasa "
+                    ">>> Elimine los archivos de la carpeta Archivos_generados")
 
-        ############################################
-        # Validacion para posibles errores
+                #########################################
+                # Escribiendo la plantilla en el archivo
+
+                yaml = YAML()
+                #yaml.indent(mapping=2, sequence=3, offset=1)  # Sangria y margen
+                yaml.dump(versionRasa, yaml_file)
+                yaml.dump(rules, yaml_file)
+
+                ############################################
+                # Validacion para posibles errores
         except Exception as error:
-            print("Error al crear archivo")
-            print(error)
+            print("Error al crear archivo o se creó pero está mal")
+            print("Error: ", error)
 
     except Exception as error:
         print("Error al crear plantilla, archivo Rasa no creado")
-        print(error)
-    #######################################################################
+        print("Error: ", error)
+#######################################################################
