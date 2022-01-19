@@ -14,9 +14,9 @@
 
 **- Codigo Personal** 
    - fileDomain.py  (OK)
-   - fileNLU.py    (de momento el unico que se esta trabajando)
-   - fileRules.py
-   - fileStories.py
+   - fileNLU.py    (Falta detalle)
+   - fileRules.py   (OK)
+   - fileStories.py  (OK)
 
 ---
 **Ejecutar quest.py (codigo original modificado levemente)**

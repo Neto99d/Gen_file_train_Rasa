@@ -1,0 +1,90 @@
+version: '3.0'
+nlu:
+ - intent: greet
+   examples:
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+ - intent: goodbye
+   examples:
+    - good bye
+    - good night
+    - bye
+    - goodbye
+    - bye bye
+    - see you later
+ - intent: affirm
+   examples:
+    - yes
+    - of course
+    - correct
+ - intent: deny
+   examples:
+    - no
+    - never
+    - no way
+    - not really
+ - intent: mood_great
+   examples:
+    - perfect
+    - great
+    - amazing
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - I am ok
+    - ok
+ - intent: mood_unhappy
+   examples:
+    - my day was horrible
+    - I am sad
+    - I am disappointed
+    - super sad
+    - I am so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+ - intent: bot_challenge
+   examples:
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+ - intent: What is Bansoori?
+   examples:
+    - What is Bansoori?
+ - intent: What does Akhil play?
+   examples:
+    - What does Akhil play?
+ - intent: What is Puliyogare?
+   examples:
+    - What is Puliyogare?
+ - intent: What does Priya write?
+   examples:
+    - What does Priya write?
+ - intent: What is Osmosis?
+   examples:
+    - What is Osmosis?
+ - intent: What is solvent?
+   examples:
+    - What is solvent?
+ - intent: What is cell?
+   examples:
+    - What is cell?
+ - intent: What is example?
+   examples:
+    - What is example?
+ - intent: What is cell?
+   examples:
+    - What is cell?
+ - intent: What is Raja-Yoga?
+   examples:
+    - What is Raja-Yoga?
+ - intent: What is Niyama?
+   examples:
+    - What is Niyama?
