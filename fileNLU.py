@@ -82,10 +82,12 @@ def nluYaml(ques, res):  # Recibe preguntas y respuestas
                                'are you a human?',
                                'am I talking to a bot?',
                                'am I talking to a human?']},
-                 auxutter
+
                  ]
         }
 
+        for iUtter in auxutter:
+             nlu['nlu'].append(iUtter)
         versionRasa = {'version': "3.0"}
         #################################################################
 
