@@ -1,5 +1,5 @@
 import ruamel.yaml
-from ruamel.yaml.scalarstring import LiteralScalarString as literal_
+from ruamel.yaml.scalarstring import PreservedScalarString as literal_
 import os
 
 GENERATE_FILE = "Archivos_generados";
@@ -27,60 +27,60 @@ def nluYaml(ques, res):  # Recibe preguntas y respuestas
         nlu = {
             'nlu':
                 [{'intent': 'greet',
-                  'examples': ['hey',
-                               'hello',
-                               'hi',
-                               'hello there',
-                               'good morning',
-                               'good evening']
+                  'examples': literal_('\n'.join(['- hey',
+                                                  '- hello',
+                                                  '- hi',
+                                                  '- hello there',
+                                                  '- good morning',
+                                                  '- good evening']) + '\n')
                   },
 
                  {'intent': 'goodbye',
-                  'examples': ['good bye',
-                               'good night',
-                               'bye',
-                               'goodbye',
-                               'bye bye',
-                               'see you later']},
+                  'examples': literal_('\n'.join(['- good bye',
+                                                  '- good night',
+                                                  '- bye',
+                                                  '- goodbye',
+                                                  '- bye bye',
+                                                  '- see you later']) + '\n')},
 
                  {'intent': 'affirm',
-                  'examples': ['yes',
-                               'of course',
-                               'correct']},
+                  'examples': literal_('\n'.join(['- yes',
+                                                  '- of course',
+                                                  '- correct']) + '\n')},
 
                  {'intent': 'deny',
-                  'examples': ['no',
-                               'never',
-                               'no way',
-                               'not really']},
+                  'examples': literal_('\n'.join(['- no',
+                                                  '- never',
+                                                  '- no way',
+                                                  '- not really']) + '\n')},
 
                  {'intent': 'mood_great',
-                  'examples': ['perfect',
-                               'great',
-                               'amazing',
-                               'I am feeling very good',
-                               'I am great',
-                               'I am amazing',
-                               'I am going to save the world',
-                               'I am ok',
-                               'ok']},
+                  'examples': literal_('\n'.join(['- perfect',
+                                                  '- great',
+                                                  '- amazing',
+                                                  '- I am feeling very good',
+                                                  '- I am great',
+                                                  '- I am amazing',
+                                                  '- I am going to save the world',
+                                                  '- I am ok',
+                                                  '- ok']) + '\n')},
 
                  {'intent': 'mood_unhappy',
-                  'examples': ['my day was horrible',
-                               'I am sad',
-                               'I am disappointed',
-                               'super sad',
-                               'I am so sad',
-                               'sad',
-                               'very sad',
-                               'unhappy',
-                               'not good']},
+                  'examples': literal_('\n'.join(['- my day was horrible',
+                                                  '- I am sad',
+                                                  '- I am disappointed',
+                                                  '- super sad',
+                                                  '- I am so sad',
+                                                  '- sad',
+                                                  '- very sad',
+                                                  '- unhappy',
+                                                  '- not good']) + '\n')},
 
                  {'intent': 'bot_challenge',
-                  'examples': ['are you a bot?',
-                               'are you a human?',
-                               'am I talking to a bot?',
-                               'am I talking to a human?']},
+                  'examples': literal_('\n'.join(['- are you a bot?',
+                                                  '- are you a human?',
+                                                  '- am I talking to a bot?',
+                                                  '- am I talking to a human?']) + '\n')},
 
                  ]
         }
@@ -117,6 +117,7 @@ def nluYaml(ques, res):  # Recibe preguntas y respuestas
                 yaml = ruamel.yaml.YAML()
                 yaml.indent(mapping=2, sequence=3, offset=1)  # Sangria y margen
                 yaml.dump(versionRasa, yaml_file)
+
                 yaml.dump(nlu, yaml_file)
 
                 ############################################
