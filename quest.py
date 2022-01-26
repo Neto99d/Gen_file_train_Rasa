@@ -1,6 +1,7 @@
 # Author: Indrajith Indraprastham
 # Date:  Wed Dec 20 00:12:39 IST 2017 (last update)
 from textblob import TextBlob
+from collections import OrderedDict
 import nltk
 from textblob import Word
 import fileNLU
@@ -26,9 +27,8 @@ def parse(string):
         # Each sentence is taken from the string input and passed to genQuestion() to generate questions.
         for sentence in txt.sentences:
             genQuestion(sentence)
-            sentenceAux = sentence
-            responses.append(str(sentenceAux))  # Pasando las oraciones del texto como respuestas para archivos Rasa
-
+            responses.append(str(sentence))  # Pasando las oraciones del texto como respuestas para archivos Rasa
+        # print(responses)
     except Exception as e:
         raise e
 
@@ -137,7 +137,11 @@ def genQuestion(line):
     # Print the genetated questions as output.
     if question != '':
         print('\n', 'Question: ' + question)
-        questions.append(question)
+        fix_questions.append(question)
+        OrderedDict.fromkeys(fix_questions)
+    set(fix_questions)
+    global questions
+    questions = list(OrderedDict.fromkeys(fix_questions).keys())
 
 
 # Trabajando archivos de RASA
@@ -147,8 +151,8 @@ def main():
     """
     Accepts a text file as an argument and generates questions from it.
     """
-    global questions  # Preguntas que se enviaran para archivos de Rasa
-    questions = []
+    global fix_questions  # lista donde se Limpiara preguntas duplicadas
+    fix_questions = []
 
     global domainRasa
     domainRasa = fileDomain

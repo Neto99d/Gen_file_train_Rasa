@@ -1,10 +1,12 @@
-import yaml as ym  # PYyaml
 import sys
-from ruamel.yaml import YAML  # Ramuel.yaml
+import ruamel.yaml  # Ruamel.yaml
+from ruamel.yaml.scalarstring import LiteralScalarString as literal_
 import os
-from collections import defaultdict
+
 
 GENERATE_FILE = "Archivos_generados";
+
+literal = literal_
 
 
 def nluYaml(ques, res):  # Recibe preguntas y respuestas
@@ -15,11 +17,14 @@ def nluYaml(ques, res):  # Recibe preguntas y respuestas
 
         auxutter = []
 
+        # class literal(str):
+        # pass
+
         #######################################################
 
         # PLANTILLA para Archivo RASA
         for i in range(len(ques)):
-            auxutter.append({"intent": ques[i], 'examples': [ques[i]]})
+            auxutter.append({"intent": ques[i], 'examples': literal('- ' + ques[i])})
 
         nlu = {
             'nlu':
@@ -85,6 +90,7 @@ def nluYaml(ques, res):  # Recibe preguntas y respuestas
         for iUtter in auxutter:
             nlu['nlu'].append(iUtter)
         versionRasa = {'version': "3.0"}
+
         #################################################################
 
         try:
@@ -105,9 +111,15 @@ def nluYaml(ques, res):  # Recibe preguntas y respuestas
                 #########################################
                 # Escribiendo la plantilla en el archivo
 
-                yaml = YAML()
+                # def literal_presenter(dumper, data):
+                # return dumper.represent_scalar('tag:yaml.org,2002:str', data, style='|')
+
+                # ruamel.yaml.add_representer(literal, literal_presenter)
+
+                yaml = ruamel.yaml.YAML()
                 yaml.indent(mapping=2, sequence=3, offset=1)  # Sangria y margen
                 yaml.dump(versionRasa, yaml_file)
+                yaml.default_style
                 yaml.dump(nlu, yaml_file)
 
                 ############################################
