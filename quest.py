@@ -179,7 +179,7 @@ def main():
     # if os.path.exists(dirname+ os.path.sep + OUTPUT_DIRECTORY) == False:
     # os.makedirs(dirname+ os.path.sep + OUTPUT_DIRECTORY)
 
-    filehandle = open(input(), 'r')  # cambiado input()
+    filehandle = open("file.txt", 'r')  # cambiado input()
     textinput = filehandle.read()
     print('\n-----------INPUT TEXT-------------\n')
     print(textinput, '\n')

@@ -1,5 +1,3 @@
-import yaml as ym  # PYyaml
-import sys
 from ruamel.yaml import YAML  # Ramuel.yaml
 import os
 

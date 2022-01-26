@@ -1,12 +1,10 @@
-import sys
-import ruamel.yaml  # Ruamel.yaml
+import ruamel.yaml
 from ruamel.yaml.scalarstring import LiteralScalarString as literal_
 import os
 
-
 GENERATE_FILE = "Archivos_generados";
 
-literal = literal_
+literal = literal_  # Forma literal Yaml multilinea ( | )
 
 
 def nluYaml(ques, res):  # Recibe preguntas y respuestas
@@ -119,7 +117,6 @@ def nluYaml(ques, res):  # Recibe preguntas y respuestas
                 yaml = ruamel.yaml.YAML()
                 yaml.indent(mapping=2, sequence=3, offset=1)  # Sangria y margen
                 yaml.dump(versionRasa, yaml_file)
-                yaml.default_style
                 yaml.dump(nlu, yaml_file)
 
                 ############################################

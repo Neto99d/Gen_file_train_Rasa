@@ -1,4 +1,4 @@
-from ruamel.yaml import YAML  # Ramuel.yaml
+from ruamel.yaml import YAML
 import os
 
 GENERATE_FILE = "Archivos_generados";
