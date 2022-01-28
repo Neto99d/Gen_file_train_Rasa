@@ -56,13 +56,9 @@ stories:
   - action: utter_What is example?
 - story: option 9
   steps:
-  - intent: What is cell?
-  - action: utter_What is cell?
-- story: option 10
-  steps:
   - intent: What is Raja-Yoga?
   - action: utter_What is Raja-Yoga?
-- story: option 11
+- story: option 10
   steps:
   - intent: What is Niyama?
   - action: utter_What is Niyama?

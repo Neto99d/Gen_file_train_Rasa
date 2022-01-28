@@ -137,11 +137,11 @@ def genQuestion(line):
     # Print the genetated questions as output.
     if question != '':
         print('\n', 'Question: ' + question)
-        fix_questions.append(question)
-        OrderedDict.fromkeys(fix_questions)
-    set(fix_questions)
+        fix_questions.append(question) # lista que sera analizada para encontrar duplicados
+        OrderedDict.fromkeys(fix_questions)  # Recordar orden de insercion
+    set(fix_questions) # Eliminar duplicados
     global questions
-    questions = list(OrderedDict.fromkeys(fix_questions).keys())
+    questions = list(OrderedDict.fromkeys(fix_questions).keys()) # Lista de preguntas en orden sin duplicados
 
 
 # Trabajando archivos de RASA

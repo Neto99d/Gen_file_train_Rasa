@@ -1,10 +1,12 @@
 import ruamel.yaml
+import sys
 from ruamel.yaml.scalarstring import PreservedScalarString as literal_
 import os
 
 GENERATE_FILE = "Archivos_generados";
 
 literal = literal_  # Forma literal Yaml multilinea ( | )
+
 
 
 def nluYaml(ques, res):  # Recibe preguntas y respuestas
