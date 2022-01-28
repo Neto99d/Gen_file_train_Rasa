@@ -1,4 +1,4 @@
-from ruamel.yaml import YAML  # Ramuel.yaml
+from ruamel.yaml import YAML
 import os
 
 GENERATE_FILE = "Archivos_generados";
@@ -43,7 +43,6 @@ def domYaml(ques, res):  # Recibe preguntas y respuestas
         #################################################################
 
         try:
-            ################################################
             # Crear el Archivo
             dirname, filename = os.path.split(os.path.abspath(__file__))
             if os.path.exists(dirname + os.path.sep + GENERATE_FILE) == False:
@@ -69,7 +68,7 @@ def domYaml(ques, res):  # Recibe preguntas y respuestas
                     auxutter.append({'utter_{}'.format(ques[i]): [{'text': res[i]}]})  # Guardando la info de repsonses
 
                 toPrintYaml = dict()
-                for element in utterSaludo:
+                for element in utterSaludo:  # Poniendo informacion en un diccionario, clave = valor
                     for key, value in element.items():
                         toPrintYaml[key] = value
 
@@ -77,7 +76,7 @@ def domYaml(ques, res):  # Recibe preguntas y respuestas
                     for key, value in element.items():
                         toPrintYaml[key] = value
 
-                yaml.dump(dict({'responses': toPrintYaml}), yaml_file)  # Escrito con la lista donde esta la info
+                yaml.dump(dict({'responses': toPrintYaml}), yaml_file)
                 yaml.dump(config, yaml_file)
 
                 ############################################

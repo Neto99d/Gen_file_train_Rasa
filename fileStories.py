@@ -16,7 +16,8 @@ def storiesYaml(ques, res):  # Recibe preguntas y respuestas
         # PLANTILLA para Archivo RASA
         for i in range(len(ques)):
             auxutter.append(
-                {"story": 'option ' + str(i + 1), 'steps': [{"intent": ques[i]}, {"action": 'utter_{}'.format(ques[i])}]})
+                {"story": 'option ' + str(i + 1),
+                 'steps': [{"intent": ques[i]}, {"action": 'utter_{}'.format(ques[i])}]})
 
         stories = {
             'stories': [{'story': 'happy path',
@@ -55,7 +56,6 @@ def storiesYaml(ques, res):  # Recibe preguntas y respuestas
                 # Escribiendo la plantilla en el archivo
 
                 yaml = YAML()
-                # yaml.indent(mapping=2, sequence=3, offset=1)  # Sangria y margen
                 yaml.dump(versionRasa, yaml_file)
                 yaml.dump(stories, yaml_file)
 

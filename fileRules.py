@@ -26,10 +26,8 @@ def rulesYaml(ques, res):  # Recibe preguntas y respuestas
                       {'rule': "Say 'I am a bot' anytime the user challenges",
                        'steps': [{'intent': 'bot_challenge'}, {'action': 'utter_iamabot'}]}]}
 
-
-
         for iUtter in auxutter:
-          rules['rules'].append(iUtter)
+            rules['rules'].append(iUtter)
         versionRasa = {'version': "3.0"}
         #################################################################
 
@@ -52,7 +50,6 @@ def rulesYaml(ques, res):  # Recibe preguntas y respuestas
                 # Escribiendo la plantilla en el archivo
 
                 yaml = YAML()
-                #yaml.indent(mapping=2, sequence=3, offset=1)  # Sangria y margen
                 yaml.dump(versionRasa, yaml_file)
                 yaml.dump(rules, yaml_file)
 

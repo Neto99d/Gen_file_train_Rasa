@@ -1,12 +1,10 @@
 import ruamel.yaml
-import sys
 from ruamel.yaml.scalarstring import PreservedScalarString as literal_
 import os
 
 GENERATE_FILE = "Archivos_generados";
 
-literal = literal_  # Forma literal Yaml multilinea ( | )
-
+literal = literal_  # Forma literal Yaml multilinea  | ó |-
 
 
 def nluYaml(ques, res):  # Recibe preguntas y respuestas
@@ -16,9 +14,6 @@ def nluYaml(ques, res):  # Recibe preguntas y respuestas
         global auxutter  # Arreglo donde se guardan preguntas y respuestas
 
         auxutter = []
-
-        # class literal(str):
-        # pass
 
         #######################################################
 
@@ -94,7 +89,6 @@ def nluYaml(ques, res):  # Recibe preguntas y respuestas
         #################################################################
 
         try:
-            ################################################
             # Crear el Archivo
             dirname, filename = os.path.split(os.path.abspath(__file__))
             if os.path.exists(dirname + os.path.sep + GENERATE_FILE) == False:
@@ -111,15 +105,9 @@ def nluYaml(ques, res):  # Recibe preguntas y respuestas
                 #########################################
                 # Escribiendo la plantilla en el archivo
 
-                # def literal_presenter(dumper, data):
-                # return dumper.represent_scalar('tag:yaml.org,2002:str', data, style='|')
-
-                # ruamel.yaml.add_representer(literal, literal_presenter)
-
                 yaml = ruamel.yaml.YAML()
                 yaml.indent(mapping=2, sequence=3, offset=1)  # Sangria y margen
                 yaml.dump(versionRasa, yaml_file)
-
                 yaml.dump(nlu, yaml_file)
 
                 ############################################
