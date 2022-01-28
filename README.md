@@ -13,17 +13,17 @@
 ---
 
 **- Codigo Personal** 
-   - fileDomain.py  (Falta detalle)
-   - fileNLU.py    (Falta detalle)
-   - fileRules.py   (Falta detalle)
-   - fileStories.py  (Falta detalle)
+   - fileDomain.py  
+   - fileNLU.py    
+   - fileRules.py   
+   - fileStories.py  
 
 ---
 **Ejecutar quest.py (codigo original modificado levemente)**
 ---
 
 **Funcionamiento** 
-- Se le pedira entrar la direccion del fichero de texto con el contenido (solo ingles de momento) y luego de entrar la direccion presionar ENTER.
+- Se le pedira entrar la direccion del fichero de texto con el contenido (solo ingles de momento) y luego de entrar la direccion presionar ENTER. 
 
   **Automaticamente el programa hace lo siguiente:**
    - Se extraen las preguntas y respuestas (questions, responses).

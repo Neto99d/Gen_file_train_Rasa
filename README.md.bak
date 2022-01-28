@@ -13,10 +13,10 @@
 ---
 
 **- Codigo Personal** 
-   - fileDomain.py  (OK)
-   - fileNLU.py    (Falta detalle)
-   - fileRules.py   (OK)
-   - fileStories.py  (OK)
+   - fileDomain.py  
+   - fileNLU.py    
+   - fileRules.py   
+   - fileStories.py  
 
 ---
 **Ejecutar quest.py (codigo original modificado levemente)**
