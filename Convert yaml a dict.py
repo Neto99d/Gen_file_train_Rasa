@@ -1,6 +1,6 @@
-import pprint
 
-import yaml, sys
+
+import yaml
 from yaml.loader import SafeLoader
 
   # such output is not valid YAML!
