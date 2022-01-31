@@ -18,5 +18,10 @@ def creaAsistente():
     print()
     print("Rasa le hara una segunda pregunta a la que debe responder presionando la tecla N y luego ENTER")
     print()
-    subprocess.run(cmd, shell=True)
+    subprocess.run(cmd)
     entrenar.entrenar()
+
+
+
+
+
