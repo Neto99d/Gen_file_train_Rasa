@@ -4,7 +4,6 @@ import fileNLU
 import fileDomain
 import fileStories
 import fileRules
-import createAVirtual
 import sys
 import os
 
@@ -148,8 +147,6 @@ def main():
     global fix_questions  # lista donde se Limpiara preguntas duplicadas
     fix_questions = []
 
-    global creaAsistente
-    creaAsistente = createAVirtual
     global domainRasa
     domainRasa = fileDomain
     global nluRasa
@@ -184,11 +181,16 @@ def main():
     # Send the content of text file as string to function parse()
 
     parse(textinput)
-    domainRasa.domYaml(questions, responses)
-    nluRasa.nluYaml(questions, responses)
-    storiesRasa.storiesYaml(questions, responses)
-    rulesRasa.rulesYaml(questions, responses)
-    creaAsistente.creaAsistente()
+    if (domainRasa.domYaml(questions, responses) &
+            nluRasa.nluYaml(questions, responses) &
+            storiesRasa.storiesYaml(questions, responses) &
+            rulesRasa.rulesYaml(questions, responses)):
+        print(
+            '\n' + "Creados con Exito, en la carpeta Archivos_generados" + '\n' '..............................')
+        print()
+        print("Ejecute createAVirtual.exe que esta en la carpeta Crear Asistente")
+        print('...........' + '\n')
+        print("Ejecute entrenarAsistente.py para entrenar el asistente")
 
 
 if __name__ == "__main__":

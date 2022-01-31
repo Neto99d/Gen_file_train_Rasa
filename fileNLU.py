@@ -95,28 +95,23 @@ def nluYaml(ques, res):  # Recibe preguntas y respuestas
                 os.makedirs(dirname + os.path.sep + GENERATE_FILE)
             yaml_file = open(dirname + os.path.sep + GENERATE_FILE + os.path.sep + "nlu.yml",
                              mode="a+")
-            if yaml_file:
-                print(
-                    '\n' + "Creado con Exito, en la carpeta Archivos_generados" + '\n' '..............................')
-                print(
-                    "Por favor una vez que copie los archivos generados en la carpeta de entrenamiento del bot de Rasa "
-                    ">>> Elimine los archivos de la carpeta Archivos_generados")
 
-                #########################################
-                # Escribiendo la plantilla en el archivo
+            #########################################
+            # Escribiendo la plantilla en el archivo
 
-                yaml = ruamel.yaml.YAML()
-                yaml.indent(mapping=2, sequence=3, offset=1)  # Sangria y margen
-                yaml.dump(versionRasa, yaml_file)
-                yaml.dump(nlu, yaml_file)
+            yaml = ruamel.yaml.YAML()
+            yaml.indent(mapping=2, sequence=3, offset=1)  # Sangria y margen
+            yaml.dump(versionRasa, yaml_file)
+            yaml.dump(nlu, yaml_file)
 
-                ############################################
-                # Validacion para posibles errores
+            ############################################
+            # Validacion para posibles errores
         except Exception as error:
             print("Error al crear archivo o se creó pero está mal")
             print("Error: ", error)
-
+        return True
     except Exception as error:
         print("Error al crear plantilla, archivo Rasa no creado")
         print("Error: ", error)
+        return False
 #######################################################################

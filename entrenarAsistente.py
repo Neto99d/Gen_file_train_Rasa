@@ -29,7 +29,7 @@ def entrenar():
     train = "rasa train"
     print()
     print("Ahora entrenaremos al Asistente")
-    print("Entre el directorio donde esta el Asistente")
+    print("Entre la direccion del directorio donde esta el Asistente y luego presione ENTER")
     global dir
     dir = input()
     os.chdir(dir)
@@ -40,4 +40,4 @@ def entrenar():
         print("Espere......... Esta cargando....")
         os.system(train)
 
-# entrenar()
+entrenar()
