@@ -38,4 +38,4 @@ def entrenar():
         print("Espere......... Esta cargando....")
         os.system(train)
 
-
+# entrenar()
