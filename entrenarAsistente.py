@@ -27,6 +27,8 @@ def mover():
 
 def entrenar():
     train = "rasa train"
+    print()
+    print("Ahora entrenaremos al Asistente")
     print("Entre el directorio donde esta el Asistente")
     global dir
     dir = input()
