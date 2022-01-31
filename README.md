@@ -17,6 +17,8 @@
    - fileNLU.py    
    - fileRules.py   
    - fileStories.py  
+   - createAVirtual.py
+   - entrenarAsistente.py
 
 ---
 **Ejecutar quest.py (codigo original modificado levemente)**
@@ -31,26 +33,20 @@
    - Se le envia esa informacion extraida a los diferentes ficheros mencionados que se trabajan y tienen las funciones para la generacion del archivo en el formato que Rasa maneja.
    - Se crearan los archivos en la carpeta `Archivos_generados`.
 ---
-**Archivos originales creados manualmente modelos de entrenamiento para Rasa funcionando en la carpeta [Archivos originales Rasa Modelo]**
+**Archivos originales creados manualmente modelos de entrenamiento para Rasa en la carpeta [Archivos originales Rasa Modelo]**
+ - Tabien en la carpeta `output` puede ver ejemplos de como quedan los archivos de entrenamiento en el formato de Rasa usando la  herramienta
 ---
 ---
-**Copia de los ficheros generados para entrenar el bot de Rasa (de momento de forma manual)**
+**Crear Asistente y entrenarlo**
 
-`Recuerde que los archivos generados estan en la carpeta Archivos_generados`
-- En la carpeta donde se creo el bot de Rasa:
-   - Copiar el archivo generado `domain.yaml` (reemplazar por el que ya esta que es el original)
-   - En la carpeta `data` copiar los archivos generados `nlu.yaml`, `rules.yaml`, `stories.yaml` (reemplazar por los que ya estan que son los originales)
-
+- Ejecutar `createAVirtual.exe` que esta en la carpeta `Crear Asistente` y seguir los pasos que se le diga
+   - Luego ejecute `entrenarAsistente.py` para entrenar el asistente.
+   
 ---
-**Una vez ejecutado el programa y generado los archivos:**
-   - Luego de copiar los archivos contenidos de `Archivos_generados` hacia la carpeta del bot para entrenar:
-     - Eliminar los archivos de la carpeta `Archivos_generados` para volver a usar el programa.
-       - Si no se eliminan los archivos se seguiran escribiendo y no serviran.
 ---
 
-**Probar entrenamiento con los nuevos archivos (de momento de forma manual)**
+**Probar entrenamiento del Asistente**
   - **Ejecutar estos comandos via cmd a la carpeta donde se creo el bot de Rasa**
-    - Ejecutar comando (cmd) `rasa train`  para entrenar el bot con los nuevos archivos
     - Ejecutar comando (cmd) `rasa visualize` para ver la gráfica de aprendizaje y verificar entrenamiento
     - Ejecutar comando (cmd) `rasa shell`  para conversar con el bot
 
