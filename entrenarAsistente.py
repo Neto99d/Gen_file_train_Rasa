@@ -7,6 +7,7 @@ def mover():
 
         dirname, filename = os.path.split(os.path.abspath(__file__))
         #######################################
+        print()
         print("Moviendo Archivos...........")
         print()
         shutil.move(dirname + os.path.sep + "Archivos_generados" + os.path.sep + "domain.yml",
@@ -40,4 +41,3 @@ def entrenar():
         print("Espere......... Esta cargando....")
         os.system(train)
 
-entrenar()

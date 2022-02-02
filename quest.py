@@ -4,10 +4,11 @@ import fileNLU
 import fileDomain
 import fileStories
 import fileRules
+import createAVirtual
 import sys
 import os
 
-OUTPUT_DIRECTORY = "output";
+OUTPUT_DIRECTORY = "output"
 
 
 def parse(string):
@@ -23,7 +24,8 @@ def parse(string):
         # Each sentence is taken from the string input and passed to genQuestion() to generate questions.
         for sentence in txt.sentences:
             genQuestion(sentence)
-            responses.append(str(sentence))  # Pasando las oraciones del texto como respuestas para archivos Rasa
+            # Pasando las oraciones del texto como respuestas para archivos Rasa
+            responses.append(str(sentence))
         # print(responses)
     except Exception as e:
         raise e
@@ -41,7 +43,8 @@ def genQuestion(line):
 
     for i, j in enumerate(line.tags):  # line.tags are the parts-of-speach in English
         if j[1] not in bucket:
-            bucket[j[1]] = i  # Add all tags to the dictionary or bucket variable
+            # Add all tags to the dictionary or bucket variable
+            bucket[j[1]] = i
 
     if verbose:  # In verbose more print the key,values of dictionary
         print('\n', '-' * 20)
@@ -54,15 +57,15 @@ def genQuestion(line):
     # These are the english part-of-speach tags used in this demo program.
     # .....................................................................
     # NNS     Noun, plural
-    # JJ  Adjective 
-    # NNP     Proper noun, singular 
-    # VBG     Verb, gerund or present participle 
-    # VBN     Verb, past participle 
-    # VBZ     Verb, 3rd person singular present 
-    # VBD     Verb, past tense 
-    # IN      Preposition or subordinating conjunction 
-    # PRP     Personal pronoun 
-    # NN  Noun, singular or mass 
+    # JJ  Adjective
+    # NNP     Proper noun, singular
+    # VBG     Verb, gerund or present participle
+    # VBN     Verb, past participle
+    # VBZ     Verb, 3rd person singular present
+    # VBD     Verb, past tense
+    # IN      Preposition or subordinating conjunction
+    # PRP     Personal pronoun
+    # NN  Noun, singular or mass
     # .....................................................................
 
     # Create a list of tag-combination
@@ -86,20 +89,19 @@ def genQuestion(line):
 
     # With the use of conditional statements the dictionary is compared with the list created above
 
-    if all(key in bucket for key in l1):  # 'NNP', 'VBG', 'VBZ', 'IN' in sentence.
+    # 'NNP', 'VBG', 'VBZ', 'IN' in sentence.
+    if all(key in bucket for key in l1):
         question = 'What' + ' ' + line.words[bucket['VBZ']] + ' ' + line.words[bucket['NNP']] + ' ' + line.words[
             bucket['VBG']] + '?'
-
 
     elif all(key in bucket for key in l2):  # 'NNP', 'VBG', 'VBZ' in sentence.
         question = 'What' + ' ' + line.words[bucket['VBZ']] + ' ' + line.words[bucket['NNP']] + ' ' + line.words[
             bucket['VBG']] + '?'
 
-
-    elif all(key in bucket for key in l3):  # 'PRP', 'VBG', 'VBZ', 'IN' in sentence.
+    # 'PRP', 'VBG', 'VBZ', 'IN' in sentence.
+    elif all(key in bucket for key in l3):
         question = 'What' + ' ' + line.words[bucket['VBZ']] + ' ' + line.words[bucket['PRP']] + ' ' + line.words[
             bucket['VBG']] + '?'
-
 
     elif all(key in bucket for key in l4):  # 'PRP', 'VBG', 'VBZ' in sentence.
         question = 'What ' + line.words[bucket['PRP']] + ' ' + ' does ' + line.words[bucket['VBG']] + ' ' + line.words[
@@ -110,10 +112,12 @@ def genQuestion(line):
             bucket['VBG']] + '?'
 
     elif all(key in bucket for key in l8):  # 'NNP', 'VBZ', 'JJ' in sentence.
-        question = 'What' + ' ' + line.words[bucket['VBZ']] + ' ' + line.words[bucket['NNP']] + '?'
+        question = 'What' + ' ' + \
+            line.words[bucket['VBZ']] + ' ' + line.words[bucket['NNP']] + '?'
 
     elif all(key in bucket for key in l9):  # 'NNP', 'VBZ', 'NN' in sentence
-        question = 'What' + ' ' + line.words[bucket['VBZ']] + ' ' + line.words[bucket['NNP']] + '?'
+        question = 'What' + ' ' + \
+            line.words[bucket['VBZ']] + ' ' + line.words[bucket['NNP']] + '?'
 
     elif all(key in bucket for key in l11):  # 'PRP', 'VBZ' in sentence.
         if line.words[bucket['PRP']] in ['she', 'he']:
@@ -121,10 +125,13 @@ def genQuestion(line):
                 bucket['VBZ']].singularize() + '?'
 
     elif all(key in bucket for key in l10):  # 'NNP', 'VBZ' in sentence.
-        question = 'What' + ' does ' + line.words[bucket['NNP']] + ' ' + line.words[bucket['VBZ']].singularize() + '?'
+        question = 'What' + ' does ' + \
+            line.words[bucket['NNP']] + ' ' + \
+            line.words[bucket['VBZ']].singularize() + '?'
 
     elif all(key in bucket for key in l13):  # 'NN', 'VBZ' in sentence.
-        question = 'What' + ' ' + line.words[bucket['VBZ']] + ' ' + line.words[bucket['NN']] + '?'
+        question = 'What' + ' ' + \
+            line.words[bucket['VBZ']] + ' ' + line.words[bucket['NN']] + '?'
 
     # When the tags are generated 's is split to ' and s. To overcome this issue.
     if 'VBZ' in bucket and line.words[bucket['VBZ']] == "’":
@@ -133,11 +140,13 @@ def genQuestion(line):
     # Print the genetated questions as output.
     if question != '':
         print('\n', 'Question: ' + question)
-        fix_questions.append(question)  # lista que sera analizada para encontrar duplicados
+        # lista que sera analizada para encontrar duplicados
+        fix_questions.append(question)
         OrderedDict.fromkeys(fix_questions)  # Recordar orden de insercion
     set(fix_questions)  # Eliminar duplicados
     global questions
-    questions = list(OrderedDict.fromkeys(fix_questions).keys())  # Lista de preguntas en orden sin duplicados
+    # Lista de preguntas en orden sin duplicados
+    questions = list(OrderedDict.fromkeys(fix_questions).keys())
 
 
 def main():
@@ -167,12 +176,13 @@ def main():
 
     # Open the file given as argument in read-only mode.
     print("Entre la direccion del archivo de texto")  # AGREGADO
-    # dirname, filename = os.path.split(os.path.abspath(__file__))
+    dirname, filename = os.path.split(os.path.abspath(__file__))
     # filename = "file.txt"
     # if os.path.exists(dirname+ os.path.sep + OUTPUT_DIRECTORY) == False:
     # os.makedirs(dirname+ os.path.sep + OUTPUT_DIRECTORY)
 
-    filehandle = open("file.txt", 'r')  # cambiado input()
+    filehandle = open(dirname + os.path.sep + "file.txt",
+                      'r')  # cambiado input()
     textinput = filehandle.read()
     print('\n-----------INPUT TEXT-------------\n')
     print(textinput, '\n')
@@ -188,9 +198,10 @@ def main():
         print(
             '\n' + "Creados con Exito, en la carpeta Archivos_generados" + '\n' '..............................')
         print()
-        print("Ejecute createAVirtual.exe que esta en la carpeta Crear Asistente")
-        print('...........' + '\n')
-        print("Ejecute entrenarAsistente.py para entrenar el asistente")
+        createAVirtual.creaAsistente()
+        #print("Ejecute createAVirtual.exe que esta en la carpeta Crear Asistente")
+        #print('...........' + '\n')
+        #print("Ejecute entrenarAsistente.py para entrenar el asistente")
 
 
 if __name__ == "__main__":

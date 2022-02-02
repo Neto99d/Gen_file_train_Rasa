@@ -1,10 +1,12 @@
-import os, subprocess
-# import entrenarAsistente
+import os
+import subprocess
+import shutil
+import entrenarAsistente
 
 
 def creaAsistente():
     cmd = "rasa init"
-    # entrenar = entrenarAsistente
+    print("Ahora crearemos el Asistente Virtual")
     print("Entre la direccion del directorio donde desea crear el Asistente y luego presione ENTER")
     dir = input()
     os.chdir(dir)
@@ -18,6 +20,13 @@ def creaAsistente():
     print("Rasa le hara una segunda pregunta a la que debe responder presionando la tecla N y luego ENTER")
     print()
     subprocess.run(cmd)
-    # entrenar.entrenar()
+    print()
+    entrenarAsistente.entrenar()
+    print()
+    print("Ahora podrá conversar con el bot")
+    print()
+    subprocess.run("rasa shell")
+    
 
-creaAsistente()
+
+

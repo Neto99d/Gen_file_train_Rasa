@@ -4,7 +4,9 @@ import os
 GENERATE_FILE = "Archivos_generados";
 
 
+
 def domYaml(ques, res):  # Recibe preguntas y respuestas
+    print()
     print('\n' + "Creando archivo de Rasa domain.yml" + '\n' '..............................')
 
     try:
@@ -70,11 +72,11 @@ def domYaml(ques, res):  # Recibe preguntas y respuestas
                 for key, value in element.items():
                     toPrintYaml[key] = value
 
-                yaml.dump(dict({'responses': toPrintYaml}), yaml_file)
-                yaml.dump(config, yaml_file)
+            yaml.dump(dict({'responses': toPrintYaml}), yaml_file)
+            yaml.dump(config, yaml_file)
 
-                ############################################
-                # Validacion para posibles errores
+            ############################################
+            # Validacion para posibles errores
         except Exception as error:
             print("Error al crear archivo o se creó pero está mal")
             print("Error: ", error)
