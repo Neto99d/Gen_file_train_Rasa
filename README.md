@@ -44,9 +44,9 @@
 ---
 **Si tiene un bot de Telegram y desea conectar este a su Asistente Virtual y poder interactuar desde esa plataforma**
    - Ejecute `ConnectToTelegramBot.py` y proporcione los datos que se le piden.
-
-**Archivos originales creados manualmente modelos de entrenamiento para Rasa en la carpeta [Archivos originales Rasa Modelo]**
- - Tabien en la carpeta `output` puede ver ejemplos de cómo quedan los archivos de entrenamiento en el formato de Rasa usando la  herramienta
+---
+---
+**Tabien en la carpeta `output` puede ver ejemplos de cómo quedan los archivos de entrenamiento en el formato de Rasa usando la  herramienta**
 ---
 ---
 **Probar entrenamiento del Asistente**
