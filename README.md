@@ -1,5 +1,5 @@
-# Generar archivos de entrenamiento para Rasa
-  - Debe tener rasa instalado para que la herramienta pueda crear el Asistente Virtual
+# Automáticamente :: Crear bots de Rasa y generar archivos de entrenamiento para ellos a partir un Conocimiento dado 
+  - Debe tener Rasa instalado para que la herramienta pueda crear el Asistente Virtual
   
    - `pip install rasa==3.0.0`
 
@@ -25,6 +25,7 @@
    - fileStories.py  
    - createAVirtual.py
    - entrenarAsistente.py
+   - ConnectToTelegramBot.py
 
 ---
 **Ejecutar quest.py (código original modificado levemente)**
@@ -39,8 +40,11 @@
    - Se le envía esa información extraída a los diferentes ficheros mencionados que se trabajan y tienen las funciones para la generación del archivo en el formato que Rasa maneja.
    - Se crearán los archivos de entrenamiento en la carpeta `Archivos_generados`.
    - Luego se creará y entrenará el Asistente Virtual siguiendo los pasos que se le pondrán.
-   - Luego podrá establecer una conversación con el Asistente Virtual.
+   - Luego podrá establecer una conversación de prueba con el Asistente Virtual.
 ---
+**Si tiene un bot de Telegram y desea conectar este a su Asistente Virtual y poder interactuar desde esa plataforma**
+   - Ejecute `ConnectToTelegramBot.py` y proporcione los datos que se le piden.
+
 **Archivos originales creados manualmente modelos de entrenamiento para Rasa en la carpeta [Archivos originales Rasa Modelo]**
  - Tabien en la carpeta `output` puede ver ejemplos de cómo quedan los archivos de entrenamiento en el formato de Rasa usando la  herramienta
 ---
