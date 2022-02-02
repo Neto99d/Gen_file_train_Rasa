@@ -1,8 +1,14 @@
 # Generar archivos de entrenamiento para Rasa
-**Instalar dependencias via linea de comandos(cmd)**
+  - Debe tener rasa instalado para que la herramienta pueda crear el Asistente Virtual
+  
+   - `pip install rasa==3.0.0`
+
+**Instalar dependencias de la herramienta vía línea de comandos (cmd)**
  - `pip install -r requirements.txt` para instalar todo de una vez
 
-- O puede Instalar dependencias una a una `pip install <package_name>` 
+- O puede Instalar dependencias una a una ejecutando
+
+     `pip install <package_name>` 
   
   **nombres de paquetes**
   - nltk==3.4.5
@@ -12,7 +18,7 @@
   - six==1.15.0
 ---
 
-**- Codigo Personal** 
+**- Código Personal** 
    - fileDomain.py  
    - fileNLU.py    
    - fileRules.py   
@@ -21,38 +27,38 @@
    - entrenarAsistente.py
 
 ---
-**Ejecutar quest.py (codigo original modificado levemente)**
+**Ejecutar quest.py (código original modificado levemente)**
 ---
 
 **Funcionamiento** 
-- Se le pedira entrar la direccion del fichero de texto con el contenido (solo ingles de momento) y luego de entrar la direccion presionar ENTER. 
+- Se le pedirá entrar la dirección del fichero de texto con el contenido (solo ingles de momento) y luego de entrar la dirección presionar ENTER. 
 
   **Automaticamente el programa hace lo siguiente:**
    - Se extraen las preguntas y respuestas (questions, responses).
    - Las respuestas son las oraciones del texto, exactamente se crea un par pregunta _ respuesta.
-   - Se le envia esa informacion extraida a los diferentes ficheros mencionados que se trabajan y tienen las funciones para la generacion del archivo en el formato que Rasa maneja.
-   - Se crearan los archivos en la carpeta `Archivos_generados`.
+   - Se le envía esa información extraída a los diferentes ficheros mencionados que se trabajan y tienen las funciones para la generación del archivo en el formato que Rasa maneja.
+   - Se crearán los archivos de entrenamiento en la carpeta `Archivos_generados`.
+   - Luego se creará y entrenará el Asistente Virtual siguiendo los pasos que se le pondrán.
+   - Luego podrá establecer una conversación con el Asistente Virtual.
 ---
 **Archivos originales creados manualmente modelos de entrenamiento para Rasa en la carpeta [Archivos originales Rasa Modelo]**
- - Tabien en la carpeta `output` puede ver ejemplos de como quedan los archivos de entrenamiento en el formato de Rasa usando la  herramienta
+ - Tabien en la carpeta `output` puede ver ejemplos de cómo quedan los archivos de entrenamiento en el formato de Rasa usando la  herramienta
 ---
 ---
-**Crear Asistente y entrenarlo**
-
-- Ejecutar `createAVirtual.exe` que esta en la carpeta `Crear Asistente` y seguir los pasos que se le diga
-   - Luego ejecute `entrenarAsistente.py` para entrenar el asistente.
-   
----
----
-
 **Probar entrenamiento del Asistente**
-  - **Ejecutar estos comandos via cmd a la carpeta donde se creo el bot de Rasa**
+  - **Ejecutar estos comandos via cmd a la carpeta donde se creó el bot de Rasa**
     - Ejecutar comando (cmd) `rasa visualize` para ver la gráfica de aprendizaje y verificar entrenamiento
     - Ejecutar comando (cmd) `rasa shell`  para conversar con el bot
-
-
-
 ---
+------
+------
+------
+------
+------
+------
+------
+------
+------
 ---
 # Funcionamiento de Generador de preguntas (Codigo Original de terceros)
 
