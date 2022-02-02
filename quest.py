@@ -196,9 +196,11 @@ def main():
             storiesRasa.storiesYaml(questions, responses) &
             rulesRasa.rulesYaml(questions, responses)):
         print(
-            '\n' + "Creados con Exito, en la carpeta Archivos_generados" + '\n' '..............................')
+            '\n' + "Creados con Exito :), en la carpeta Archivos_generados" + '\n' '..............................')
         print()
         createAVirtual.creaAsistente()
+    else:
+        print("Algo salio mal :( ")
         #print("Ejecute createAVirtual.exe que esta en la carpeta Crear Asistente")
         #print('...........' + '\n')
         #print("Ejecute entrenarAsistente.py para entrenar el asistente")
