@@ -6,7 +6,7 @@ import shutil
 GENERATE_FILE = "Archivos_generados"
 
 
-def credentYaml():  # Recibe preguntas y respuestas
+def credentYaml():  
     print()
     print("Archivo necesario para conectar su Asistente a su bot de Telegram para que pueda interactuar con él desde esa plataforma")
     print('\n' + "Creando archivo de Rasa credentials.yml" +
@@ -49,7 +49,8 @@ def credentYaml():  # Recibe preguntas y respuestas
 
             telegram['telegram']['access_token'] = token
             telegram['telegram']['verify'] = nombre
-            telegram['telegram']['webhook_url'] = webhook + "/webhooks/telegram/webhook"
+            telegram['telegram']['webhook_url'] = webhook + \
+                "/webhooks/telegram/webhook"
             yaml.dump(telegram, yaml_file)
         ############################################
         # Validacion para posibles errores
@@ -66,8 +67,7 @@ def credentYaml():  # Recibe preguntas y respuestas
 
 if credentYaml():
     print()
-    print("Creado con Exito :)")
-    print()
+    print("Creado con Exito :)" + '\n')
     try:
         dirname, filename = os.path.split(os.path.abspath(__file__))
         print("Se moverá el archivo a la carpeta del Asistente")
@@ -76,14 +76,11 @@ if credentYaml():
         dir = input()
         os.chdir(dir)
         print()
-        print("El directorio es: ", os.getcwd())
-        print()
-        print("Moviendo Archivo...........")
-        print()
+        print("El directorio es: ", os.getcwd() + '\n')
+        print("Moviendo Archivo..........." + '\n')
         shutil.move(dirname + os.path.sep + "Archivos_generados" + os.path.sep + "credentials.yml",
                     os.path.join(dir, "credentials.yml"))
         print("Movido con Exito :)")
     except Exception as error:
         print()
         print("Error: No existe el archvo")
-        
