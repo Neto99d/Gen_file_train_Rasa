@@ -200,10 +200,9 @@ def main():
         print()
         createAVirtual.creaAsistente()
     else:
+        print()
         print("Algo salio mal :( ")
-        #print("Ejecute createAVirtual.exe que esta en la carpeta Crear Asistente")
-        #print('...........' + '\n')
-        #print("Ejecute entrenarAsistente.py para entrenar el asistente")
+    
 
 
 if __name__ == "__main__":
