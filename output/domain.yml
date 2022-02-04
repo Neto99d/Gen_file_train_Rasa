@@ -15,7 +15,6 @@ intents:
   - What is solvent?
   - What is cell?
   - What is example?
-  - What is cell?
   - What is Raja-Yoga?
   - What is Niyama?
 responses:
@@ -44,16 +43,16 @@ responses:
   - text: In biological systems, the solvent is typically water, but osmosis can occur
       in other liquids, supercritical liquids, and even gases.
   utter_What is cell?:
-  - text: If a cell is submerged in freshwater, water molecules move into the cell.
+  - text: When a cell is submerged in water, the water molecules pass through the
+      cell membrane from an area of low solute concentration to high solute concentration.
   utter_What is example?:
   - text: For example, if the cell is submerged in saltwater, water molecules move
       out of the cell.
   utter_What is Raja-Yoga?:
+  - text: If a cell is submerged in freshwater, water molecules move into the cell.
+  utter_What is Niyama?:
   - text: Raja-Yoga is divided into eight steps, the first is Yama -- non - killing,
       truthfulness, non - stealing, continence, and non - receiving of any gifts.
-  utter_What is Niyama?:
-  - text: Next is Niyama -- cleanliness, contentment, austerity, study, and self -
-      surrender to God.
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

@@ -42,13 +42,9 @@ rules:
   - action: utter_What is example?
 - rule: option 9
   steps:
-  - intent: What is cell?
-  - action: utter_What is cell?
-- rule: option 10
-  steps:
   - intent: What is Raja-Yoga?
   - action: utter_What is Raja-Yoga?
-- rule: option 11
+- rule: option 10
   steps:
   - intent: What is Niyama?
   - action: utter_What is Niyama?
