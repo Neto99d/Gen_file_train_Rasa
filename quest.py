@@ -7,6 +7,9 @@ import fileRules
 import createAVirtual
 import sys
 import os
+import pymongo
+from pymongo import MongoClient
+client = MongoClient()
 
 OUTPUT_DIRECTORY = "output"
 
@@ -175,7 +178,11 @@ def main():
             verbose = True
 
     # Open the file given as argument in read-only mode.
-    print("Entre la direccion del archivo de texto")  # AGREGADO
+    
+    print("Ponga brevemente (es como un Título) de que trata su contenido: ")
+    asunto = input()
+    print("Asunto: " + asunto)
+    print("Entre la direccion del archivo de texto con el contenido")  # AGREGADO
     dirname, filename = os.path.split(os.path.abspath(__file__))
     # filename = "file.txt"
     # if os.path.exists(dirname+ os.path.sep + OUTPUT_DIRECTORY) == False:
@@ -191,6 +198,19 @@ def main():
     # Send the content of text file as string to function parse()
 
     parse(textinput)
+
+    # Trabajando en Base de datos
+    db = client['rasa_File_DB']
+    collection = db['contenido']
+    post = {"asunto": asunto,
+            "texto": textinput,
+            "questions": questions,
+            "responses": responses,
+            }
+    posts = db.collection
+    post_id = collection.insert_one(post).inserted_id
+    ############################
+
     if (domainRasa.domYaml(questions, responses) &
             nluRasa.nluYaml(questions, responses) &
             storiesRasa.storiesYaml(questions, responses) &
