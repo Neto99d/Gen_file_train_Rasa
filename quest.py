@@ -204,6 +204,7 @@ def main():
     parse(textinput)
 
     # Trabajando en Base de datos
+
     db = client['rasa_File_DB']
     collection = db['contenido']
     post = {"asunto": asunto,
@@ -213,7 +214,9 @@ def main():
             }
     posts = db.collection
     post_id = collection.insert_one(post).inserted_id
+    
     ############################
+
     # TRADUCTOR
     '''for w in questions:
         blob = TextBlob(w)
