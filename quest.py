@@ -7,8 +7,9 @@ import fileRules
 import createAVirtual
 import sys
 import os
-import pymongo
+# from deep_translator import GoogleTranslator
 from pymongo import MongoClient
+
 client = MongoClient()
 
 OUTPUT_DIRECTORY = "output"
@@ -116,11 +117,11 @@ def genQuestion(line):
 
     elif all(key in bucket for key in l8):  # 'NNP', 'VBZ', 'JJ' in sentence.
         question = 'What' + ' ' + \
-            line.words[bucket['VBZ']] + ' ' + line.words[bucket['NNP']] + '?'
+                   line.words[bucket['VBZ']] + ' ' + line.words[bucket['NNP']] + '?'
 
     elif all(key in bucket for key in l9):  # 'NNP', 'VBZ', 'NN' in sentence
         question = 'What' + ' ' + \
-            line.words[bucket['VBZ']] + ' ' + line.words[bucket['NNP']] + '?'
+                   line.words[bucket['VBZ']] + ' ' + line.words[bucket['NNP']] + '?'
 
     elif all(key in bucket for key in l11):  # 'PRP', 'VBZ' in sentence.
         if line.words[bucket['PRP']] in ['she', 'he']:
@@ -129,12 +130,12 @@ def genQuestion(line):
 
     elif all(key in bucket for key in l10):  # 'NNP', 'VBZ' in sentence.
         question = 'What' + ' does ' + \
-            line.words[bucket['NNP']] + ' ' + \
-            line.words[bucket['VBZ']].singularize() + '?'
+                   line.words[bucket['NNP']] + ' ' + \
+                   line.words[bucket['VBZ']].singularize() + '?'
 
     elif all(key in bucket for key in l13):  # 'NN', 'VBZ' in sentence.
         question = 'What' + ' ' + \
-            line.words[bucket['VBZ']] + ' ' + line.words[bucket['NN']] + '?'
+                   line.words[bucket['VBZ']] + ' ' + line.words[bucket['NN']] + '?'
 
     # When the tags are generated 's is split to ' and s. To overcome this issue.
     if 'VBZ' in bucket and line.words[bucket['VBZ']] == "’":
@@ -158,7 +159,10 @@ def main():
     """
     global fix_questions  # lista donde se Limpiara preguntas duplicadas
     fix_questions = []
-
+    global questionsEs
+    questionsEs = []
+    global responsesEs
+    responsesEs = []
     global domainRasa
     domainRasa = fileDomain
     global nluRasa
@@ -178,7 +182,7 @@ def main():
             verbose = True
 
     # Open the file given as argument in read-only mode.
-    
+
     print("Ponga brevemente (es como un Título) de que trata su contenido: ")
     asunto = input()
     print("Asunto: " + asunto)
@@ -210,6 +214,22 @@ def main():
     posts = db.collection
     post_id = collection.insert_one(post).inserted_id
     ############################
+    # TRADUCTOR
+    '''for w in questions:
+        blob = TextBlob(w)
+        #print(blob.translate(to='es'))
+        questionsEs.append(blob.translate(to='es'))
+    for w in responses:
+        blob = TextBlob(w)
+        #print(blob.translate(to='es'))
+        responsesEs.append(blob.translate(to='es'))'''
+
+    # print(analysis.translate(to='es'))
+    # traductor = GoogleTranslator(source='auto', target='es')
+    # resultado = traductor.translate(questions)
+    # print(resultado)
+
+    ##################################
 
     if (domainRasa.domYaml(questions, responses) &
             nluRasa.nluYaml(questions, responses) &
