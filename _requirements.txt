@@ -1,0 +1,5 @@
+nltk==3.4.5
+six==1.11.0
+textblob==0.15.0
+PyYAML==6.0
+ruamel.yaml==0.17.18
