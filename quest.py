@@ -214,7 +214,7 @@ def main():
             }
     posts = db.collection
     post_id = collection.insert_one(post).inserted_id
-    
+
     ############################
 
     # TRADUCTOR
