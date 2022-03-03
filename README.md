@@ -26,6 +26,7 @@
    - createAVirtual.py
    - entrenarAsistente.py
    - ConnectToTelegramBot.py
+   - ConfigToSpacyNLP_ES.py
 
 ---
 **Ejecutar quest.py (código original modificado levemente)**
@@ -53,7 +54,7 @@
   - **Ejecutar estos comandos via cmd a la carpeta donde se creó el bot de Rasa**
     - Ejecutar comando (cmd) `rasa visualize` para ver la gráfica de aprendizaje y verificar entrenamiento
     - Ejecutar comando (cmd) `rasa shell`  para conversar con el bot
-	- Ejecutar comando (cmd) `rasa run`  para correr el servidor de Rasa y pueda conversar con el bot por los canales que lo    tenga conectado, como por ejemplo Telegram en caso de que haya habilitado la conexión a esta plataforma con el módulo antes mencionado.
+	- Ejecutar comando (cmd) `rasa run`  para correr el servidor de Rasa y pueda conversar con el bot por los canales que lo tenga conectado, como por ejemplo Telegram en caso de que haya habilitado la conexión a esta plataforma con el módulo antes mencionado.
 ---
 ------
 ------

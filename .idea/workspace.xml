@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f311585f-d8a9-4192-9ce3-64a628663d8d" name="Default Changelist" comment="Fix project">
-      <change beforePath="$PROJECT_DIR$/quest.py" beforeDir="false" afterPath="$PROJECT_DIR$/quest.py" afterDir="false" />
-    </list>
+    <list default="true" id="f311585f-d8a9-4192-9ce3-64a628663d8d" name="Default Changelist" comment="Fix project" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
