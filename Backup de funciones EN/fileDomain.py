@@ -4,6 +4,7 @@ import os
 GENERATE_FILE = "Archivos_generados";
 
 
+
 def domYaml(ques, res):  # Recibe preguntas y respuestas
     print()
     print('\n' + "Creando archivo de Rasa domain.yml" + '\n' '..............................')
@@ -15,27 +16,26 @@ def domYaml(ques, res):  # Recibe preguntas y respuestas
 
         #######################################################
         # PLANTILLA para Archivo RASA
-        saludo = ['saludar',
-                  'despedir',
-                  'afirmar',
-                  'negar',
-                  'animo',
-                  'no_animo',
-                  'bot']
-        utterSaludo = [{'utter_saludar':
-                            [{'text': "¿Cómo estás?"}]},
+        saludo = ['greet', 'goodbye',
+                  'affirm',
+                  'deny',
+                  'mood_great',
+                  'mood_unhappy',
+                  'bot_challenge']
+        utterSaludo = [{'utter_greet':
+                            [{'text': "Hey! How are you?"}]},
 
-                       {'utter_ayuda':
-                            [{'text': "¿En qué puedo ayudarte?"}]},
+                       {'utter_did_that_help':
+                            [{'text': "Did that help you?"}]},
 
-                       {'utter_feliz':
-                            [{'text': "¡Genial, continúa!"}]},
+                       {'utter_happy':
+                            [{'text': "Great, carry on!"}]},
 
-                       {'utter_adios':
-                            [{'text': "Adiós"}]},
+                       {'utter_goodbye':
+                            [{'text': "Bye"}]},
 
-                       {'utter_soybot':
-                            [{'text': "Soy un bot, creado por Rasa."}]}]
+                       {'utter_iamabot':
+                            [{'text': "I am a bot, powered by Rasa."}]}]
         versionRasa = {'version': "3.0"}
         intent = {'intents': saludo + ques}
         config = {'session_config': {
@@ -50,7 +50,7 @@ def domYaml(ques, res):  # Recibe preguntas y respuestas
             if os.path.exists(dirname + os.path.sep + GENERATE_FILE) == False:
                 os.makedirs(dirname + os.path.sep + GENERATE_FILE)
             yaml_file = open(dirname + os.path.sep + GENERATE_FILE + os.path.sep + "domain.yml",
-                             mode="a+", encoding="utf-8")
+                             mode="a+")
 
             #########################################
             # Escribiendo la plantilla en el archivo

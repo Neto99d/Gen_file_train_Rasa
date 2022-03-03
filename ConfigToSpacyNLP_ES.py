@@ -15,11 +15,11 @@ def configYaml():
         #######################################################
         # PLANTILLA para Archivo RASA
         recipe = {"recipe": "default.v1"}
-        pipeline = {'pipeline': [{
-            'name': 'SpacyNLP',
-            'model': "es_core_news_md",
-        }]}
-
+        pipeline = {'pipeline': [{'name': 'SpacyNLP', 'model': 'es_core_news_md'}, {'name': 'SpacyTokenizer'},
+                                 {'name': 'SpacyFeaturizer'}, {'name': 'RegexFeaturizer'},
+                                 {'name': 'CRFEntityExtractor'}, {'name': 'EntitySynonymMapper'},
+                                 {'name': 'SklearnIntentClassifier'}]}
+        idioma = {'language': 'es'}
         policies = {'policies': None}
 
         #################################################################
@@ -38,8 +38,10 @@ def configYaml():
             yaml = YAML()
             yaml.indent(mapping=2, sequence=4, offset=2)  # Sangria y margen
             yaml.dump(recipe, yaml_file)
+            yaml.dump(idioma, yaml_file)
             yaml.dump(pipeline, yaml_file)
             yaml.dump(policies, yaml_file)
+
         ############################################
         # Validacion para posibles errores
         except Exception as error:
@@ -51,26 +53,4 @@ def configYaml():
         print("Error: ", error)
         return False
 
-
 #######################################################################
-
-
-if configYaml():
-    print()
-    print("Creado con Exito :)" + '\n')
-    try:
-        dirname, filename = os.path.split(os.path.abspath(__file__))
-        print("Se moverá el archivo a la carpeta del Asistente")
-        print(
-            "Entre la direccion del directorio donde esta el Asistente y luego presione ENTER")
-        dir = input()
-        os.chdir(dir)
-        print()
-        print("El directorio es: ", os.getcwd() + '\n')
-        print("Moviendo Archivo..........." + '\n')
-        shutil.move(dirname + os.path.sep + "Archivos_generados" + os.path.sep + "config.yml",
-                    os.path.join(dir, "config.yml"))
-        print("Movido con Exito :)")
-    except Exception as error:
-        print()
-        print("Error: No existe el archivo")

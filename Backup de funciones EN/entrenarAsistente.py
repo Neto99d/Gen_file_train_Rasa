@@ -2,11 +2,9 @@ import shutil
 import os
 import ConfigToSpacyNLP_ES
 
+
 def mover():
-
     try:
-        print('Configurando para análisis en Español')
-
         dirname, filename = os.path.split(os.path.abspath(__file__))
         #######################################
         print()
@@ -19,8 +17,8 @@ def mover():
                     os.path.join(dir + "\data", "stories.yml"))
         shutil.move(dirname + os.path.sep + "Archivos_generados" + os.path.sep + "rules.yml",
                     os.path.join(dir + "\data", "rules.yml"))
-        shutil.move(dirname + os.path.sep + "Archivos_generados" + os.path.sep + "config.yml",
-                    os.path.join(dir, "config.yml"))
+        # shutil.move(dirname + os.path.sep + "Archivos_generados" + os.path.sep + "config.yml",
+        # os.path.join(dir, "config.yml"))
         print("Archivos movidos a la carpeta del Asistente para ser entrenado" + '\n')
         return True
     except Exception as error:
@@ -30,8 +28,8 @@ def mover():
 
 
 def entrenar():
-    spacy = ConfigToSpacyNLP_ES
-    spacy.configYaml()
+    # spacy = ConfigToSpacyNLP_ES
+    # spacy.configYaml()
     train = "rasa train"
     print()
     print("Ahora entrenaremos al Asistente")
