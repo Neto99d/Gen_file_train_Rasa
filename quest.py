@@ -198,7 +198,7 @@ def main():
 
     parse(textinput)
 
-    # TRADUCTOR
+    # TRADUCTOR ONLINE
     '''for w in questions:
         traductor = GoogleTranslator(source='auto', target='es')
         resultado = traductor.translate(w)

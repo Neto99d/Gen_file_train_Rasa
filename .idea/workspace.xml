@@ -2,20 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f311585f-d8a9-4192-9ce3-64a628663d8d" name="Default Changelist" comment="Fix project">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup de funciones EN/ConfigToSpacyNLP_ES.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup de funciones EN/ConnectToTelegramBot.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup de funciones EN/createAVirtual.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup de funciones EN/entrenarAsistente.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup de funciones ES/ConfigToSpacyNLP_ES.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup de funciones ES/ConnectToTelegramBot.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup de funciones ES/createAVirtual.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup de funciones ES/entrenarAsistente.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrenarAsistente.py" beforeDir="false" afterPath="$PROJECT_DIR$/entrenarAsistente.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fileDomain.py" beforeDir="false" afterPath="$PROJECT_DIR$/fileDomain.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fileNLU.py" beforeDir="false" afterPath="$PROJECT_DIR$/fileNLU.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fileRules.py" beforeDir="false" afterPath="$PROJECT_DIR$/fileRules.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fileStories.py" beforeDir="false" afterPath="$PROJECT_DIR$/fileStories.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quest.py" beforeDir="false" afterPath="$PROJECT_DIR$/quest.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
