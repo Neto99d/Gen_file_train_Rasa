@@ -7,7 +7,7 @@ import fileRules
 import createAVirtual
 import sys
 import os
-# from deep_translator import GoogleTranslator
+from deep_translator import GoogleTranslator
 from pymongo import MongoClient
 
 client = MongoClient()
@@ -203,6 +203,20 @@ def main():
 
     parse(textinput)
 
+    # TRADUCTOR
+    for w in questions:
+        traductor = GoogleTranslator(source='auto', target='es')
+        resultado = traductor.translate(w)
+        questionsEs.append(resultado)
+    print(questionsEs)
+
+    for w in responses:
+        traductor = GoogleTranslator(source='auto', target='es')
+        resultado = traductor.translate(w)
+        responsesEs.append(resultado)
+    print(responsesEs)
+    ###########################
+
     # Trabajando en Base de datos
 
     db = client['rasa_File_DB']
@@ -217,27 +231,10 @@ def main():
 
     ############################
 
-    # TRADUCTOR
-    '''for w in questions:
-        blob = TextBlob(w)
-        #print(blob.translate(to='es'))
-        questionsEs.append(blob.translate(to='es'))
-    for w in responses:
-        blob = TextBlob(w)
-        #print(blob.translate(to='es'))
-        responsesEs.append(blob.translate(to='es'))'''
-
-    # print(analysis.translate(to='es'))
-    # traductor = GoogleTranslator(source='auto', target='es')
-    # resultado = traductor.translate(questions)
-    # print(resultado)
-
-    ##################################
-
-    if (domainRasa.domYaml(questions, responses) &
-            nluRasa.nluYaml(questions, responses) &
-            storiesRasa.storiesYaml(questions, responses) &
-            rulesRasa.rulesYaml(questions, responses)):
+    if (domainRasa.domYaml(questionsEs, responsesEs) &
+            nluRasa.nluYaml(questionsEs, responsesEs) &
+            storiesRasa.storiesYaml(questionsEs, responsesEs) &
+            rulesRasa.rulesYaml(questionsEs, responsesEs)):
         print(
             '\n' + "Creados con Exito :), en la carpeta Archivos_generados" + '\n' '..............................')
         print()

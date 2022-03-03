@@ -2,23 +2,25 @@ from ruamel.yaml import YAML
 import os
 import shutil
 
-
 GENERATE_FILE = "Archivos_generados"
 
 
-def credentYaml():  
+def configYaml():
     print()
-    print("Archivo necesario para conectar su Asistente a su bot de Telegram para que pueda interactuar con él desde esa plataforma")
-    print('\n' + "Creando archivo de Rasa credentials.yml" +
+    print("Archivo necesario para analizar con el idioma español")
+    print('\n' + "Creando archivo de Rasa config.yml" +
           '\n' '..............................')
 
     try:
         #######################################################
         # PLANTILLA para Archivo RASA
-        rest = {'rest': None}
-        rasa = {'rasa': {'url': 'http://localhost:5002/api'}}
-        telegram = {'telegram': {'access_token': None,
-                                 'verify': None, 'webhook_url': None}}
+        recipe = {"recipe": "default.v1"}
+        pipeline = {'pipeline': [{
+            'name': 'SpacyNLP',
+            'model': "es_core_news_md",
+        }]}
+
+        policies = {'policies': None}
 
         #################################################################
 
@@ -27,7 +29,7 @@ def credentYaml():
             dirname, filename = os.path.split(os.path.abspath(__file__))
             if os.path.exists(dirname + os.path.sep + GENERATE_FILE) == False:
                 os.makedirs(dirname + os.path.sep + GENERATE_FILE)
-            yaml_file = open(dirname + os.path.sep + GENERATE_FILE + os.path.sep + "credentials.yml",
+            yaml_file = open(dirname + os.path.sep + GENERATE_FILE + os.path.sep + "config.yml",
                              mode="a+")
 
             #########################################
@@ -35,23 +37,9 @@ def credentYaml():
 
             yaml = YAML()
             yaml.indent(mapping=2, sequence=4, offset=2)  # Sangria y margen
-            yaml.dump(rest, yaml_file)
-            yaml.dump(rasa, yaml_file)
-            print("Para conectar su Asistente a su bot de Telegram")
-            print("Entre el token de su bot de Telegram: ")
-            token = input()
-            print(
-                "Entre el nombre de usuario exacto (no el nombre normal) de su bot de Telegram: ")
-            nombre = input()
-            print(
-                "Entre la direccion Webhook desde donde recibira las peticiones (Solo https): ")
-            webhook = input()
-
-            telegram['telegram']['access_token'] = token
-            telegram['telegram']['verify'] = nombre
-            telegram['telegram']['webhook_url'] = webhook + \
-                "/webhooks/telegram/webhook"
-            yaml.dump(telegram, yaml_file)
+            yaml.dump(recipe, yaml_file)
+            yaml.dump(pipeline, yaml_file)
+            yaml.dump(policies, yaml_file)
         ############################################
         # Validacion para posibles errores
         except Exception as error:
@@ -62,10 +50,12 @@ def credentYaml():
         print("Error al crear plantilla, archivo Rasa no creado")
         print("Error: ", error)
         return False
+
+
 #######################################################################
 
 
-if credentYaml():
+if configYaml():
     print()
     print("Creado con Exito :)" + '\n')
     try:
@@ -78,8 +68,8 @@ if credentYaml():
         print()
         print("El directorio es: ", os.getcwd() + '\n')
         print("Moviendo Archivo..........." + '\n')
-        shutil.move(dirname + os.path.sep + "Archivos_generados" + os.path.sep + "credentials.yml",
-                    os.path.join(dir, "credentials.yml"))
+        shutil.move(dirname + os.path.sep + "Archivos_generados" + os.path.sep + "config.yml",
+                    os.path.join(dir, "config.yml"))
         print("Movido con Exito :)")
     except Exception as error:
         print()
