@@ -20,18 +20,17 @@ def storiesYaml(ques, res):  # Recibe preguntas y respuestas
                  'steps': [{"intent": ques[i]}, {"action": 'utter_{}'.format(ques[i])}]})
 
         stories = {
-            'stories': [{'story': 'camino feliz',
-                         'steps': [{'intent': 'saludar'}, {'action': 'utter_saludar'}, {'intent': 'animo'},
-                                   {'action': 'utter_feliz'}]},
-                        {'story': 'camino triste 1', 'steps': [{'intent': 'saludar'}, {
-                            'action': 'utter_saludar'}, {'intent': 'no_animo'}, {'action': 'utter_ayuda'},
-                                                               {'intent': 'afirmar'},
-                                                               {
-                                                                   'action': 'utter_feliz'}]},
-                        {'story': 'camino triste 2',
-                         'steps': [{'intent': 'saludar'}, {'action': 'utter_saludar'}, {'intent': 'no_animo'},
-                                   {'action': 'utter_ayuda'}, {'intent': 'negar'},
-                                   {'action': 'utter_adios'}]}]}
+            'stories': [{'story': 'happy path',
+                         'steps': [{'intent': 'greet'}, {'action': 'utter_greet'}, {'intent': 'mood_great'},
+                                   {'action': 'utter_happy'}]}, {'story': 'sad path 1', 'steps': [{'intent': 'greet'}, {
+                'action': 'utter_greet'}, {'intent': 'mood_unhappy'}, {'action': 'utter_did_that_help'},
+                                                                                                  {'intent': 'affirm'},
+                                                                                                  {
+                                                                                                      'action': 'utter_happy'}]},
+                        {'story': 'sad path 2',
+                         'steps': [{'intent': 'greet'}, {'action': 'utter_greet'}, {'intent': 'mood_unhappy'},
+                                   {'action': 'utter_did_that_help'}, {'intent': 'deny'},
+                                   {'action': 'utter_goodbye'}]}]}
 
         for iUtter in auxutter:
             stories['stories'].append(iUtter)
@@ -45,7 +44,7 @@ def storiesYaml(ques, res):  # Recibe preguntas y respuestas
             if os.path.exists(dirname + os.path.sep + GENERATE_FILE) == False:
                 os.makedirs(dirname + os.path.sep + GENERATE_FILE)
             yaml_file = open(dirname + os.path.sep + GENERATE_FILE + os.path.sep + "stories.yml",
-                             mode="a+", encoding="utf-8")
+                             mode="a+")
 
             #########################################
             # Escribiendo la plantilla en el archivo

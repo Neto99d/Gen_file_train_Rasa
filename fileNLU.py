@@ -23,61 +23,61 @@ def nluYaml(ques, res):  # Recibe preguntas y respuestas
 
         nlu = {
             'nlu':
-                [{'intent': 'saludar',
-                  'examples': literal_('\n'.join([
-                      '- Hola',
-                      '- que tal',
-                      '- buenos días',
-                      '- buenas noches',
-                      '- buenas tardes']) + '\n')
+                [{'intent': 'greet',
+                  'examples': literal_('\n'.join(['- hey',
+                                                  '- hello',
+                                                  '- hi',
+                                                  '- hello there',
+                                                  '- good morning',
+                                                  '- good evening']) + '\n')
                   },
 
-                 {'intent': 'despedir',
-                  'examples': literal_('\n'.join(['- adiós',
-                                                  '- buenas noches',
-                                                  '- hasta luego']) + '\n')},
+                 {'intent': 'goodbye',
+                  'examples': literal_('\n'.join(['- good bye',
+                                                  '- good night',
+                                                  '- bye',
+                                                  '- goodbye',
+                                                  '- bye bye',
+                                                  '- see you later']) + '\n')},
 
-                 {'intent': 'afirmar',
-                  'examples': literal_('\n'.join(['- Sí',
-                                                  '- por supuesto',
-                                                  '- correcto']) + '\n')},
+                 {'intent': 'affirm',
+                  'examples': literal_('\n'.join(['- yes',
+                                                  '- of course',
+                                                  '- correct']) + '\n')},
 
-                 {'intent': 'negar',
+                 {'intent': 'deny',
                   'examples': literal_('\n'.join(['- no',
-                                                  '- nunca',
-                                                  '- de ninguna manera',
-                                                  '- no realmente'
-                                                  ]) + '\n')},
+                                                  '- never',
+                                                  '- no way',
+                                                  '- not really']) + '\n')},
 
-                 {'intent': 'animo',
-                  'examples': literal_('\n'.join(['- perfecto',
-                                                  '- genial',
-                                                  '- increíble',
-                                                  '- Me siento muy bien',
-                                                  '- Estoy genial',
-                                                  '- Estoy increíble',
-                                                  '- Estoy bien',
-                                                  '- De acuerdo'
-                                                  ]) + '\n')},
+                 {'intent': 'mood_great',
+                  'examples': literal_('\n'.join(['- perfect',
+                                                  '- great',
+                                                  '- amazing',
+                                                  '- I am feeling very good',
+                                                  '- I am great',
+                                                  '- I am amazing',
+                                                  '- I am going to save the world',
+                                                  '- I am ok',
+                                                  '- ok']) + '\n')},
 
-                 {'intent': 'no_animo',
-                  'examples': literal_('\n'.join(['- mi día fue horrible',
-                                                  '- Estoy triste',
-                                                  '- Estoy decepcionado',
-                                                  '- súper triste',
-                                                  '- Estoy tan triste',
-                                                  '- triste',
-                                                  '- muy triste',
-                                                  '- infeliz',
-                                                  '- no es bueno'
-                                                  ]) + '\n')},
+                 {'intent': 'mood_unhappy',
+                  'examples': literal_('\n'.join(['- my day was horrible',
+                                                  '- I am sad',
+                                                  '- I am disappointed',
+                                                  '- super sad',
+                                                  '- I am so sad',
+                                                  '- sad',
+                                                  '- very sad',
+                                                  '- unhappy',
+                                                  '- not good']) + '\n')},
 
-                 {'intent': 'bot',
-                  'examples': literal_(
-                      '\n'.join(['- ¿Eres un bot?',
-                                 '- ¿Eres un humano?',
-                                 '- ¿Estoy hablando con un bot?',
-                                 '- ¿Estoy hablando con un humano?']) + '\n')},
+                 {'intent': 'bot_challenge',
+                  'examples': literal_('\n'.join(['- are you a bot?',
+                                                  '- are you a human?',
+                                                  '- am I talking to a bot?',
+                                                  '- am I talking to a human?']) + '\n')},
 
                  ]
         }
@@ -94,7 +94,7 @@ def nluYaml(ques, res):  # Recibe preguntas y respuestas
             if os.path.exists(dirname + os.path.sep + GENERATE_FILE) == False:
                 os.makedirs(dirname + os.path.sep + GENERATE_FILE)
             yaml_file = open(dirname + os.path.sep + GENERATE_FILE + os.path.sep + "nlu.yml",
-                             mode="a+", encoding="utf-8")
+                             mode="a+")
 
             #########################################
             # Escribiendo la plantilla en el archivo

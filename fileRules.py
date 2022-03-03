@@ -15,19 +15,19 @@ def rulesYaml(ques, res):  # Recibe preguntas y respuestas
         #######################################################
 
         # PLANTILLA para Archivo RASA
-        '''for i in range(len(ques)):
+        for i in range(len(ques)):
             auxutter.append(
                 {"rule": 'option ' + str(i + 1),
-                 'steps': [{"intent": ques[i]}, {"action": 'utter_{}'.format(ques[i])}]})'''
+                 'steps': [{"intent": ques[i]}, {"action": 'utter_{}'.format(ques[i])}]})
 
         rules = {
-            'rules': [{'rule': 'Diga adiós cada vez que el usuario se despida',
-                       'steps': [{'intent': 'despedir'}, {'action': 'utter_adios'}]},
-                      {'rule': "Diga 'Soy un bot' cada vez que el usuario desafíe",
-                       'steps': [{'intent': 'bot'}, {'action': 'utter_soybot'}]}]}
+            'rules': [{'rule': 'Say goodbye anytime the user says goodbye',
+                       'steps': [{'intent': 'goodbye'}, {'action': 'utter_goodbye'}]},
+                      {'rule': "Say 'I am a bot' anytime the user challenges",
+                       'steps': [{'intent': 'bot_challenge'}, {'action': 'utter_iamabot'}]}]}
 
-        # for iUtter in auxutter:
-        # rules['rules'].append(iUtter)
+        for iUtter in auxutter:
+            rules['rules'].append(iUtter)
         versionRasa = {'version': "3.0"}
         #################################################################
 
@@ -38,7 +38,7 @@ def rulesYaml(ques, res):  # Recibe preguntas y respuestas
             if os.path.exists(dirname + os.path.sep + GENERATE_FILE) == False:
                 os.makedirs(dirname + os.path.sep + GENERATE_FILE)
             yaml_file = open(dirname + os.path.sep + GENERATE_FILE + os.path.sep + "rules.yml",
-                             mode="a+", encoding="utf-8")
+                             mode="a+")
 
             #########################################
             # Escribiendo la plantilla en el archivo

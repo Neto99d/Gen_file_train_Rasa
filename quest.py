@@ -225,11 +225,11 @@ def main():
     post_id = collection.insert_one(post).inserted_id'''
 
     ############################
-    # questionsEs  responsesEs
-    if (domainRasa.domYaml(questionsEs, responsesEs) &
-            nluRasa.nluYaml(questionsEs, responsesEs) &
-            storiesRasa.storiesYaml(questionsEs, responsesEs) &
-            rulesRasa.rulesYaml(questionsEs, responsesEs)):
+    # questionsEs  responsesEs            (Parametros a pasar si se usa traductor)
+    if (domainRasa.domYaml(questions, responses) &
+            nluRasa.nluYaml(questions, responses) &
+            storiesRasa.storiesYaml(questions, responses) &
+            rulesRasa.rulesYaml(questions, responses)):
         print(
             '\n' + "Creados con Exito :), en la carpeta Archivos_generados" + '\n' '..............................')
         print()
