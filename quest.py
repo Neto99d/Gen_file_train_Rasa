@@ -7,7 +7,7 @@ import fileRules
 import createAVirtual
 import sys
 import os
-from deep_translator import GoogleTranslator
+# from deep_translator import GoogleTranslator
 from pymongo import MongoClient
 
 client = MongoClient()
