@@ -159,18 +159,13 @@ def main():
     """
     global fix_questions  # lista donde se Limpiara preguntas duplicadas
     fix_questions = []
-    global questionsEs
     questionsEs = []
-    global responsesEs
     responsesEs = []
-    global domainRasa
     domainRasa = fileDomain
-    global nluRasa
     nluRasa = fileNLU
-    global storiesRasa
     storiesRasa = fileStories
-    global rulesRasa
     rulesRasa = fileRules
+
     # verbose mode is activated when we give -v as argument.
     global verbose
     verbose = False
@@ -183,9 +178,9 @@ def main():
 
     # Open the file given as argument in read-only mode.
 
-    print("Ponga brevemente (es como un Título) de que trata su contenido: ")
-    asunto = input()
-    print("Asunto: " + asunto)
+    # print("Ponga brevemente (es como un Título) de que trata su contenido: ")
+    # asunto = input()
+    # print("Asunto: " + asunto)
     print("Entre la direccion del archivo de texto con el contenido")  # AGREGADO
     dirname, filename = os.path.split(os.path.abspath(__file__))
     # filename = "file.txt"
@@ -203,9 +198,23 @@ def main():
 
     parse(textinput)
 
+    # TRADUCTOR ONLINE
+    '''for w in questions:
+        traductor = GoogleTranslator(source='auto', target='es')
+        resultado = traductor.translate(w)
+        questionsEs.append(resultado)
+    print(questionsEs)
+
+    for w in responses:
+        traductor = GoogleTranslator(source='auto', target='es')
+        resultado = traductor.translate(w)
+        responsesEs.append(resultado)
+    print(responsesEs)'''
+    ###########################
+
     # Trabajando en Base de datos
 
-    db = client['rasa_File_DB']
+    '''db = client['rasa_File_DB']
     collection = db['contenido']
     post = {"asunto": asunto,
             "texto": textinput,
@@ -213,27 +222,10 @@ def main():
             "responses": responses,
             }
     posts = db.collection
-    post_id = collection.insert_one(post).inserted_id
+    post_id = collection.insert_one(post).inserted_id'''
 
     ############################
-
-    # TRADUCTOR
-    '''for w in questions:
-        blob = TextBlob(w)
-        #print(blob.translate(to='es'))
-        questionsEs.append(blob.translate(to='es'))
-    for w in responses:
-        blob = TextBlob(w)
-        #print(blob.translate(to='es'))
-        responsesEs.append(blob.translate(to='es'))'''
-
-    # print(analysis.translate(to='es'))
-    # traductor = GoogleTranslator(source='auto', target='es')
-    # resultado = traductor.translate(questions)
-    # print(resultado)
-
-    ##################################
-
+    # questionsEs  responsesEs            (Parametros a pasar si se usa traductor)
     if (domainRasa.domYaml(questions, responses) &
             nluRasa.nluYaml(questions, responses) &
             storiesRasa.storiesYaml(questions, responses) &
