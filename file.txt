@@ -1,8 +1,4 @@
-Bansoori is an Indian classical instrument. Akhil plays Bansoori and Guitar. 
-Puliyogare is a South Indian dish made of rice and tamarind. 
-Priya writes poems. 
-Osmosis is the movement of a solvent across a semipermeable membrane toward a higher concentration of solute. In biological systems, the solvent is typically water, but osmosis can occur in other liquids, supercritical liquids, and even gases.
-When a cell is submerged in water, the water molecules pass through the cell membrane from an area of low solute concentration to high solute concentration. For example, if the cell is submerged in saltwater, water molecules move out of the cell. If a cell is submerged in freshwater, water molecules move into the cell.
-
-Raja-Yoga is divided into eight steps, the first is Yama -- non - killing, truthfulness, non - stealing, continence, and non - receiving of any gifts.
-Next is Niyama -- cleanliness, contentment, austerity, study, and self - surrender to God. 
+Criptomoneda is a coin-virtual for ensure transactions.
+Bitcoin is a decentralized cryptodivisa.
+Digital-Wallet is a application where it is possible to store, send and receive cryptomoneds.
+The Intelligent-City is a type of urban development based on the sustainability for the basic needs of institutions, companies, and of the inhabitants themselves.

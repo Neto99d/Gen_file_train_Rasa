@@ -1,14 +1,16 @@
-# Automáticamente :: Crear bots de Rasa y generar archivos de entrenamiento para ellos a partir un Conocimiento dado 
-  - Debe tener Rasa instalado para que la herramienta pueda crear el Asistente Virtual
+# Automáticamente :: Crear bots de Rasa y generar archivos de entrenamiento para ellos, a partir de datos proporcionados con los que se construye el conocimiento. 
+  **Debe tener Rasa instalado para que la herramienta pueda crear el Asistente Virtual**
   
    - `pip install rasa==3.0.0`
 
 **Instalar dependencias de la herramienta vía línea de comandos (cmd)**
  - `pip install -r requirements.txt` para instalar todo de una vez
 
+
 - O puede Instalar dependencias una a una ejecutando
 
      `pip install <package_name>` 
+
   
   **nombres de paquetes**
   - nltk==3.4.5
@@ -16,6 +18,11 @@
   - ruamel.yaml==0.16.13
   - ruamel.yaml.clib==0.2.6
   - six==1.15.0
+  - deep-translator==1.7.0
+  - pymongo==3.10.1
+  - spacy==3.1.0
+  - en-core-web-md==3.1.0
+  - es-core-news-md==3.1.0
 ---
 
 **- Código Personal** 
@@ -29,7 +36,7 @@
    - ConfigToSpacyNLP_ES.py
 
 ---
-**Ejecutar quest.py (código original modificado levemente) por vía CMD**
+**Ejecutar quest.py (código original más abajo, fue modificado levemente) por vía CMD**
   - python quest.py
 ---
 

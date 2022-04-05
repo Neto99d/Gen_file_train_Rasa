@@ -41,7 +41,7 @@ def credentYaml():
             print("Entre el token de su bot de Telegram: ")
             token = input()
             print(
-                "Entre el nombre de usuario exacto (no el nombre normal) de su bot de Telegram: ")
+                "Entre el nombre de usuario (sin el @) que aparece en el perfil (no el nombre normal) de su bot de Telegram: ")
             nombre = input()
             print(
                 "Entre la direccion Webhook desde donde recibira las peticiones (Solo https): ")
