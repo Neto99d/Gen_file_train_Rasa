@@ -46,7 +46,7 @@
   **Automaticamente el programa hace lo siguiente:**
    - Se extraen las preguntas y respuestas (questions, responses).
    - Las respuestas son las oraciones del texto, exactamente se crea un par pregunta _ respuesta.
-   - Se le envía esa información extraída a los diferentes ficheros mencionados que se trabajan y tienen las funciones para la generación del archivo en el formato que Rasa maneja.
+   - Se le envía esa información extraída a los diferentes ficheros mencionados que tienen la lógica de contrucción del conocimiento, además de tener las funciones para la generación del archivo en el formato que el asistente virtual de Rasa maneja.
    - Se crearán los archivos de entrenamiento en la carpeta `Archivos_generados`.
    - Luego se creará y entrenará el Asistente Virtual siguiendo los pasos que se le pondrán.
    - Luego podrá establecer una conversación de prueba con el Asistente Virtual.
@@ -62,7 +62,7 @@
   - **Ejecutar estos comandos via cmd a la carpeta donde se creó el bot de Rasa**
     - Ejecutar comando (cmd) `rasa visualize` para ver la gráfica de aprendizaje y verificar entrenamiento
     - Ejecutar comando (cmd) `rasa shell`  para conversar con el bot
-	- Ejecutar comando (cmd) `rasa run`  para correr el servidor de Rasa y pueda conversar con el bot por los canales que lo tenga conectado, como por ejemplo Telegram en caso de que haya habilitado la conexión a esta plataforma con el módulo antes mencionado.
+	- Ejecutar comando (cmd) `rasa run`  para correr el servidor de Rasa y pueda conversar con el bot por los canales que lo  tenga conectado, como por ejemplo Telegram en caso de que haya habilitado la conexión a esta plataforma con el módulo  antes mencionado.
 ---
 ------
 ------
