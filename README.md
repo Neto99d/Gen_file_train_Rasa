@@ -41,28 +41,29 @@
 ---
 
 **Funcionamiento** 
-- Se le pedirá entrar la dirección del fichero de texto con el contenido (solo ingles de momento) y luego de entrar la dirección presionar ENTER. 
+- Se le pedirá entrar la dirección del fichero de texto con el contenido (solo inglés de momento) y luego de entrar la dirección presionar ENTER. 
 
   **Automaticamente el programa hace lo siguiente:**
    - Se extraen las preguntas y respuestas (questions, responses).
    - Las respuestas son las oraciones del texto, exactamente se crea un par pregunta _ respuesta.
-   - Se le envía esa información extraída a los diferentes ficheros mencionados que tienen la lógica de contrucción del conocimiento, además de tener las funciones para la generación del archivo en el formato que el asistente virtual de Rasa maneja.
+   - Se le envía esa información extraída a los diferentes ficheros mencionados que tienen la lógica de contrucción del conocimiento, además de tener las funciones para la generación del archivo en el formato que el asistente virtual de Rasa  maneja.
    - Se crearán los archivos de entrenamiento en la carpeta `Archivos_generados`.
-   - Luego se creará y entrenará el Asistente Virtual siguiendo los pasos que se le pondrán.
+   - Luego se creará y entrenará el Asistente Virtual siguiendo los pasos que se le pondrán. En este proceso los archivos de  entrenamiento se moverán automáticamente de `Archivos_generados` a la carpeta elegida por usted, que es donde tiene el  asistente virtual. (Los archivos irán exactamente a los directorios correspondientes para el funcionamiento).  
    - Luego podrá establecer una conversación de prueba con el Asistente Virtual.
 ---
 **Módulo de conexión con Telegram. Si tiene un bot de Telegram y desea conectar este a su Asistente Virtual y poder interactuar desde esa plataforma**
    - Ejecute `ConnectToTelegramBot.py` y proporcione los datos que se le piden.
+   - Modo de ejecución vía CMD: python ConnectToTelegramBot.py
 ---
 ---
-**También en la carpeta `output` puede ver ejemplos de cómo quedan los archivos de entrenamiento en el formato de Rasa usando la  herramienta**
+**También en la carpeta `output` puede ver ejemplos de cómo quedan los archivos de entrenamiento en el formato del asistente virtual de Rasa usando la  herramienta**
 ---
 ---
 **Probar entrenamiento del Asistente**
-  - **Ejecutar estos comandos via cmd a la carpeta donde se creó el bot de Rasa**
-    - Ejecutar comando (cmd) `rasa visualize` para ver la gráfica de aprendizaje y verificar entrenamiento
-    - Ejecutar comando (cmd) `rasa shell`  para conversar con el bot
-	- Ejecutar comando (cmd) `rasa run`  para correr el servidor de Rasa y pueda conversar con el bot por los canales que lo  tenga conectado, como por ejemplo Telegram en caso de que haya habilitado la conexión a esta plataforma con el módulo  antes mencionado.
+  - **Ejecutar estos comandos vía cmd a la carpeta donde se creó el bot de Rasa**
+    - Ejecutar comando `rasa visualize` para ver la gráfica de aprendizaje y verificar entrenamiento.
+    - Ejecutar comando `rasa shell`  para conversar con el bot.
+	- Ejecutar comando `rasa run`  para correr el servidor de Rasa y pueda conversar con el bot por los canales que lo tenga conectado, como por ejemplo Telegram en caso de que haya habilitado la conexión a esta plataforma con el módulo antes mencionado.
 ---
 ------
 ------
