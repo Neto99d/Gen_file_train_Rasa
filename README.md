@@ -63,10 +63,10 @@
      - `python ConnectToTelegramBot.py`
 ---
 ---
-**También en la carpeta `output` puede ver ejemplos de cómo quedan los archivos de entrenamiento en el formato del asistente virtual de Rasa usando la  herramienta**
+ **También en la carpeta `output` puede ver ejemplos de cómo quedan los archivos de entrenamiento en el formato del asistente virtual de Rasa usando la  herramienta**
 ---
 ---
-**También en la carpeta `Capturas de pantalla` puede ver ejemplos de la herramienta funcionando**
+ **También en la carpeta `Capturas de pantalla` puede ver ejemplos de la herramienta funcionando**
 ---
 ---
 **Probar entrenamiento del Asistente**
