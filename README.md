@@ -47,6 +47,7 @@
 
 **Funcionamiento** 
 - Se le pedirá entrar la dirección del fichero de texto con el contenido (solo inglés de momento) y luego de entrar la dirección presionar ENTER. 
+- Si ejecuta el programa para español igualmente el contenido entrado debe ser en inglés, se trabaja para cambiar a español, pero de momento es en inglés.
 
   **Automaticamente el programa hace lo siguiente:**
    - Se extraen las preguntas y respuestas (questions, responses).
