@@ -38,10 +38,10 @@
 ---
 **Ejecutar programa (código original más abajo, fue modificado levemente) por vía CMD**
 
-  Para idioma Inglés (Idioma por defecto por el momento)
+  Para idioma Inglés (Idioma por defecto por el momento) ejecutar:
   - python quest.py
   
-  Para idioma español `en fase BETA` (Los ficheros que estan en la carpeta `Backup de funciones ES` copiarlos afuera y reemplazar los que ya existen que están en inglés)
+  Para idioma español `en fase BETA` (Los ficheros que estan en la carpeta `Backup de funciones ES` copiarlos afuera y reemplazar los que ya existen que están en inglés) ejecutar:
   - python questES.py
 ---
 
