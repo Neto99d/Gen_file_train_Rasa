@@ -59,7 +59,8 @@
 ---
 **Módulo de conexión con Telegram. Si tiene un bot de Telegram y desea conectar este a su Asistente Virtual y poder interactuar desde esa plataforma**
    - Ejecute `ConnectToTelegramBot.py` y proporcione los datos que se le piden.
-   - Modo de ejecución vía CMD: `python ConnectToTelegramBot.py`
+   - Modo de ejecución vía CMD: 
+     - `python ConnectToTelegramBot.py`
 ---
 ---
 **También en la carpeta `output` puede ver ejemplos de cómo quedan los archivos de entrenamiento en el formato del asistente virtual de Rasa usando la  herramienta**
