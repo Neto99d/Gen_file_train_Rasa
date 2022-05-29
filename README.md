@@ -37,6 +37,7 @@
 
 ---
 **Ejecutar programa (código original más abajo, fue modificado levemente) por vía CMD**
+
   Para idioma Inglés (Idioma por defecto por el momento)
   - python quest.py
   
