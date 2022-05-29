@@ -41,7 +41,7 @@
   Para idioma Inglés (Idioma por defecto por el momento)
   - python quest.py
   
-  Para idioma español `en fase BETA` (Copiar los ficheros de la carpeta `Backup de funciones ES` y reemplazar por los que estan afuera de la carpeta que estan en inglés)
+  Para idioma español `en fase BETA` (Los ficheros que estan en la carpeta `Backup de funciones ES` copiarlos afuera y reemplazar los que ya existen que están en inglés)
   - python questES.py
 ---
 
