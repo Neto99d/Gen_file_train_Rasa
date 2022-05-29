@@ -36,8 +36,12 @@
    - ConfigToSpacyNLP_ES.py
 
 ---
-**Ejecutar quest.py (código original más abajo, fue modificado levemente) por vía CMD**
+**Ejecutar programa (código original más abajo, fue modificado levemente) por vía CMD**
+  Para idioma Inglés (Idioma por defecto por el momento)
   - python quest.py
+  
+  Para idioma español `en fase BETA` (Copiar los ficheros de la carpeta `Backup de funciones ES` y reemplazar por los que estan afuera de la carpeta que estan en inglés)
+  - python questES.py
 ---
 
 **Funcionamiento** 

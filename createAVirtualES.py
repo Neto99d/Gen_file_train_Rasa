@@ -1,7 +1,7 @@
 import os
 import subprocess
 import shutil
-import entrenarAsistente
+import entrenarAsistenteES
 
 
 def creaAsistente():
@@ -17,7 +17,7 @@ def creaAsistente():
     print("Rasa le hara una segunda pregunta a la que debe responder presionando la tecla N y luego ENTER" + '\n')
     subprocess.run(cmd)
     print()
-    entrenarAsistente.entrenar()
+    entrenarAsistenteES.entrenar()
     print()
     print("Ahora podrá conversar con el bot" + '\n')
     subprocess.run("rasa shell")
