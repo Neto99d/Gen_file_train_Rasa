@@ -2,13 +2,14 @@ import ruamel.yaml
 from ruamel.yaml.scalarstring import PreservedScalarString as literal_
 import os
 
-GENERATE_FILE = "Archivos_generados";
+GENERATE_FILE = "Archivos_generados"
 
 literal = literal_  # Forma literal Yaml multilinea  | ó |-
 
 
 def nluYaml(ques, res):  # Recibe preguntas y respuestas
-    print('\n' + "Creando archivo de Rasa nlu.yml" + '\n' '..............................')
+    print('\n' + "Creando archivo de Rasa nlu.yml" +
+          '\n' '..............................')
 
     try:
         global auxutter  # Arreglo donde se guardan preguntas y respuestas
@@ -19,7 +20,8 @@ def nluYaml(ques, res):  # Recibe preguntas y respuestas
 
         # PLANTILLA para Archivo RASA
         for i in range(len(ques)):
-            auxutter.append({"intent": ques[i], 'examples': literal('- ' + ques[i])})
+            auxutter.append(
+                {"intent": ques[i], 'examples': literal('- ' + ques[i])})
 
         nlu = {
             'nlu':

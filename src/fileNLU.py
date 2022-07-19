@@ -2,7 +2,7 @@ import ruamel.yaml
 from ruamel.yaml.scalarstring import PreservedScalarString as literal_
 import os
 
-GENERATE_FILE = "Archivos_generados";
+GENERATE_FILE = "Archivos_generados"
 
 literal = literal_  # Forma literal Yaml multilinea  | ó |-
 

@@ -1,11 +1,12 @@
 from ruamel.yaml import YAML
 import os
 
-GENERATE_FILE = "Archivos_generados";
+GENERATE_FILE = "Archivos_generados"
 
 
 def storiesYaml(ques, res):  # Recibe preguntas y respuestas
-    print('\n' + "Creando archivo de Rasa stories.yml" + '\n' '..............................')
+    print('\n' + "Creando archivo de Rasa stories.yml" +
+          '\n' '..............................')
 
     try:
         global auxutter  # Arreglo donde se guardan preguntas y respuestas
@@ -23,14 +24,15 @@ def storiesYaml(ques, res):  # Recibe preguntas y respuestas
             'stories': [{'story': 'happy path',
                          'steps': [{'intent': 'greet'}, {'action': 'utter_greet'}, {'intent': 'mood_great'},
                                    {'action': 'utter_happy'}]}, {'story': 'sad path 1', 'steps': [{'intent': 'greet'}, {
-                'action': 'utter_greet'}, {'intent': 'mood_unhappy'}, {'action': 'utter_did_that_help'},
-                                                                                                  {'intent': 'affirm'},
-                                                                                                  {
-                                                                                                      'action': 'utter_happy'}]},
+                                       'action': 'utter_greet'}, {'intent': 'mood_unhappy'}, {'action': 'utter_did_that_help'},
+                                       {'intent': 'affirm'},
+                                       {
+                                       'action': 'utter_happy'}]},
                         {'story': 'sad path 2',
                          'steps': [{'intent': 'greet'}, {'action': 'utter_greet'}, {'intent': 'mood_unhappy'},
-                                   {'action': 'utter_did_that_help'}, {'intent': 'deny'},
-                                   {'action': 'utter_goodbye'}]}]}
+                                   {'action': 'utter_did_that_help'}, {
+                             'intent': 'deny'},
+                             {'action': 'utter_goodbye'}]}]}
 
         for iUtter in auxutter:
             stories['stories'].append(iUtter)
