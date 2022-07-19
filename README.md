@@ -1,8 +1,5 @@
 # Automáticamente :: Crear bots de Rasa y generar archivos de entrenamiento para ellos, a partir de datos proporcionados con los que se construye el conocimiento. 
-  **Debe tener Rasa instalado para que la herramienta pueda crear el Asistente Virtual**
-  
-   - `pip install rasa==3.0.0`
-
+ 
 **Instalar dependencias de la herramienta vía línea de comandos (cmd)**
  - `pip install -r requirements.txt` para instalar todo de una vez
 
@@ -13,6 +10,7 @@
 
   
   **nombres de paquetes**
+  - rasa==3.0.0
   - nltk==3.4.5
   - textblob==0.15.0
   - ruamel.yaml==0.16.13
@@ -34,6 +32,10 @@
    - entrenarAsistente.py
    - ConnectToTelegramBot.py
    - ConfigToSpacyNLP_ES.py
+   
+**- Instalar MongoDb para Base de Datos**
+   - Descarga MongoDB desde: https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-5.0.9-signed.msi
+   - Para administrar la base de datos el RoboMongo 3T: https://studio3t.com/download-studio3t-free
 
 ---
 **Ejecutar programa (código original más abajo, fue modificado levemente) por vía CMD**
@@ -66,7 +68,7 @@
  **También en la carpeta `output` puede ver ejemplos de cómo quedan los archivos de entrenamiento en el formato del asistente virtual de Rasa usando la  herramienta**
 ---
 ---
- **También en la carpeta `Capturas de pantalla` puede ver ejemplos de la herramienta funcionando**
+ **También en la carpeta `Tesis\Capturas de pantalla` puede ver ejemplos de la herramienta funcionando o ver el video que está en la carpeta Tesis**
 ---
 ---
 **Probar entrenamiento del Asistente**
