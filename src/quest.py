@@ -157,6 +157,9 @@ def main():
     """
     Accepts a text file as an argument and generates questions from it.
     """
+    ################################
+    print("Ha entrado al Sistema de Generación de Conocimiento Automático para Asistentes Virtuales de RASA")
+    ################################
     global fix_questions  # lista donde se Limpiara preguntas duplicadas
     fix_questions = []
     questionsEs = []
@@ -239,5 +242,3 @@ def main():
         print("Algo salio mal :( ")
 
 
-if __name__ == "__main__":
-    main()

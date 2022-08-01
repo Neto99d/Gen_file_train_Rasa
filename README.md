@@ -21,9 +21,11 @@
   - spacy==3.1.0
   - en-core-web-md==3.1.0
   - es-core-news-md==3.1.0
+  - bcrypt==3.2.2
 ---
 
 **- Código Personal** 
+   - systemSGCA.py
    - fileDomain.py  
    - fileNLU.py    
    - fileRules.py   
@@ -40,16 +42,18 @@
 ---
 **Ejecutar programa (código original más abajo, fue modificado levemente) por vía CMD**
 
-  Para idioma Inglés (Idioma por defecto por el momento) ejecutar:
-  - python quest.py
+  Ejecutar el archivo 
+  - systemSGCA.py
+
+  El sistema ejecutará por defecto el módulo (questES.py) para Asistente Virtual en Español. Requiere Internet.
   
-  Para idioma español `en fase BETA` (Los ficheros que estan en la carpeta `Backup de funciones ES` copiarlos afuera y reemplazar los que ya existen que están en inglés) ejecutar:
-  - python questES.py
 ---
 
 **Funcionamiento** 
+- Deberá crear una cuenta con un nombre de usuario y contraseña para entrar al sistema. 
+- Luego podrá iniciar sesión con sus credenciales y usar el programa.
 - Se le pedirá entrar la dirección del fichero de texto con el contenido (solo inglés de momento) y luego de entrar la dirección presionar ENTER. 
-- Si ejecuta el programa para español (este usa un traductor por el momento) igualmente el contenido entrado debe ser en inglés, se trabaja para cambiar a español, pero de momento es en inglés.
+- Cómo se ejecuta el módulo para asistente virtual en español (este usa un traductor por el momento) igualmente el contenido entrado debe ser en inglés, se trabaja para cambiar a español, pero de momento es en inglés.
 
   **Automaticamente el programa hace lo siguiente:**
    - Se extraen las preguntas y respuestas (questions, responses).
