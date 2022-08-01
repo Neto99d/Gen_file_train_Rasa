@@ -1,14 +1,13 @@
-# Automáticamente :: Crear bots de Rasa y generar archivos de entrenamiento para ellos, a partir de datos proporcionados con los que se construye el conocimiento. 
- 
-**Instalar dependencias de la herramienta vía línea de comandos (cmd)**
- - `pip install -r requirements.txt` para instalar todo de una vez
+# Automáticamente :: Crear bots de Rasa y generar archivos de entrenamiento para ellos, a partir de datos proporcionados con los que se construye el conocimiento
 
+**Instalar dependencias de la herramienta vía línea de comandos (cmd)**
+
+- `pip install -r requirements.txt` para instalar todo de una vez
 
 - O puede Instalar dependencias una a una ejecutando
 
-     `pip install <package_name>` 
+     `pip install <package_name>`
 
-  
   **nombres de paquetes**
   - rasa==3.0.0
   - nltk==3.4.5
@@ -22,81 +21,94 @@
   - en-core-web-md==3.1.0
   - es-core-news-md==3.1.0
   - bcrypt==3.2.2
+
 ---
 
-**- Código Personal** 
-   - systemSGCA.py
-   - fileDomain.py  
-   - fileNLU.py    
-   - fileRules.py   
-   - fileStories.py  
-   - createAVirtual.py
-   - entrenarAsistente.py
-   - ConnectToTelegramBot.py
-   - ConfigToSpacyNLP_ES.py
-   
+**Código Personal**
+
+- systemSGCA.py
+- fileDomain.py  
+- fileNLU.py
+- fileRules.py
+- fileStories.py  
+- createAVirtual.py
+- entrenarAsistente.py
+- ConnectToTelegramBot.py
+- ConfigToSpacyNLP_ES.py
+
 **- Instalar MongoDb para Base de Datos**
-   - Descarga MongoDB desde: https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-5.0.9-signed.msi
-   - Para administrar la base de datos el RoboMongo 3T: https://studio3t.com/download-studio3t-free
+
+- Descarga MongoDB desde: <https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-5.0.9-signed.msi>
+- Para administrar la base de datos el RoboMongo 3T: <https://studio3t.com/download-studio3t-free>
 
 ---
-**Ejecutar programa (código original más abajo, fue modificado levemente) por vía CMD**
 
-  Ejecutar el archivo 
-  - python systemSGCA.py
+El algoritmo de generación de preguntas fue levemente modificado, el código original está más abajo (Automatic Question Generation)
+---
+
+**Ejecutar programa por vía CMD**
+
+  Ejecutar el archivo
+
+- python systemSGCA.py
 
   El sistema ejecutará por defecto el módulo (questES.py) para Asistente Virtual en Español. Requiere Internet.
   
 ---
 
-**Funcionamiento** 
-- Deberá crear una cuenta con un nombre de usuario y contraseña para entrar al sistema. 
+**Funcionamiento**
+
+- Deberá crear una cuenta con un nombre de usuario y contraseña para entrar al sistema.
 - Luego podrá iniciar sesión con sus credenciales y usar el programa.
-- Se le pedirá entrar la dirección del fichero de texto con el contenido (solo inglés de momento) y luego de entrar la dirección presionar ENTER. 
+- Se le pedirá entrar la dirección del fichero de texto con el contenido (solo inglés de momento) y luego de entrar la dirección presionar ENTER.
 - Cómo se ejecuta el módulo para asistente virtual en español (este usa un traductor por el momento) igualmente el contenido entrado debe ser en inglés, se trabaja para cambiar a español, pero de momento es en inglés.
 
   **Automaticamente el programa hace lo siguiente:**
-   - Se extraen las preguntas y respuestas (questions, responses).
-   - Las respuestas son las oraciones del texto, exactamente se crea un par pregunta _ respuesta.
-   - Se le envía esa información extraída a los diferentes ficheros mencionados que tienen la lógica de contrucción del conocimiento, además de tener las funciones para la generación del archivo en el formato que el asistente virtual de Rasa  maneja.
-   - Se crearán los archivos de entrenamiento en la carpeta `Archivos_generados`.
-   - Luego se creará y entrenará el Asistente Virtual siguiendo los pasos que se le pondrán. En este proceso los archivos de  entrenamiento se moverán automáticamente de `Archivos_generados` a la carpeta elegida por usted, que es donde tiene el  asistente virtual. (Los archivos irán exactamente a los directorios correspondientes para el funcionamiento).  
-   - Luego podrá establecer una conversación de prueba con el Asistente Virtual.
+  - Se extraen las preguntas y respuestas (questions, responses).
+  - Las respuestas son las oraciones del texto, exactamente se crea un par pregunta _ respuesta.
+  - Se le envía esa información extraída a los diferentes ficheros mencionados que tienen la lógica de contrucción del conocimiento, además de tener las funciones para la generación del archivo en el formato que el asistente virtual de Rasa  maneja.
+  - Se crearán los archivos de entrenamiento en la carpeta `Archivos_generados`.
+  - Luego se creará y entrenará el Asistente Virtual siguiendo los pasos que se le pondrán. En este proceso los archivos de  entrenamiento se moverán automáticamente de `Archivos_generados` a la carpeta elegida por usted, que es donde tiene el  asistente virtual. (Los archivos irán exactamente a los directorios correspondientes para el funcionamiento).  
+  - Luego podrá establecer una conversación de prueba con el Asistente Virtual.
+
 ---
 **Módulo de conexión con Telegram. Si tiene un bot de Telegram y desea conectar este a su Asistente Virtual y poder interactuar desde esa plataforma**
-   - Ejecute `ConnectToTelegramBot.py` y proporcione los datos que se le piden.
-   - Modo de ejecución vía CMD: 
-     - `python ConnectToTelegramBot.py`
+
+- Ejecute `ConnectToTelegramBot.py` y proporcione los datos que se le piden.
+- Modo de ejecución vía CMD:
+  - `python ConnectToTelegramBot.py`
+
 ---
 ---
- **También en la carpeta `output` puede ver ejemplos de cómo quedan los archivos de entrenamiento en el formato del asistente virtual de Rasa usando la  herramienta**
+
+**También en la carpeta `output` puede ver ejemplos de cómo quedan los archivos de entrenamiento en el formato del asistente virtual de Rasa usando la  herramienta**
 ---
+
 ---
- **También en la carpeta `Tesis\Capturas de pantalla` puede ver ejemplos de la herramienta funcionando o ver el video que está en la carpeta Tesis**
+
+**También en la carpeta `Tesis\Capturas de pantalla` puede ver ejemplos de la herramienta funcionando o ver el video que está en la carpeta Tesis**
 ---
+
 ---
 **Probar entrenamiento del Asistente**
-  - **Ejecutar estos comandos vía cmd a la carpeta donde se creó el bot de Rasa**
-    - Ejecutar comando `rasa visualize` para ver la gráfica de aprendizaje y verificar entrenamiento.
-    - Ejecutar comando `rasa shell`  para conversar con el bot.
-	- Ejecutar comando `rasa run`  para correr el servidor de Rasa y pueda conversar con el bot por los canales que lo tenga conectado, como por ejemplo Telegram en caso de que haya habilitado la conexión a esta plataforma con el módulo antes mencionado.
+
+- **Ejecutar estos comandos vía cmd a la carpeta donde se creó el bot de Rasa**
+  - Ejecutar comando `rasa visualize` para ver la gráfica de aprendizaje y verificar entrenamiento.
+  - Ejecutar comando `rasa shell`  para conversar con el bot.
+  - Ejecutar comando `rasa run`  para correr el servidor de Rasa y pueda conversar con el bot por los canales que lo tenga conectado, como por ejemplo Telegram en caso de que haya habilitado la conexión a esta plataforma con el módulo antes mencionado.
+
 ---
 ------
 ------
 ------
-------
-------
-------
-------
-------
-------
 ---
+
 # Funcionamiento de Generador de preguntas (Codigo Original de terceros)
 
 # Automatic Question Generation
 
 This program takes a text file as an input and generates questions by analyzing each sentence.
-Also, create a RASA Virtual Assistan Configuration file copied in /output directory 
+Also, create a RASA Virtual Assistan Configuration file copied in /output directory
 with domain.yml name.
 
 Note: A similar implementatin is [here](https://github.com/Neto99d/Gen_file_train_Rasa).
@@ -107,7 +119,7 @@ Note: A similar implementatin is [here](https://github.com/Neto99d/Gen_file_trai
 
 `pip install -r requirements.txt`
 
-`python -m textblob.download_corpora` 
+`python -m textblob.download_corpora`
 `python3 quest.py file.txt`
 
 *Use `-v` option to activate verbose*
@@ -127,16 +139,16 @@ And each sentence is passed as string to function **`genQuestion(line):`**
 **These are the part-of-speech tags which is used in this demo.**
 
 ```
-NNS 	Noun, plural
-JJ 	Adjective 
-NNP 	Proper noun, singular 
-VBG 	Verb, gerund or present participle 
-VBN 	Verb, past participle 
-VBZ 	Verb, 3rd person singular present 
-VBD 	Verb, past tense 
-IN 		Preposition or subordinating conjunction 
-PRP 	Personal pronoun 
-NN 	Noun, singular or mass 
+NNS  Noun, plural
+JJ  Adjective 
+NNP  Proper noun, singular 
+VBG  Verb, gerund or present participle 
+VBN  Verb, past participle 
+VBZ  Verb, 3rd person singular present 
+VBD  Verb, past tense 
+IN   Preposition or subordinating conjunction 
+PRP  Personal pronoun 
+NN  Noun, singular or mass 
 ```
 
 **Ref:** [Alphabetical list of part-of-speech tags used in the Penn Treebank Project](http://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html)
@@ -162,11 +174,10 @@ NN 	Noun, singular or mass
 Each sentence is parsed using English grammar rules with the use of condition statements.
 A dictionary is created called **`bucket`** and the part-of-speech tags are added to it.
 
-The sentence which gets parsed successfully generates a question sentence. 
+The sentence which gets parsed successfully generates a question sentence.
 The generated question list is printed as output.
 
 **This demo only uses the grammar to generate questions starting with 'what'.**
-
 
 ## Example
 
@@ -264,18 +275,17 @@ TAGS: [('Osmosis', 'NN'), ('is', 'VBZ'), ('the', 'DT'), ('movement', 'NN'), ('of
  Question: What is Osmosis?
 ```
 
-## How to improve this program.
+## How to improve this program
 
-* This program generates questions starting with 'What'. We can add rule for generating questions containing 'How', 'Where', 'When', 'Which' etc.
+- This program generates questions starting with 'What'. We can add rule for generating questions containing 'How', 'Where', 'When', 'Which' etc.
 
-* We can use a dataset of text and questions along with machine learning to ask better questions. 
+- We can use a dataset of text and questions along with machine learning to ask better questions.
 
-* Further, we can add complex semantic rules for creating long and complex questions.
+- Further, we can add complex semantic rules for creating long and complex questions.
 
-* We can use pre-tagged bag of words to improve part-of-speech tags.
+- We can use pre-tagged bag of words to improve part-of-speech tags.
 
-
-## Reference 
+## Reference
 
 [Alphabetical list of part-of-speech tags used in the Penn Treebank Project](http://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html)
 
