@@ -43,7 +43,7 @@
 **Ejecutar programa (código original más abajo, fue modificado levemente) por vía CMD**
 
   Ejecutar el archivo 
-  - systemSGCA.py
+  - python systemSGCA.py
 
   El sistema ejecutará por defecto el módulo (questES.py) para Asistente Virtual en Español. Requiere Internet.
   
