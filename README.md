@@ -81,12 +81,12 @@ El algoritmo de generación de preguntas fue levemente modificado, el código or
 ---
 ---
 
-**También en la carpeta `output` puede ver ejemplos de cómo quedan los archivos de entrenamiento en el formato del asistente virtual de Rasa usando la  herramienta**
+También en la carpeta `output` puede ver ejemplos de cómo quedan los archivos de entrenamiento en el formato del asistente virtual de Rasa usando la  herramienta
 ---
 
 ---
 
-**También en la carpeta `Tesis\Capturas de pantalla` puede ver ejemplos de la herramienta funcionando o ver el video que está en la carpeta Tesis**
+También en la carpeta `Tesis\Capturas de pantalla` puede ver ejemplos de la herramienta funcionando o ver el video que está en la carpeta Tesis
 ---
 
 ---
