@@ -1,0 +1,80 @@
+version: '3.0'
+stories:
+- story: camino feliz
+  steps:
+  - intent: saludar
+  - action: utter_saludar
+  - intent: animo
+  - action: utter_feliz
+- story: camino triste 1
+  steps:
+  - intent: saludar
+  - action: utter_saludar
+  - intent: no_animo
+  - action: utter_ayuda
+  - intent: afirmar
+  - action: utter_feliz
+- story: camino triste 2
+  steps:
+  - intent: saludar
+  - action: utter_saludar
+  - intent: no_animo
+  - action: utter_ayuda
+  - intent: negar
+  - action: utter_adios
+- story: option 1
+  steps:
+  - intent: ¿Qué es Criptomoneda?
+  - action: utter_¿Qué es Criptomoneda?
+- story: option 2
+  steps:
+  - intent: ¿Qué es Bitcoin?
+  - action: utter_¿Qué es Bitcoin?
+- story: option 3
+  steps:
+  - intent: ¿Qué es Monedero Digital?
+  - action: utter_¿Qué es Monedero Digital?
+- story: option 4
+  steps:
+  - intent: ¿Qué es Ciudad-Inteligente?
+  - action: utter_¿Qué es Ciudad-Inteligente?
+version: '3.0'
+stories:
+- story: camino feliz
+  steps:
+  - intent: saludar
+  - action: utter_saludar
+  - intent: animo
+  - action: utter_feliz
+- story: camino triste 1
+  steps:
+  - intent: saludar
+  - action: utter_saludar
+  - intent: no_animo
+  - action: utter_ayuda
+  - intent: afirmar
+  - action: utter_feliz
+- story: camino triste 2
+  steps:
+  - intent: saludar
+  - action: utter_saludar
+  - intent: no_animo
+  - action: utter_ayuda
+  - intent: negar
+  - action: utter_adios
+- story: option 1
+  steps:
+  - intent: ¿Qué es Criptomoneda?
+  - action: utter_¿Qué es Criptomoneda?
+- story: option 2
+  steps:
+  - intent: ¿Qué es Bitcoin?
+  - action: utter_¿Qué es Bitcoin?
+- story: option 3
+  steps:
+  - intent: ¿Qué es Monedero Digital?
+  - action: utter_¿Qué es Monedero Digital?
+- story: option 4
+  steps:
+  - intent: ¿Qué es Ciudad-Inteligente?
+  - action: utter_¿Qué es Ciudad-Inteligente?
