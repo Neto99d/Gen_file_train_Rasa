@@ -156,7 +156,7 @@ def genQuestion(line):
     questions = list(OrderedDict.fromkeys(fix_questions).keys())
 
 
-def main():
+def main(user):
     """
     Accepts a text file as an argument and generates questions from it.
     """
@@ -184,8 +184,8 @@ def main():
 
     # Open the file given as argument in read-only mode.
 
-    # print("Ponga brevemente (es como un Título) de que trata su contenido: ")
-    # asunto = input()
+    print("Ponga brevemente (es como un Título) de que trata su contenido: ")
+    asunto = input()
     # print("Asunto: " + asunto)
     print("Entre la direccion del archivo de texto con el contenido")  # AGREGADO
     dirname, filename = os.path.split(os.path.abspath(__file__))
@@ -220,15 +220,16 @@ def main():
 
     # Trabajando en Base de datos
 
-    '''db = client['rasa_File_DB']
+    db = client['rasa_File_DB']
     collection = db['contenido']
     post = {"asunto": asunto,
+            "user": user,
             "texto": textinput,
             "questions": questions,
             "responses": responses,
             }
     posts = db.collection
-    post_id = collection.insert_one(post).inserted_id'''
+    post_id = collection.insert_one(post).inserted_id
 
     ############################
     # questionsEs  responsesEs            (Parametros a pasar si se usa traductor)

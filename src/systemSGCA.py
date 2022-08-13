@@ -38,7 +38,8 @@ def register():
         print()
         login()
     else:
-        print("Este usuario ya existe. Intente de nuevo")
+        print()
+        print("Este usuario ya existe. Intente de nuevo" + '\n')
         register()
 
 
@@ -46,6 +47,7 @@ def login():
     #generateEN = quest
     generateES = questES
     #### PIDIENDO DATOS PARA REGISTRO ####
+    print()
     print("INICIAR SESIÓN PARA USAR LA APLICACIÓN")
     name = input('Entre su nombre de usuario : ')
     password = input('Entre su contraseña : ')
@@ -59,15 +61,16 @@ def login():
         IPAddr = socket.gethostbyname(hostname)
         collection.update_one(
             {'nombre': login_user['nombre']}, {
-                '$push': {'fechas_Inicio_sesion': datetime.today().strftime('%Y-%m-%d %I:%M')+"  IP: " + IPAddr}}
+                '$push': {'fechas_Inicio_sesion': datetime.today().strftime('%Y-%m-%d %I:%M %p')+"  IP: " + IPAddr}}
         )
         print()
         # ESPAÑOL bot
-        generateES.main()
+        generateES.main(login_user['nombre']) # ENVIO EL USUARIO ACTIVO o ACTUAL
         # INGLES bot
-        # generateEN.main()
+        # generateEN.main(login_user['nombre'])
     else:
-        print("ERROR de Usuario o contraseña")
+        print()
+        print("ERROR de Usuario o contraseña" + '\n')
         login()
 
 
