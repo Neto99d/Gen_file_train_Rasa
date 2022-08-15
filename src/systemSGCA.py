@@ -3,7 +3,9 @@ import bcrypt
 from datetime import datetime
 #import quest
 import questES
+import cargaDatos
 import socket
+
 
 
 client = MongoClient()
@@ -31,7 +33,7 @@ def register():
         # Insertando datos
         post = {"nombre": name,
                 "contraseña": hashpass,
-                "fecha_registro": datetime.today().strftime('%Y-%m-%d %I:%M'),
+                "fecha_registro": datetime.today().strftime('%Y-%m-%d %I:%M %p'),
                 "fechas_Inicio_sesion": []
                 }
         post_id = collection.insert_one(post).inserted_id
@@ -64,14 +66,12 @@ def login():
                 '$push': {'fechas_Inicio_sesion': datetime.today().strftime('%Y-%m-%d %I:%M %p')+"  IP: " + IPAddr}}
         )
         print()
-        # ESPAÑOL bot
-        generateES.main(login_user['nombre']) # ENVIO EL USUARIO ACTIVO o ACTUAL
-        # INGLES bot
-        # generateEN.main(login_user['nombre'])
+        cargaDatos.cargaDatos(login_user['nombre'])
+      
     else:
         print()
         print("ERROR de Usuario o contraseña" + '\n')
-        login()
+        opciones()
 
 
 def opciones():

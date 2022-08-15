@@ -155,13 +155,19 @@ def genQuestion(line):
     # Lista de preguntas en orden sin duplicados
     questions = list(OrderedDict.fromkeys(fix_questions).keys())
 
+############################################################
+#######################################
+
 
 def main(user):
     """
     Accepts a text file as an argument and generates questions from it.
     """
     ################################
-    print("Ha entrado al Sistema de Generación de Conocimiento Automático para Asistentes Virtuales de RASA")
+    print()
+    print("Ha entrado al Sistema de Generación de Conocimiento Automático para Asistentes Virtuales de RASA" + "\n")
+    print("- Si desea cancelar cualquier operación  o salir del Sistema presione Ctrl + C")
+    print()
     ################################
     global fix_questions  # lista donde se Limpiara preguntas duplicadas
     fix_questions = []
@@ -184,9 +190,9 @@ def main(user):
 
     # Open the file given as argument in read-only mode.
 
-    print("Ponga brevemente (es como un Título) de que trata su contenido: ")
+    print("Ponga brevemente un Asunto (es como un Título) de que trata el contenido que va a entrar, esto servirá para guardar e identificar los datos y ser usados nuevamente cuando desee: ")
     asunto = input()
-    # print("Asunto: " + asunto)
+    print("Asunto: " + asunto)
     print("Entre la direccion del archivo de texto con el contenido")  # AGREGADO
     dirname, filename = os.path.split(os.path.abspath(__file__))
     # filename = "file.txt"
@@ -225,8 +231,8 @@ def main(user):
     post = {"asunto": asunto,
             "user": user,
             "texto": textinput,
-            "questions": questions,
-            "responses": responses,
+            "questions": questionsEs,
+            "responses": responsesEs,
             }
     posts = db.collection
     post_id = collection.insert_one(post).inserted_id
@@ -237,6 +243,38 @@ def main(user):
             nluRasa.nluYaml(questionsEs, responsesEs) &
             storiesRasa.storiesYaml(questionsEs, responsesEs) &
             rulesRasa.rulesYaml(questionsEs, responsesEs)):
+        print(
+            '\n' + "Creados con Exito :), en la carpeta Archivos_generados" + '\n' '..............................')
+        print()
+        createAVirtualES.creaAsistente()
+    else:
+        print()
+        print("Algo salio mal :( ")
+
+
+##########################################################
+#######################################
+
+def mainCargaDatos(preguntas, respuestas):
+    """
+    Accepts a text file as an argument and generates questions from it.
+    """
+    ################################
+    print("Ha entrado al Sistema de Generación de Conocimiento Automático para Asistentes Virtuales de RASA" + "\n")
+    print()
+    print("Si desea cancelar cualquier operación  o salir del Sistema presione Ctrl + C")
+    print()
+    ################################
+    domainRasa = fileDomain
+    nluRasa = fileNLU
+    storiesRasa = fileStories
+    rulesRasa = fileRules
+    ###########################
+
+    if (domainRasa.domYaml(preguntas, respuestas) &
+            nluRasa.nluYaml(preguntas, respuestas) &
+            storiesRasa.storiesYaml(preguntas, respuestas) &
+            rulesRasa.rulesYaml(preguntas, respuestas)):
         print(
             '\n' + "Creados con Exito :), en la carpeta Archivos_generados" + '\n' '..............................')
         print()

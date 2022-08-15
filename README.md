@@ -27,6 +27,7 @@
 **Código Personal**
 
 - systemSGCA.py
+- cargaDatos.py
 - fileDomain.py  
 - fileNLU.py
 - fileRules.py
@@ -48,20 +49,20 @@ El algoritmo de generación de preguntas fue levemente modificado, el código or
 
 **Ejecutar programa por vía CMD**
 
-  Ejecutar el archivo
+  Ejecutar el archivo (Requiere Internet)
 
 - python systemSGCA.py
-
-  El sistema ejecutará por defecto el módulo (questES.py) para Asistente Virtual en Español. Requiere Internet.
-  
 ---
 
 **Funcionamiento**
 
 - Deberá crear una cuenta con un nombre de usuario y contraseña para entrar al sistema.
 - Luego podrá iniciar sesión con sus credenciales y usar el programa.
-- Se le pedirá entrar la dirección del fichero de texto con el contenido (solo inglés de momento) y luego de entrar la dirección presionar ENTER.
+- El sistema le mostrará dos opciones, cargar un nuevo contenido o cargar un contenido que haya guardado o usado anteriormente (el guardado de automático), en caso de elegir un nuevo contenido se le pedira que proporcione un asunto o título que servirá como identificador para cuando se reutilicen los datos.
+- Luego ejecutará por defecto el módulo (questES.py) para Asistente Virtual en Español. Requiere Internet.
+- En caso de cargar un contenido nuevo se le pedirá entrar la dirección del fichero de texto con el contenido (solo inglés de momento) y luego de entrar la dirección presionar ENTER.
 - Cómo se ejecuta el módulo para asistente virtual en español (este usa un traductor por el momento) igualmente el contenido entrado debe ser en inglés, se trabaja para cambiar a español, pero de momento es en inglés.
+- Si se carga un contenido ya guardado este ya está en español.
 
   **Automaticamente el programa hace lo siguiente:**
   - Se extraen las preguntas y respuestas (questions, responses).
