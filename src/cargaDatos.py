@@ -69,6 +69,6 @@ def cargarAsunto(user):
                 cargarAsunto(user)
         except Exception as error:
             print()
-            print("Estes asunto no está entres sus datos guardados")
+            print("Este asunto no está entre sus datos guardados")
             print()
             cargarAsunto(user)

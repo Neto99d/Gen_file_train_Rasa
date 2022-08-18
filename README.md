@@ -58,7 +58,7 @@ El algoritmo de generación de preguntas fue levemente modificado, el código or
 
 - Deberá crear una cuenta con un nombre de usuario y contraseña para entrar al sistema.
 - Luego podrá iniciar sesión con sus credenciales y usar el programa.
-- El sistema le mostrará dos opciones, cargar un nuevo contenido o cargar un contenido que haya guardado o usado anteriormente (el guardado de automático), en caso de elegir un nuevo contenido se le pedira que proporcione un asunto o título que servirá como identificador para cuando se reutilicen los datos.
+- El sistema le mostrará dos opciones, cargar un nuevo contenido o cargar un contenido que haya guardado o usado anteriormente (el guardado es automático), en caso de elegir un nuevo contenido se le pedira que proporcione un asunto o título que servirá como identificador para cuando se reutilicen los datos.
 - Luego ejecutará por defecto el módulo (questES.py) para Asistente Virtual en Español. Requiere Internet.
 - En caso de cargar un contenido nuevo se le pedirá entrar la dirección del fichero de texto con el contenido (solo inglés de momento) y luego de entrar la dirección presionar ENTER.
 - Cómo se ejecuta el módulo para asistente virtual en español (este usa un traductor por el momento) igualmente el contenido entrado debe ser en inglés, se trabaja para cambiar a español, pero de momento es en inglés.
