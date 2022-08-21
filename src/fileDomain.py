@@ -1,12 +1,13 @@
 from ruamel.yaml import YAML
 import os
 
-GENERATE_FILE = "Archivos_generados";
+GENERATE_FILE = "Archivos_generados"
 
 
 def domYaml(ques, res):  # Recibe preguntas y respuestas
     print()
-    print('\n' + "Creando archivo de Rasa domain.yml" + '\n' '..............................')
+    print('\n' + "Creando archivo de Rasa domain.yml" +
+          '\n' '..............................')
 
     try:
         global auxutter  # Arreglo donde se guardan preguntas y respuestas
@@ -23,19 +24,19 @@ def domYaml(ques, res):  # Recibe preguntas y respuestas
                   'no_animo',
                   'bot']
         utterSaludo = [{'utter_saludar':
-                            [{'text': "¿Cómo estás?"}]},
+                        [{'text': "¿Cómo estás?"}]},
 
                        {'utter_ayuda':
-                            [{'text': "¿En qué puedo ayudarte?"}]},
+                        [{'text': "¿En qué puedo ayudarte?"}]},
 
                        {'utter_feliz':
-                            [{'text': "¡Genial, continúa!"}]},
+                        [{'text': "¡Genial, continúa!"}]},
 
                        {'utter_adios':
-                            [{'text': "Adiós"}]},
+                        [{'text': "Adiós"}]},
 
                        {'utter_soybot':
-                            [{'text': "Soy un bot, creado por Rasa."}]}]
+                        [{'text': "Soy un bot, creado por Rasa."}]}]
         versionRasa = {'version': "3.0"}
         intent = {'intents': saludo + ques}
         config = {'session_config': {
@@ -61,7 +62,9 @@ def domYaml(ques, res):  # Recibe preguntas y respuestas
             yaml.dump(intent, yaml_file)
             yaml = YAML()
             for i in range(len(ques)):
-                auxutter.append({'utter_{}'.format(ques[i]): [{'text': res[i]}]})  # Guardando la info de repsonses
+                # Guardando la info de repsonses
+                auxutter.append(
+                    {'utter_{}'.format(ques[i]): [{'text': res[i]}]})
 
             toPrintYaml = dict()
             for element in utterSaludo:  # Poniendo informacion en un diccionario, clave = valor

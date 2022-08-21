@@ -2,6 +2,16 @@ import os
 import subprocess
 import shutil
 import entrenarAsistenteES
+from pymongo import MongoClient
+from datetime import datetime
+
+client = MongoClient()
+
+
+# BASE DE DATOS
+db = client['rasa_File_DB']
+# COLECCION USERS
+collection = db['bots_virtuales']
 
 
 def creaAsistente():
@@ -10,6 +20,12 @@ def creaAsistente():
     print("Entre la direccion del directorio donde desea crear el Asistente y luego presione ENTER")
     dir = input()
     os.chdir(dir)
+    # Insertando datos
+    post = {"nombre": "",
+            "alojado_en": dir,
+            "fecha_creado": datetime.today().strftime('%Y-%m-%d %I:%M')
+            }
+    post_id = collection.insert_one(post).inserted_id
     print()
     print("El directorio es: ", os.getcwd() + '\n')
     print("Ejecutando comando para crear el Asistente" + '\n')
@@ -21,5 +37,3 @@ def creaAsistente():
     print()
     print("Ahora podrá conversar con el bot" + '\n')
     subprocess.run("rasa shell")
-
-

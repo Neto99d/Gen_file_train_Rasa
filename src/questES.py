@@ -117,11 +117,13 @@ def genQuestion(line):
 
     elif all(key in bucket for key in l8):  # 'NNP', 'VBZ', 'JJ' in sentence.
         question = 'What' + ' ' + \
-                   line.words[bucket['VBZ']] + ' ' + line.words[bucket['NNP']] + '?'
+                   line.words[bucket['VBZ']] + ' ' + \
+            line.words[bucket['NNP']] + '?'
 
     elif all(key in bucket for key in l9):  # 'NNP', 'VBZ', 'NN' in sentence
         question = 'What' + ' ' + \
-                   line.words[bucket['VBZ']] + ' ' + line.words[bucket['NNP']] + '?'
+                   line.words[bucket['VBZ']] + ' ' + \
+            line.words[bucket['NNP']] + '?'
 
     elif all(key in bucket for key in l11):  # 'PRP', 'VBZ' in sentence.
         if line.words[bucket['PRP']] in ['she', 'he']:
@@ -135,7 +137,8 @@ def genQuestion(line):
 
     elif all(key in bucket for key in l13):  # 'NN', 'VBZ' in sentence.
         question = 'What' + ' ' + \
-                   line.words[bucket['VBZ']] + ' ' + line.words[bucket['NN']] + '?'
+                   line.words[bucket['VBZ']] + ' ' + \
+            line.words[bucket['NN']] + '?'
 
     # When the tags are generated 's is split to ' and s. To overcome this issue.
     if 'VBZ' in bucket and line.words[bucket['VBZ']] == "’":
@@ -152,11 +155,20 @@ def genQuestion(line):
     # Lista de preguntas en orden sin duplicados
     questions = list(OrderedDict.fromkeys(fix_questions).keys())
 
+############################################################
+#######################################
 
-def main():
+
+def main(user):
     """
     Accepts a text file as an argument and generates questions from it.
     """
+    ################################
+    print()
+    print("Ha entrado al Sistema de Generación de Conocimiento Automático para Asistentes Virtuales de RASA" + "\n")
+    print("- Si desea cancelar cualquier operación  o salir del Sistema presione Ctrl + C")
+    print()
+    ################################
     global fix_questions  # lista donde se Limpiara preguntas duplicadas
     fix_questions = []
     questionsEs = []
@@ -178,9 +190,9 @@ def main():
 
     # Open the file given as argument in read-only mode.
 
-    # print("Ponga brevemente (es como un Título) de que trata su contenido: ")
-    # asunto = input()
-    # print("Asunto: " + asunto)
+    print("Ponga brevemente un Asunto (es como un Título) de que trata el contenido que va a entrar, esto servirá para guardar e identificar los datos y ser usados nuevamente cuando desee: ")
+    asunto = input()
+    print("Asunto: " + asunto)
     print("Entre la direccion del archivo de texto con el contenido")  # AGREGADO
     dirname, filename = os.path.split(os.path.abspath(__file__))
     # filename = "file.txt"
@@ -214,15 +226,16 @@ def main():
 
     # Trabajando en Base de datos
 
-    '''db = client['rasa_File_DB']
+    db = client['rasa_File_DB']
     collection = db['contenido']
     post = {"asunto": asunto,
+            "user": user,
             "texto": textinput,
-            "questions": questions,
-            "responses": responses,
+            "questions": questionsEs,
+            "responses": responsesEs,
             }
     posts = db.collection
-    post_id = collection.insert_one(post).inserted_id'''
+    post_id = collection.insert_one(post).inserted_id
 
     ############################
     # questionsEs  responsesEs            (Parametros a pasar si se usa traductor)
@@ -239,5 +252,33 @@ def main():
         print("Algo salio mal :( ")
 
 
-if __name__ == "__main__":
-    main()
+##########################################################
+#######################################
+
+def mainCargaDatos(preguntas, respuestas):
+    """
+    Accepts a text file as an argument and generates questions from it.
+    """
+    ################################
+    print("Ha entrado al Sistema de Generación de Conocimiento Automático para Asistentes Virtuales de RASA" + "\n")
+    print()
+    print("Si desea cancelar cualquier operación  o salir del Sistema presione Ctrl + C")
+    print()
+    ################################
+    domainRasa = fileDomain
+    nluRasa = fileNLU
+    storiesRasa = fileStories
+    rulesRasa = fileRules
+    ###########################
+
+    if (domainRasa.domYaml(preguntas, respuestas) &
+            nluRasa.nluYaml(preguntas, respuestas) &
+            storiesRasa.storiesYaml(preguntas, respuestas) &
+            rulesRasa.rulesYaml(preguntas, respuestas)):
+        print(
+            '\n' + "Creados con Exito :), en la carpeta Archivos_generados" + '\n' '..............................')
+        print()
+        createAVirtualES.creaAsistente()
+    else:
+        print()
+        print("Algo salio mal :( ")

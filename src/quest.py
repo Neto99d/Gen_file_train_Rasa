@@ -117,11 +117,13 @@ def genQuestion(line):
 
     elif all(key in bucket for key in l8):  # 'NNP', 'VBZ', 'JJ' in sentence.
         question = 'What' + ' ' + \
-                   line.words[bucket['VBZ']] + ' ' + line.words[bucket['NNP']] + '?'
+                   line.words[bucket['VBZ']] + ' ' + \
+            line.words[bucket['NNP']] + '?'
 
     elif all(key in bucket for key in l9):  # 'NNP', 'VBZ', 'NN' in sentence
         question = 'What' + ' ' + \
-                   line.words[bucket['VBZ']] + ' ' + line.words[bucket['NNP']] + '?'
+                   line.words[bucket['VBZ']] + ' ' + \
+            line.words[bucket['NNP']] + '?'
 
     elif all(key in bucket for key in l11):  # 'PRP', 'VBZ' in sentence.
         if line.words[bucket['PRP']] in ['she', 'he']:
@@ -135,7 +137,8 @@ def genQuestion(line):
 
     elif all(key in bucket for key in l13):  # 'NN', 'VBZ' in sentence.
         question = 'What' + ' ' + \
-                   line.words[bucket['VBZ']] + ' ' + line.words[bucket['NN']] + '?'
+                   line.words[bucket['VBZ']] + ' ' + \
+            line.words[bucket['NN']] + '?'
 
     # When the tags are generated 's is split to ' and s. To overcome this issue.
     if 'VBZ' in bucket and line.words[bucket['VBZ']] == "’":
@@ -153,10 +156,13 @@ def genQuestion(line):
     questions = list(OrderedDict.fromkeys(fix_questions).keys())
 
 
-def main():
+def main(user):
     """
     Accepts a text file as an argument and generates questions from it.
     """
+    ################################
+    print("Ha entrado al Sistema de Generación de Conocimiento Automático para Asistentes Virtuales de RASA")
+    ################################
     global fix_questions  # lista donde se Limpiara preguntas duplicadas
     fix_questions = []
     questionsEs = []
@@ -217,6 +223,7 @@ def main():
     '''db = client['rasa_File_DB']
     collection = db['contenido']
     post = {"asunto": asunto,
+            "user": user,
             "texto": textinput,
             "questions": questions,
             "responses": responses,
@@ -237,7 +244,3 @@ def main():
     else:
         print()
         print("Algo salio mal :( ")
-
-
-if __name__ == "__main__":
-    main()

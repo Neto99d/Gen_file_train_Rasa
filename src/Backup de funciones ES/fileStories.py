@@ -1,11 +1,12 @@
 from ruamel.yaml import YAML
 import os
 
-GENERATE_FILE = "Archivos_generados";
+GENERATE_FILE = "Archivos_generados"
 
 
 def storiesYaml(ques, res):  # Recibe preguntas y respuestas
-    print('\n' + "Creando archivo de Rasa stories.yml" + '\n' '..............................')
+    print('\n' + "Creando archivo de Rasa stories.yml" +
+          '\n' '..............................')
 
     try:
         global auxutter  # Arreglo donde se guardan preguntas y respuestas
@@ -25,12 +26,13 @@ def storiesYaml(ques, res):  # Recibe preguntas y respuestas
                                    {'action': 'utter_feliz'}]},
                         {'story': 'camino triste 1', 'steps': [{'intent': 'saludar'}, {
                             'action': 'utter_saludar'}, {'intent': 'no_animo'}, {'action': 'utter_ayuda'},
-                                                               {'intent': 'afirmar'},
-                                                               {
-                                                                   'action': 'utter_feliz'}]},
+                            {'intent': 'afirmar'},
+                            {
+                            'action': 'utter_feliz'}]},
                         {'story': 'camino triste 2',
                          'steps': [{'intent': 'saludar'}, {'action': 'utter_saludar'}, {'intent': 'no_animo'},
-                                   {'action': 'utter_ayuda'}, {'intent': 'negar'},
+                                   {'action': 'utter_ayuda'}, {
+                                       'intent': 'negar'},
                                    {'action': 'utter_adios'}]}]}
 
         for iUtter in auxutter:
