@@ -1,14 +1,16 @@
-# Automáticamente :: Crear bots de Rasa y generar archivos de entrenamiento para ellos a partir un Conocimiento dado 
-  - Debe tener Rasa instalado para que la herramienta pueda crear el Asistente Virtual
+# Automáticamente :: Crear bots de Rasa y generar archivos de entrenamiento para ellos, a partir de datos proporcionados con los que se construye el conocimiento. 
+  **Debe tener Rasa instalado para que la herramienta pueda crear el Asistente Virtual**
   
    - `pip install rasa==3.0.0`
 
 **Instalar dependencias de la herramienta vía línea de comandos (cmd)**
  - `pip install -r requirements.txt` para instalar todo de una vez
 
+
 - O puede Instalar dependencias una a una ejecutando
 
      `pip install <package_name>` 
+
   
   **nombres de paquetes**
   - nltk==3.4.5
@@ -16,6 +18,11 @@
   - ruamel.yaml==0.16.13
   - ruamel.yaml.clib==0.2.6
   - six==1.15.0
+  - deep-translator==1.7.0
+  - pymongo==3.10.1
+  - spacy==3.1.0
+  - en-core-web-md==3.1.0
+  - es-core-news-md==3.1.0
 ---
 
 **- Código Personal** 
@@ -29,33 +36,44 @@
    - ConfigToSpacyNLP_ES.py
 
 ---
-**Ejecutar quest.py (código original modificado levemente) por vía CMD**
+**Ejecutar programa (código original más abajo, fue modificado levemente) por vía CMD**
+
+  Para idioma Inglés (Idioma por defecto por el momento) ejecutar:
   - python quest.py
+  
+  Para idioma español `en fase BETA` (Los ficheros que estan en la carpeta `Backup de funciones ES` copiarlos afuera y reemplazar los que ya existen que están en inglés) ejecutar:
+  - python questES.py
 ---
 
 **Funcionamiento** 
-- Se le pedirá entrar la dirección del fichero de texto con el contenido (solo ingles de momento) y luego de entrar la dirección presionar ENTER. 
+- Se le pedirá entrar la dirección del fichero de texto con el contenido (solo inglés de momento) y luego de entrar la dirección presionar ENTER. 
+- Si ejecuta el programa para español (este usa un traductor por el momento) igualmente el contenido entrado debe ser en inglés, se trabaja para cambiar a español, pero de momento es en inglés.
 
   **Automaticamente el programa hace lo siguiente:**
    - Se extraen las preguntas y respuestas (questions, responses).
    - Las respuestas son las oraciones del texto, exactamente se crea un par pregunta _ respuesta.
-   - Se le envía esa información extraída a los diferentes ficheros mencionados que se trabajan y tienen las funciones para la generación del archivo en el formato que Rasa maneja.
+   - Se le envía esa información extraída a los diferentes ficheros mencionados que tienen la lógica de contrucción del conocimiento, además de tener las funciones para la generación del archivo en el formato que el asistente virtual de Rasa  maneja.
    - Se crearán los archivos de entrenamiento en la carpeta `Archivos_generados`.
-   - Luego se creará y entrenará el Asistente Virtual siguiendo los pasos que se le pondrán.
+   - Luego se creará y entrenará el Asistente Virtual siguiendo los pasos que se le pondrán. En este proceso los archivos de  entrenamiento se moverán automáticamente de `Archivos_generados` a la carpeta elegida por usted, que es donde tiene el  asistente virtual. (Los archivos irán exactamente a los directorios correspondientes para el funcionamiento).  
    - Luego podrá establecer una conversación de prueba con el Asistente Virtual.
 ---
 **Módulo de conexión con Telegram. Si tiene un bot de Telegram y desea conectar este a su Asistente Virtual y poder interactuar desde esa plataforma**
    - Ejecute `ConnectToTelegramBot.py` y proporcione los datos que se le piden.
+   - Modo de ejecución vía CMD: 
+     - `python ConnectToTelegramBot.py`
 ---
 ---
-**También en la carpeta `output` puede ver ejemplos de cómo quedan los archivos de entrenamiento en el formato de Rasa usando la  herramienta**
+ **También en la carpeta `output` puede ver ejemplos de cómo quedan los archivos de entrenamiento en el formato del asistente virtual de Rasa usando la  herramienta**
+---
+---
+ **También en la carpeta `Capturas de pantalla` puede ver ejemplos de la herramienta funcionando**
 ---
 ---
 **Probar entrenamiento del Asistente**
-  - **Ejecutar estos comandos via cmd a la carpeta donde se creó el bot de Rasa**
-    - Ejecutar comando (cmd) `rasa visualize` para ver la gráfica de aprendizaje y verificar entrenamiento
-    - Ejecutar comando (cmd) `rasa shell`  para conversar con el bot
-	- Ejecutar comando (cmd) `rasa run`  para correr el servidor de Rasa y pueda conversar con el bot por los canales que lo tenga conectado, como por ejemplo Telegram en caso de que haya habilitado la conexión a esta plataforma con el módulo antes mencionado.
+  - **Ejecutar estos comandos vía cmd a la carpeta donde se creó el bot de Rasa**
+    - Ejecutar comando `rasa visualize` para ver la gráfica de aprendizaje y verificar entrenamiento.
+    - Ejecutar comando `rasa shell`  para conversar con el bot.
+	- Ejecutar comando `rasa run`  para correr el servidor de Rasa y pueda conversar con el bot por los canales que lo tenga conectado, como por ejemplo Telegram en caso de que haya habilitado la conexión a esta plataforma con el módulo antes mencionado.
 ---
 ------
 ------
