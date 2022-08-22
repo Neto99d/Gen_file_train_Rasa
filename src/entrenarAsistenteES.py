@@ -1,6 +1,6 @@
 import shutil
 import os
-import ConfigToSpacyNLP_ES
+
 
 
 def mover():

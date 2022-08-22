@@ -17,7 +17,7 @@ collection = db['bots_virtuales']
 def creaAsistente():
     cmd = "rasa init"
     print("Ahora crearemos el Asistente Virtual")
-    print("Entre la direccion del directorio donde desea crear el Asistente y luego presione ENTER")
+    print("Entre la dirección del directorio o carpeta donde desea crear el Asistente y luego presione ENTER")
     dir = input()
     os.chdir(dir)
     # Insertando datos
