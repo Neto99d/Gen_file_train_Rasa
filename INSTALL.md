@@ -13,6 +13,17 @@ Ejecutar (Requiere Internet) para instalar todos los paquetes de python requerid
 - `Instalar requerimientos python.bat` 
 
 ---
+Paquetes de python que serán instalados
+- rasa==3.0.0
+- nltk==3.4.5
+- textblob==0.15.0
+- ruamel.yaml==0.16.13
+- ruamel.yaml.clib==0.2.6
+- six==1.15.0
+- deep-translator==1.7.0
+- pymongo==3.10.1
+- bcrypt==3.2.2
+---
 
 **Instalar MongoDb para Base de Datos**
 
