@@ -34,6 +34,7 @@ def mover():
 def entrenar(direccionBot):
     # spacy = ConfigToSpacyNLP_ES
     # spacy.configYaml()
+    visualConocimiento = "rasa visualize"
     train = "rasa train"
     print()
     print("Ahora entrenaremos al Asistente")
@@ -48,3 +49,7 @@ def entrenar(direccionBot):
         print("Entrenando al Asistente")
         print("Espere......... Esta cargando....")
         os.system(train)
+        print()
+        print("Se le mostrará un gráfico en su navegador donde podrá ver las preguntas y las respuestas (utter_)inferidas  después del entrenamiento, para verificar que el Asistente tendrá alta probabilidad de responder correctamente.")
+        os.system(visualConocimiento)
+        
