@@ -1,28 +1,5 @@
 # Automáticamente :: Crear bots de Rasa y generar archivos de entrenamiento para ellos, a partir de datos proporcionados con los que se construye el conocimiento
 
-**Instalar dependencias de la herramienta vía línea de comandos (cmd)**
-
-- `pip install -r requirements.txt` para instalar todo de una vez
-
-- O puede Instalar dependencias una a una ejecutando
-
-     `pip install <package_name>`
-
-  **nombres de paquetes**
-  - rasa==3.0.0
-  - nltk==3.4.5
-  - textblob==0.15.0
-  - ruamel.yaml==0.16.13
-  - ruamel.yaml.clib==0.2.6
-  - six==1.15.0
-  - deep-translator==1.7.0
-  - pymongo==3.10.1
-  - spacy==3.1.0
-  - en-core-web-md==3.1.0
-  - es-core-news-md==3.1.0
-  - bcrypt==3.2.2
-
----
 
 **Código Personal**
 
@@ -32,26 +9,19 @@
 - fileNLU.py
 - fileRules.py
 - fileStories.py  
-- createAVirtual.py
-- entrenarAsistente.py
+- createAVirtualES.py          
+- entrenarAsistenteES.py
 - ConnectToTelegramBot.py
-- ConfigToSpacyNLP_ES.py
 
-**- Instalar MongoDb para Base de Datos**
 
-- Descarga MongoDB desde: <https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-5.0.9-signed.msi>
-- Para administrar la base de datos el RoboMongo 3T: <https://studio3t.com/download-studio3t-free>
-
+*El algoritmo de generación de preguntas fue levemente modificado, el código original está más abajo (Automatic Question Generation)*
 ---
 
-El algoritmo de generación de preguntas fue levemente modificado, el código original está más abajo (Automatic Question Generation)
----
-
-**Ejecutar programa por vía CMD**
+**Ejecutar programa**
 
   Ejecutar el archivo (Requiere Internet)
 
-- python systemSGCA.py
+- systemSGCA.bat
 ---
 
 **Funcionamiento**
@@ -75,9 +45,7 @@ El algoritmo de generación de preguntas fue levemente modificado, el código or
 ---
 **Módulo de conexión con Telegram. Si tiene un bot de Telegram y desea conectar este a su Asistente Virtual y poder interactuar desde esa plataforma**
 
-- Ejecute `ConnectToTelegramBot.py` y proporcione los datos que se le piden.
-- Modo de ejecución vía CMD:
-  - `python ConnectToTelegramBot.py`
+- Ejecute `Conectar con su Telegram-Bot.bat` y proporcione los datos que se le piden.
 
 ---
 ---
@@ -87,7 +55,7 @@ También en la carpeta `output` puede ver ejemplos de cómo quedan los archivos 
 
 ---
 
-También en la carpeta `Tesis\Capturas de pantalla` puede ver ejemplos de la herramienta funcionando o ver el video que está en la carpeta Tesis
+También en la carpeta `Tesis\Capturas de pantalla` puede ver ejemplos de la herramienta funcionando o ver los videos que están en la carpeta Tesis
 ---
 
 ---

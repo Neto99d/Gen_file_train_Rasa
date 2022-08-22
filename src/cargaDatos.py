@@ -63,9 +63,11 @@ def cargarAsunto(user):
             confirmar = input(
                 "Confirme que este es el que desea cargar: Escriba si o no: ")
             if (confirmar == 'si'):
+                print()
                 questES.mainCargaDatos(
                     asunto['questions'], asunto['responses'])
             else:
+                print()
                 cargarAsunto(user)
         except Exception as error:
             print()
