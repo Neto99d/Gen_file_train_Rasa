@@ -1,4 +1,4 @@
-# Automáticamente :: Crear bots de Rasa y generar archivos de entrenamiento para ellos, a partir de datos proporcionados con los que se construye el conocimiento
+# Crear bots de Rasa y generar archivos de entrenamiento para ellos de forma automática, a partir de datos proporcionados con los que se construye el conocimiento.
 
 
 **Código Personal**
@@ -48,14 +48,12 @@
 - Ejecute `Conectar con su Telegram-Bot.bat` y proporcione los datos que se le piden.
 
 ---
----
 
-También en la carpeta `output` puede ver ejemplos de cómo quedan los archivos de entrenamiento en el formato del asistente virtual de Rasa usando la  herramienta
----
+*También en la carpeta `output` puede ver ejemplos de cómo quedan los archivos de entrenamiento en el formato del asistente virtual de Rasa usando la  herramienta*
 
 ---
 
-También en la carpeta `Tesis\Capturas de pantalla` puede ver ejemplos de la herramienta funcionando o ver los videos que están en la carpeta Tesis
+*También en la carpeta `Tesis\Capturas de pantalla` puede ver ejemplos de la herramienta funcionando o ver los videos que están en la carpeta Tesis*
 ---
 
 ---

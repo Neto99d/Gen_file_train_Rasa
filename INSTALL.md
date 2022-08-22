@@ -13,7 +13,7 @@
 
 ---
 
-**- Instalar MongoDb para Base de Datos**
+**Instalar MongoDb para Base de Datos**
 
 - Descarga e instala MongoDB desde: <https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-5.0.9-signed.msi>
   *Al instalr MongoDB solo siga los pasos de instalación sin cambiar nada*
