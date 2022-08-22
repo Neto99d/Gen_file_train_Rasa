@@ -1,9 +1,9 @@
 # Guía de Instalación 
 ---
 
-*Sólo para Sistema Operativo Windows*
+*Sólo para Sistema Operativo Windows 7,8,10,11*
 
-*Requiere python 3.8 (Recomendado)*
+*Requiere python 3.8 (Recomendado) en adelante*
 
 ---
 
