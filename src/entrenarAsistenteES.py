@@ -43,6 +43,7 @@ def entrenar(direccionBot):
     os.chdir(direccionBot)
     print()
     print("El directorio dónde está su Asistente Virtual es: ", os.getcwd())
+    print()
     if mover():
         print("Entrenando al Asistente")
         print("Espere......... Esta cargando....")
