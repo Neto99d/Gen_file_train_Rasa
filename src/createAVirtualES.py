@@ -33,7 +33,7 @@ def creaAsistente():
     print("Rasa le hara una segunda pregunta a la que debe responder presionando la tecla N y luego ENTER" + '\n')
     subprocess.run(cmd)
     print()
-    entrenarAsistenteES.entrenar()
+    entrenarAsistenteES.entrenar(os.getcwd())
     print()
     print("Ahora podrá conversar con el bot" + '\n')
     subprocess.run("rasa shell")

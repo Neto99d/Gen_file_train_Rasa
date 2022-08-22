@@ -19,6 +19,7 @@ collection = db['users']
 
 def register():
     #### PIDIENDO DATOS PARA REGISTRO ####
+    print()
     print("REGISTRARSE EN EL SISTEMA.")
     name = input('Cree su nombre de usuario : ')
     password = input('Cree su contraseña : ')
