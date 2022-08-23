@@ -1,8 +1,6 @@
 from pymongo import MongoClient
 import bcrypt
 from datetime import datetime
-#import quest
-import questES
 import cargaDatos
 import socket
 
@@ -47,8 +45,6 @@ def register():
 
 
 def login():
-    #generateEN = quest
-    generateES = questES
     #### PIDIENDO DATOS PARA REGISTRO ####
     print()
     print("INICIAR SESIÓN PARA USAR LA APLICACIÓN")
