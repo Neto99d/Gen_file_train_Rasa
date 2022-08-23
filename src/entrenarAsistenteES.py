@@ -19,8 +19,6 @@ def mover():
                     os.path.join(dir + "\data", "stories.yml"))
         shutil.move(dirname + os.path.sep + "Archivos_generados" + os.path.sep + "rules.yml",
                     os.path.join(dir + "\data", "rules.yml"))
-        # shutil.move(dirname + os.path.sep + "Archivos_generados" + os.path.sep + "config.yml",
-                    # os.path.join(dir, "config.yml"))
         print("Archivos movidos a la carpeta del Asistente para ser entrenado" + '\n')
         return True
 
