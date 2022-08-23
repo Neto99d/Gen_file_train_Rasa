@@ -5,6 +5,8 @@
 
 *Requiere python 3.8 (Recomendado) en adelante*
 
+- Descarga python 3.8 aquí: https://www.python.org/ftp/python/3.8.0/python-3.8.0-amd64.exe 
+
 ---
 
 **Instalar dependencias de la herramienta con un click**
@@ -27,7 +29,7 @@ Paquetes de python que serán instalados
 
 **Instalar MongoDb para Base de Datos**
 
-- Descarga e instala MongoDB desde: <https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-5.0.9-signed.msi>
+- Descarga MongoDB desde: <https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-5.0.9-signed.msi>
   - *Al instalar MongoDB solo siga los pasos de instalación sin cambiar nada*
 
 - `(Opcional)` Para administrar la base de datos puede usar el RoboMongo 3T: <https://studio3t.com/download-studio3t-free>
