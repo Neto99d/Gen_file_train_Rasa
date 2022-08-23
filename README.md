@@ -42,7 +42,7 @@
   - Se le envía esa información extraída a los diferentes ficheros mencionados que tienen la lógica de contrucción del conocimiento, además de tener las funciones para la generación del archivo en el formato que el asistente virtual de Rasa  maneja.
   - Se crearán los archivos de entrenamiento en la carpeta `Archivos_generados`.
   - Luego se creará y entrenará el Asistente Virtual siguiendo los pasos que se le pondrán. En este proceso los archivos de  entrenamiento se moverán automáticamente de `Archivos_generados` a la carpeta elegida por usted, que es donde tiene el  asistente virtual. (Los archivos irán exactamente a los directorios correspondientes para el funcionamiento).  
-  - Luego podrá establecer una conversación de prueba con el Asistente Virtual.
+  - Luego podrá ver en el navegador un *gráfico con el conocimiento del Asistente donde podrá apreciar si las preguntas corresponden con las respuestas inferidas después del entrenamiento `(pregunta -> utter_pregunta (respuesta inferida))`* y si es correcto el bot tendrá alta probabilidad de responder correctamente. De forma simultánea ya en la ventana del programa se establecerá una conversación de prueba con el Asistente Virtual para que pueda interactuar con él.
 
 ---
 **Módulo de conexión con Telegram. Si tiene un bot de Telegram y desea conectar este a su Asistente Virtual y poder interactuar desde esa plataforma**
