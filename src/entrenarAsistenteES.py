@@ -32,13 +32,10 @@ def mover():
 
 
 def entrenar(direccionBot):
-    # spacy = ConfigToSpacyNLP_ES
-    # spacy.configYaml()
     visualConocimiento = "rasa visualize"
     train = "rasa train"
     print()
     print("Ahora entrenaremos al Asistente")
-    # print("Entre la direccion del directorio donde esta el Asistente y luego presione ENTER")
     global dir
     dir = direccionBot
     os.chdir(direccionBot)
@@ -50,6 +47,6 @@ def entrenar(direccionBot):
         print("Espere......... Esta cargando....")
         os.system(train)
         print()
-        print("Se le mostrará un gráfico en su navegador donde podrá ver las preguntas y las respuestas (utter_)inferidas  después del entrenamiento, para verificar que el Asistente tendrá alta probabilidad de responder correctamente.")
+        print("Se le mostrará un gráfico en su navegador donde podrá ver las preguntas y las respuestas inferidas a cada pregunta (utter_pregunta) después del entrenamiento, para verificar que el Asistente tendrá alta probabilidad de responder correctamente.")
         os.system(visualConocimiento)
         
