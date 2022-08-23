@@ -40,6 +40,6 @@ Paquetes de python que serán instalados
 **Al tener todo listo Ejecutar el programa :)**
 
   *Ejecutar el archivo (Requiere Internet) que está en la carpeta `src`*
-  *Ojo, ejecutar como Administrador*
+   - *Ojo, ejecutar como Administrador*
 
 - systemSGCA.bat
