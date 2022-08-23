@@ -18,8 +18,8 @@
 ---
 
 **Ejecutar programa**
-   - *Ojo, ejecutar como Administrador*
-   ---
+  Ojo, ejecutar como Administrador
+
   Ejecutar el archivo (Requiere Internet)
 
 - systemSGCA.bat
