@@ -119,6 +119,7 @@ def probarAsistentes(user):
                         "Para terminar la conversación con el asistente envíele un mensaje que diga   /stop")
                     print()
                     os.system("rasa shell")
+                    os.system("cls")
                     cargaDatos(user)
                 else:
                     print()
@@ -136,6 +137,7 @@ def probarAsistentes(user):
                     "Para terminar la conversación con el asistente envíele un mensaje que diga   /stop")
                 print()
                 os.system("rasa shell")
+                os.system("cls")
                 cargaDatos(user)
             else:
                 print()
