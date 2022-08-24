@@ -65,6 +65,8 @@ def nluYaml(ques, res):  # Recibe preguntas y respuestas
                                                   '- Estoy triste',
                                                   '- Estoy decepcionado',
                                                   '- súper triste',
+                                                  '- necesito ayuda',
+                                                  '- ayuda',
                                                   '- Estoy tan triste',
                                                   '- triste',
                                                   '- muy triste',
