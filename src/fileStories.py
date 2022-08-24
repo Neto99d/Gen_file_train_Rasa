@@ -47,7 +47,7 @@ def storiesYaml(ques, res):  # Recibe preguntas y respuestas
             if os.path.exists(dirname + os.path.sep + GENERATE_FILE) == False:
                 os.makedirs(dirname + os.path.sep + GENERATE_FILE)
             yaml_file = open(dirname + os.path.sep + GENERATE_FILE + os.path.sep + "stories.yml",
-                             mode="a+", encoding="utf-8")
+                             mode="w+", encoding="utf-8")
 
             #########################################
             # Escribiendo la plantilla en el archivo

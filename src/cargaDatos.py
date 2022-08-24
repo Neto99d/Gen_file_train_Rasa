@@ -17,9 +17,9 @@ collection = db['contenido']
 
 def cargaDatos(user):
    #################################################################
-    print("OPCIONES" + "\n" "1. Crear Asistente Virtual" +
+ print("OPCIONES" + "\n" "1. Crear Asistente Virtual" +
           "\n" "2. Generar Conocimiento" + "\n" + "3. Entrenar Asistente" + "\n"  "4. Probar Asistente" + "\n" "5. Correr servidor de un Asistente (Sólo para uso remoto, por ejemplo si está conectado a un Telegram-Bot)")
-
+ try:
     no = input("Entre el número de la opción: ")
     if(no == '1'):
         os.system("cls")
@@ -41,11 +41,17 @@ def cargaDatos(user):
         print()
         print("Sólo los valores 1 al 5")
         cargaDatos(user)
-
+ except Exception as error:
+            print(error)
+            os.system("cls")
+            print("Error al iniciar opción deseada")
+            print()
+            cargaDatos(user)
 
 def mostrarAsistentes(user):
     print()
     cont = 0
+    entrenado = ""
     collection = db['bots_virtuales']
 
     asistentes = collection.find_one(
@@ -55,7 +61,11 @@ def mostrarAsistentes(user):
         print('Lista de sus Asistentes Virtuales')
         for item in collection.find({'creado_por': user}):
             result = cont = cont + 1
-            print(str(result) + "." + " " + item['nombre'])
+            if (item['entrenado']):
+              entrenado = "Sí"
+            else:
+             entrenado = "No"
+            print(str(result) + "." + " " + item['nombre'] + "      " + "Ha sido entrenado?: " + entrenado)
         print()
         probarAsistentes(user)
     else:
@@ -83,6 +93,12 @@ def probarAsistentes(user):
             print()
             print('Alojado en: ' + str(asistente['alojado_en']))
             print()
+            if (asistente['entrenado']):
+              print('Ha sido entrenado: ' + "Sí" )
+              print()
+            else:
+              print('Ha sido entrenado: ' + "No" )
+              print()
             print('Se creó en la fecha: ' + str(asistente['fecha_creado']))
             print()
             confirmar = input(
@@ -103,13 +119,15 @@ def probarAsistentes(user):
                         "Para terminar la conversación con el asistente envíele un mensaje que diga   /stop")
                     print()
                     os.system("rasa shell")
+                    cargaDatos(user)
                 else:
+                    print()
                     print("Entre la dirección del directorio o carpeta actual donde está el Asistente (Está información se actualizará en la base de datos) y luego presione ENTER")
                 dir = input()
                 os.chdir(dir)
                 collection.update_one(
                     {'nombre': nombre_asistente, 'creado_por': user}, {
-                        '$push': {'alojado_en': dir}}
+                        '$set': {'alojado_en': os.getcwd()}}
                 )
                 os.system("cls")
                 print("Estableciendo conversación de prueba......")
@@ -118,6 +136,7 @@ def probarAsistentes(user):
                     "Para terminar la conversación con el asistente envíele un mensaje que diga   /stop")
                 print()
                 os.system("rasa shell")
+                cargaDatos(user)
             else:
                 print()
                 mostrarAsistentes(user)

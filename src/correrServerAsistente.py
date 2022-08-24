@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 import subprocess
 import os
-
+import cargaDatos
 
 client = MongoClient()
 
@@ -16,7 +16,7 @@ def mostrarAsistentes(user):
     print()
     cont = 0
     collection = db['bots_virtuales']
-
+    entrenado = ""
     asistentes = collection.find_one(
         {'creado_por': user})  # Comprobar que el usuario corresponde al usuario actual, si no se corresponde se genera una excepcion o error
     print()
@@ -24,13 +24,17 @@ def mostrarAsistentes(user):
         print('Lista de sus Asistentes Virtuales')
         for item in collection.find({'creado_por': user}):
             result = cont = cont + 1
-            print(str(result) + "." + " " + item['nombre'])
+            if (item['entrenado']):
+              entrenado = "Sí"
+            else:
+             entrenado = "No"
+            print(str(result) + "." + " " + item['nombre'] + "      " + "Ha sido entrenado?: " + entrenado)
         print()
         cargarAsistentes(user)
     else:
         print()
         print('Aún no tiene Asistentes creados.' + "\n")
-        cargaDatos(user)
+        cargaDatos.cargaDatos(user)
 
 
 def cargarAsistentes(user):
@@ -52,6 +56,12 @@ def cargarAsistentes(user):
             print()
             print('Alojado en: ' + str(asistente['alojado_en']))
             print()
+            if (asistente['entrenado']):
+              print('Ha sido entrenado: ' + "Sí" )
+              print()
+            else:
+              print('Ha sido entrenado: ' + "No" )
+              print()
             print('Se creó en la fecha: ' + str(asistente['fecha_creado']))
             print()
             confirmar = input(
@@ -70,12 +80,13 @@ def cargarAsistentes(user):
                     print()
                     os.system("rasa run")
                 else:
+                    print()
                     print("Entre la dirección del directorio o carpeta actual donde está el Asistente (Está información se actualizará en la base de datos) y luego presione ENTER")
                 dir = input()
                 os.chdir(dir)
                 collection.update_one(
                     {'nombre': nombre_asistente, 'creado_por': user}, {
-                        '$push': {'alojado_en': dir}}
+                        '$set': {'alojado_en': os.getcwd()}}
                 )
                 os.system("cls")
                 print("Iniciando servidor......")

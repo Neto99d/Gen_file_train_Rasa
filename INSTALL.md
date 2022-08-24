@@ -52,7 +52,7 @@ Paquetes de python que serán instalados
 
 *Requisitos*
 
-- Saber como crear bots de Telegram
+- Saber como crear bots de Telegram y tener un bot de Telegram por cada asistente virtual que haya creado con el sistema
 - Saber trabajar con ngrok o similares (Servicios o webhook para escuchar peticiones web)
 
 *Ejecute el archivo*

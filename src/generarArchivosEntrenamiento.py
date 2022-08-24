@@ -2,6 +2,7 @@ import fileNLU
 import fileDomain
 import fileStories
 import fileRules
+import os
 
 
 def generarArchivos(preguntas, respuestas):
@@ -9,10 +10,11 @@ def generarArchivos(preguntas, respuestas):
             fileNLU.nluYaml(preguntas, respuestas) &
             fileStories.storiesYaml(preguntas, respuestas) &
             fileRules.rulesYaml(preguntas, respuestas)):
+        os.system("cls")
         print(
-            '\n' + "Creados con Exito :), en la carpeta Archivos_generados" + '\n' '..............................')
+            '\n' + "Archivos de entrenamiento creados con Exito :)" + '\n' '..............................')
         print()
     
     else:
         print()
-        print("Algo salio mal :( ")
+        print("Algo salio mal al generar archivos :( ")

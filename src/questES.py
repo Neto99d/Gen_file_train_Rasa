@@ -1,6 +1,5 @@
 from textblob import TextBlob
 from collections import OrderedDict
-import createAVirtualES
 import sys
 import os
 import cargaDatos
@@ -10,7 +9,6 @@ from pymongo import MongoClient
 client = MongoClient()
 
 OUTPUT_DIRECTORY = "output"
-
 
 
 def parse(string):
@@ -38,9 +36,6 @@ def genQuestion(line):
     """
     outputs question from the given text
     """
-
-    
-    
 
     if type(line) is str:  # If the passed variable is of type string.
         line = TextBlob(line)  # Create object of type textblob.blob.TextBlob
@@ -147,7 +142,7 @@ def genQuestion(line):
         question = question.replace(" ’ ", "'s ")
 
     # Print the genetated questions as output.
-    
+
     if question != '':
         print('\n', 'Question: ' + question)
         # lista que sera analizada para encontrar duplicados
@@ -230,10 +225,9 @@ def cargatextoDirecto(asunto, user):
         # Send the content of text file as string to function parse()
         global fix_questions
         fix_questions = []
-        
+
         parse(textinput)
-    
-        
+
         questionsEs = []
         responsesEs = []
         # TRADUCTOR ONLINE
@@ -244,13 +238,14 @@ def cargatextoDirecto(asunto, user):
             traductor = GoogleTranslator(source='auto', target='es')
             resultado = traductor.translate(w)
             questionsEs.append(resultado)
-        print("Preguntas: " + questionsEs)
-
+        print("Preguntas: " + str(questionsEs))
+        print()
+        
         for w in responses:
             traductor = GoogleTranslator(source='auto', target='es')
             resultado = traductor.translate(w)
             responsesEs.append(resultado)
-        print("Respuestas: "+ responsesEs)
+        print("Respuestas: " + str(responsesEs))
         ###########################
 
         # Trabajando en Base de datos
@@ -294,26 +289,28 @@ def cargaFicheroText(asunto, user):
         # Send the content of text file as string to function parse()
         global fix_questions
         fix_questions = []
-        
+
         parse(textinput)
-        
+
         questionsEs = []
         responsesEs = []
-        
+
         # TRADUCTOR ONLINE
         print()
         print("Traduciendo preguntas y respuestas................")
+        print()
         for w in questions:
             traductor = GoogleTranslator(source='auto', target='es')
             resultado = traductor.translate(w)
             questionsEs.append(resultado)
-        print("Preguntas: " + questionsEs)
-
+        print("Preguntas: " + str(questionsEs))
+        print()
+        
         for w in responses:
             traductor = GoogleTranslator(source='auto', target='es')
             resultado = traductor.translate(w)
             responsesEs.append(resultado)
-        print("Respuestas: "+ responsesEs)
+        print("Respuestas: " + str(responsesEs))
         ###########################
 
         # Trabajando en Base de datos

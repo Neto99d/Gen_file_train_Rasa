@@ -49,6 +49,7 @@ def creaAsistente(user):  # Recibe el usuario logueado
                 "descripcion": descripcion,
                 "creado_por": user,
                 "alojado_en": dir,
+                "entrenado": False,
                 "fecha_creado": datetime.today().strftime('%Y-%m-%d %I:%M %p')
                 }
         post_id = collection.insert_one(post).inserted_id

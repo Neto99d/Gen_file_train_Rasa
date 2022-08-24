@@ -65,7 +65,7 @@ def mostrarAsuntos(user):
     else:
         print()
         print('Aún no tiene datos guardados.' + "\n")
-        cargaDatos(user)
+        cargaDatos.cargaDatos(user)
 
 
 def cargarAsunto(user):
@@ -108,7 +108,7 @@ def mostrarAsistentes(user):
     print()
     cont = 0
     collection = db['bots_virtuales']
-
+    entrenado = ""
     asistentes = collection.find_one(
         {'creado_por': user})  # Comprobar que el usuario corresponde al usuario actual, si no se corresponde se genera una excepcion o error
     print()
@@ -116,13 +116,19 @@ def mostrarAsistentes(user):
         print('Lista de sus Asistentes Virtuales')
         for item in collection.find({'creado_por': user}):
             result = cont = cont + 1
-            print(str(result) + "." + " " + item['nombre'])
+            if (item['entrenado']):
+                entrenado = "Sí"
+            else:
+                entrenado = "No"
+            print(str(result) + "." + " " +
+                  item['nombre'] + "      " + "Ha sido entrenado?: " + entrenado)
         print()
         cargarAsistentes(user)
     else:
         print()
+        os.system("cls")
         print('Aún no tiene Asistentes creados.' + "\n")
-        cargaDatos(user)
+        cargaDatos.cargaDatos(user)
 
 
 def cargarAsistentes(user):
@@ -144,6 +150,12 @@ def cargarAsistentes(user):
             print()
             print('Alojado en: ' + str(asistente['alojado_en']))
             print()
+            if (asistente['entrenado']):
+                print('Ha sido entrenado: ' + "Sí")
+                print()
+            else:
+                print('Ha sido entrenado: ' + "No")
+                print()
             print('Se creó en la fecha: ' + str(asistente['fecha_creado']))
             print()
             confirmar = input(
@@ -166,6 +178,10 @@ def cargarAsistentes(user):
                             asistente['alojado_en']))
                         os.system(train)
                         print()
+                        collection.update_one(
+                            {'nombre': nombre_asistente, 'creado_por': user}, {
+                                '$set': {'entrenado': True}}
+                        )
                         os.system("cls")
                         print("Se le mostrará un gráfico en su navegador donde podrá ver las preguntas y las respuestas inferidas a cada pregunta (utter_pregunta) después del entrenamiento, para verificar que el Asistente tendrá alta probabilidad de responder correctamente.")
                         print()
@@ -174,12 +190,13 @@ def cargarAsistentes(user):
                         print()
                         cargaDatos.cargaDatos(user)
                 else:
+                    print()
                     print("Entre la dirección del directorio o carpeta actual donde está el Asistente (Está información se actualizará en la base de datos) y luego presione ENTER")
                     dir = input()
                     os.chdir(dir)
                     collection.update_one(
                         {'nombre': nombre_asistente, 'creado_por': user}, {
-                            '$push': {'alojado_en': dir}}
+                            '$set': {'alojado_en': os.getcwd()}}
                     )
                     if mover(dir):
                         visualConocimiento = "rasa visualize"
@@ -188,6 +205,10 @@ def cargarAsistentes(user):
                         print("Espere......... Esta cargando....")
                         os.chdir(dir)
                         os.system(train)
+                        collection.update_one(
+                            {'nombre': nombre_asistente, 'creado_por': user}, {
+                                '$set': {'entrenado': True}}
+                        )
                         print()
                         os.system("cls")
                         print("Se le mostrará un gráfico en su navegador donde podrá ver las preguntas y las respuestas inferidas a cada pregunta (utter_pregunta) después del entrenamiento, para verificar que el Asistente tendrá alta probabilidad de responder correctamente.")
