@@ -9,15 +9,17 @@
 - fileNLU.py
 - fileRules.py
 - fileStories.py  
-- createAVirtualES.py          
+- createAVirtualES.py 
+- generarArchivosEntrenamiento.py
+- correrServerAsistente.py         
 - entrenarAsistenteES.py
 - ConnectToTelegramBot.py
 
 
-*El algoritmo de generación de preguntas fue levemente modificado, el código original está más abajo (Automatic Question Generation)*
+*El algoritmo de generación de preguntas (`Archivo questES.py`) fue hasta cierto punto modificado, el código original está más abajo (Automatic Question Generation)*
 ---
 
-**Ejecutar programa**
+**Ejecutar programa (Ver primero INSTALL.md como guía de instalación)**
 
   Ojo, ejecutar como Administrador
 
@@ -30,22 +32,25 @@
 
 - Deberá crear una cuenta con un nombre de usuario y contraseña para entrar al sistema.
 - Luego podrá iniciar sesión con sus credenciales y usar el programa.
-- El sistema le mostrará dos opciones, cargar un nuevo contenido o cargar un contenido que haya guardado o usado anteriormente (el guardado es automático), en caso de elegir un nuevo contenido se le pedira que proporcione un asunto o título que servirá como identificador para cuando se reutilicen los datos.
-- Luego ejecutará por defecto el módulo (questES.py) para Asistente Virtual en Español. Requiere Internet.
-- En caso de cargar un contenido nuevo se le pedirá entrar la dirección del fichero de texto con el contenido (solo inglés de momento) y luego de entrar la dirección presionar ENTER.
-- Cómo se ejecuta el módulo para asistente virtual en español (este usa un traductor por el momento) igualmente el contenido entrado debe ser en inglés, se trabaja para cambiar a español, pero de momento es en inglés.
-- Si se carga un contenido ya guardado este ya está en español (sólo las preguntas y respuestas). También antes de empezar el proceso se le muestra el contenido para que confirme si es el que desea cargar.
+- El sistema le mostrará varias opciones:
+   1. Crear Asistente Virtual
+   2. Generar Conocimiento
+   3. Entrenar Asistente
+   4. Probar Asistente
+   5. Correr servidor de un Asistente (Sólo para uso remoto, por ejemplo si está conectado a un Telegram-Bot)
+ 
+ *En cada una de las opciones el sistema lo guiará paso a paso, y le dirá que tiene que hacer*
 
-  **Automaticamente el programa hace lo siguiente:**
-  - Se extraen las preguntas y respuestas (questions, responses).
-  - Las respuestas son las oraciones del texto, exactamente se crea un par pregunta _ respuesta.
-  - Se le envía esa información extraída a los diferentes ficheros mencionados que tienen la lógica de contrucción del conocimiento, además de tener las funciones para la generación del archivo en el formato que el asistente virtual de Rasa  maneja.
-  - Se crearán los archivos de entrenamiento en la carpeta `Archivos_generados`.
-  - Luego se creará y entrenará el Asistente Virtual siguiendo los pasos que se le pondrán. En este proceso los archivos de  entrenamiento se moverán automáticamente de `Archivos_generados` a la carpeta elegida por usted, que es donde tiene el  asistente virtual. (Los archivos irán exactamente a los directorios correspondientes para el funcionamiento).  
-  - Luego podrá ver en el navegador un *gráfico con el conocimiento del Asistente donde podrá apreciar si las preguntas corresponden con las respuestas inferidas después del entrenamiento `(pregunta -> utter_pregunta (respuesta inferida))`* y si es correcto el bot tendrá alta probabilidad de responder correctamente. De forma simultánea ya en la ventana del programa se establecerá una conversación de prueba con el Asistente Virtual para que pueda interactuar con él.
+  **El programa hace lo siguiente en cada número de opción:**
+  1. Es dónde se crea el Asistente Virtual `(deberá proporcionar un nombre y una descripción para el mismo)`, después de crear uno puede elegir si crear otro o no.
+  2. Es dónde se genera se genera el conocimiento en sí, y se hace primeramente el análisis del contenido (un texto o un archivo de texto con infomracón) que se le pedirá. Se extraen las preguntas y las respuestas (el contenido entrado por el momento debe ser en inglés, se busca una solución para idioma español), estas preguntas y respuestas serán traducidas en línea (online) al español y guardadas en una base de datos automáticamente las cuáles se usarán para los archivos de entrenamiento. Al finalizar tendrá la posibilidad de elegir cargar otro contenido o no.
+  3. Es dónde se realiza el proceso de entrenamiento del asistente virtual. Se cargan los datos que el usuario tenga guardados y podrá elegir que contenido cargará para generar los archivos de entrenamiento para el asistente (Se crearán los archivos de entrenamiento en la carpeta `Archivos_generados`), luego saldrá una lista de los asistentes virtuales que el usuario haya creado y eligirá que asistente quiere entrenar con dichos archivos (verá la información de dicho asistente y confirmará que es ese el que desea cargar). También se mostrará después del entrenamiento en el navegador, un *gráfico con el conocimiento del Asistente donde podrá apreciar si las preguntas corresponden con las respuestas inferidas después del entrenamiento `(pregunta -> utter_pregunta (respuesta inferida))`*, y si es correcto el bot tendrá alta probabilidad de responder correctamente. (Puede ver el gráfico en cualquier momento si va a la carpeta correspondiente al asistente virtual que quiere y ejecutar el archivo `graph.html`).
+  4. Esta parte como bien dice es para probar el asistente, se mostrará una lista con los asistentes virtuales del usuario y podrá elegir cuál quiere probar, luego podrá establecer una conversación con el asistente elegido. 
+  5. En esta opción en caso de que vaya a usar su asistente de forma remota tendrá la posibilidad de correr el servidor de este para que pueda escuchar las peticiones que se le envien.
+  
 
 ---
-**Módulo de conexión con Telegram. Si tiene un bot de Telegram y desea conectar este a su Asistente Virtual y poder interactuar desde esa plataforma**
+**Módulo de conexión con Telegram. Si tiene un bot de Telegram y desea conectar este a su Asistente Virtual y poder interactuar desde esa plataforma (Usuario Avanzado)**
 
 - Ejecute `Conectar con su Telegram-Bot.bat` y proporcione los datos que se le piden.
 
@@ -55,7 +60,7 @@
 
 ---
 
-*También en la carpeta `Tesis\Capturas de pantalla` puede ver ejemplos de la herramienta funcionando o ver los videos que están en la carpeta Tesis*
+*También en la carpeta `Tesis` puede ver videos y capturas que están en la carpeta Tesis*
 ---
 
 ---

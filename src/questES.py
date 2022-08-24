@@ -1,18 +1,16 @@
 from textblob import TextBlob
 from collections import OrderedDict
-import fileNLU
-import fileDomain
-import fileStories
-import fileRules
 import createAVirtualES
 import sys
 import os
+import cargaDatos
 from deep_translator import GoogleTranslator
 from pymongo import MongoClient
 
 client = MongoClient()
 
 OUTPUT_DIRECTORY = "output"
+
 
 
 def parse(string):
@@ -23,6 +21,7 @@ def parse(string):
     try:
         global responses  # Respuestas que se enviaran para archivos de Rasa
         responses = []
+
         txt = TextBlob(string)
 
         # Each sentence is taken from the string input and passed to genQuestion() to generate questions.
@@ -39,6 +38,9 @@ def genQuestion(line):
     """
     outputs question from the given text
     """
+
+    
+    
 
     if type(line) is str:  # If the passed variable is of type string.
         line = TextBlob(line)  # Create object of type textblob.blob.TextBlob
@@ -145,6 +147,7 @@ def genQuestion(line):
         question = question.replace(" ’ ", "'s ")
 
     # Print the genetated questions as output.
+    
     if question != '':
         print('\n', 'Question: ' + question)
         # lista que sera analizada para encontrar duplicados
@@ -166,17 +169,10 @@ def main(user):
     ################################
     print()
     print("Ha entrado al Sistema de Generación de Conocimiento Automático para Asistentes Virtuales de RASA" + "\n")
-    print("- Si desea cancelar cualquier operación  o salir del Sistema presione Ctrl + C")
+    print("- Si desea cancelar cualquier operación y salir a la pantalla principal del Sistema presione Ctrl + C" + "\n" + "- Si le sale al presionar Ctrl +C: " +
+          "¿Desea terminar el trabajo por lotes (S/N)?, " + "presione s para cerrar o n para iniciar nuevamente el sistema")
     print()
     ################################
-    global fix_questions  # lista donde se Limpiara preguntas duplicadas
-    fix_questions = []
-    questionsEs = []
-    responsesEs = []
-    domainRasa = fileDomain
-    nluRasa = fileNLU
-    storiesRasa = fileStories
-    rulesRasa = fileRules
 
     # verbose mode is activated when we give -v as argument.
     global verbose
@@ -193,92 +189,149 @@ def main(user):
     print("Ponga brevemente un Asunto (es como un Título) de que trata el contenido que va a entrar, esto servirá para guardar e identificar los datos y ser usados nuevamente cuando desee: ")
     asunto = input()
     print("Asunto: " + asunto)
-    print("Entre la direccion del archivo de texto con el contenido")  # AGREGADO
-    dirname, filename = os.path.split(os.path.abspath(__file__))
-    # filename = "file.txt"
-    # if os.path.exists(dirname+ os.path.sep + OUTPUT_DIRECTORY) == False:
-    # os.makedirs(dirname+ os.path.sep + OUTPUT_DIRECTORY)
+    print()
+    print("Proporcione un contenido (un texto o un archivo de texto) para extraer las posibles preguntas y respuestas" + "\n")
+    print("OPCIONES" + "\n" "1. Cargar contenido con texto entrado directamente" +
+          "\n" "2. Cargar contenido poniendo la direccion del archivo de texto (extensión .txt)")
+    noOpcion = input(
+        "Escriba el número de la opción: ")
+    if (noOpcion == '1'):
+        os.system("cls")
+        cargaFicheroText(asunto, user)
+       # cargatextoDirecto()
+    else:
+        os.system("cls")
+        cargaFicheroText(asunto, user)
 
-    filehandle = open(dirname + os.path.sep + "file.txt",
-                      'r')  # cambiado input()
-    textinput = filehandle.read()
-    print('\n-----------INPUT TEXT-------------\n')
-    print(textinput, '\n')
-    print('\n-----------INPUT END---------------\n')
+####################################################################################
 
-    # Send the content of text file as string to function parse()
 
-    parse(textinput)
-
-    # TRADUCTOR ONLINE
-    for w in questions:
-        traductor = GoogleTranslator(source='auto', target='es')
-        resultado = traductor.translate(w)
-        questionsEs.append(resultado)
-    print(questionsEs)
-
-    for w in responses:
-        traductor = GoogleTranslator(source='auto', target='es')
-        resultado = traductor.translate(w)
-        responsesEs.append(resultado)
-    print(responsesEs)
-    ###########################
-
-    # Trabajando en Base de datos
-
-    db = client['rasa_File_DB']
-    collection = db['contenido']
-    post = {"asunto": asunto,
-            "user": user,
-            "texto": textinput,
-            "questions": questionsEs,
-            "responses": responsesEs,
-            }
-    posts = db.collection
-    post_id = collection.insert_one(post).inserted_id
-
-    ############################
-    # questionsEs  responsesEs            (Parametros a pasar si se usa traductor)
-    if (domainRasa.domYaml(questionsEs, responsesEs) &
-            nluRasa.nluYaml(questionsEs, responsesEs) &
-            storiesRasa.storiesYaml(questionsEs, responsesEs) &
-            rulesRasa.rulesYaml(questionsEs, responsesEs)):
-        print(
-            '\n' + "Creados con Exito :), en la carpeta Archivos_generados" + '\n' '..............................')
-        print()
-        createAVirtualES.creaAsistente()
+def opcion(user):
+    print()
+    confirmar = input(
+        "Desea cargar otro Contenido: Escriba si o no: ")
+    if (confirmar == 'si'):
+        os.system("cls")
+        main(user)
     else:
         print()
-        print("Algo salio mal :( ")
+        os.system("cls")
+        cargaDatos.cargaDatos(user)
+
+#############################################################################
 
 
-##########################################################
-#######################################
-
-def mainCargaDatos(preguntas, respuestas):
-    """
-    Accepts a text file as an argument and generates questions from it.
-    """
-    ################################
-    print("Ha entrado al Sistema de Generación de Conocimiento Automático para Asistentes Virtuales de RASA" + "\n")
-    print()
-    print("Si desea cancelar cualquier operación  o salir del Sistema presione Ctrl + C")
-    print()
-    ################################
-    domainRasa = fileDomain
-    nluRasa = fileNLU
-    storiesRasa = fileStories
-    rulesRasa = fileRules
-    ###########################
-
-    if (domainRasa.domYaml(preguntas, respuestas) &
-            nluRasa.nluYaml(preguntas, respuestas) &
-            storiesRasa.storiesYaml(preguntas, respuestas) &
-            rulesRasa.rulesYaml(preguntas, respuestas)):
-        print(
-            '\n' + "Creados con Exito :), en la carpeta Archivos_generados" + '\n' '..............................')
+def cargatextoDirecto(asunto, user):
+    try:
         print()
-        createAVirtualES.creaAsistente()
-    else:
+        print("Copie su texto y presione ENTER")
+        textinput = input()
+
+        # Send the content of text file as string to function parse()
+        global fix_questions
+        fix_questions = []
+        
+        parse(textinput)
+    
+        
+        questionsEs = []
+        responsesEs = []
+        # TRADUCTOR ONLINE
         print()
-        print("Algo salio mal :( ")
+        print("Traduciendo preguntas y respuestas................")
+        print()
+        for w in questions:
+            traductor = GoogleTranslator(source='auto', target='es')
+            resultado = traductor.translate(w)
+            questionsEs.append(resultado)
+        print("Preguntas: " + questionsEs)
+
+        for w in responses:
+            traductor = GoogleTranslator(source='auto', target='es')
+            resultado = traductor.translate(w)
+            responsesEs.append(resultado)
+        print("Respuestas: "+ responsesEs)
+        ###########################
+
+        # Trabajando en Base de datos
+
+        db = client['rasa_File_DB']
+        collection = db['contenido']
+        post = {"asunto": asunto,
+                "user": user,
+                "texto": textinput,
+                "questions": questionsEs,
+                "responses": responsesEs,
+                }
+        posts = db.collection
+        post_id = collection.insert_one(post).inserted_id
+        print()
+        print("Operación finalizada con éxito, información guardada en su Base de Datos")
+        opcion(user)
+    except Exception as error:
+        print(error)
+        print("Error inesperado")
+        print("Intente nuevamente")
+######################################################################
+
+
+def cargaFicheroText(asunto, user):
+    try:
+        print()
+        print("Entre la direccion del archivo de texto (archivo.txt) con el contenido")
+        dirname, filename = os.path.split(os.path.abspath(__file__))
+        # filename = "file.txt"
+        # if os.path.exists(dirname+ os.path.sep + OUTPUT_DIRECTORY) == False:
+        # os.makedirs(dirname+ os.path.sep + OUTPUT_DIRECTORY)
+
+        filehandle = open(dirname + os.path.sep + "file.txt",
+                          'r')  # cambiado input()
+        textinput = filehandle.read()
+        print('\n-----------INPUT TEXT-------------\n')
+        print(textinput, '\n')
+        print('\n-----------INPUT END---------------\n')
+
+        # Send the content of text file as string to function parse()
+        global fix_questions
+        fix_questions = []
+        
+        parse(textinput)
+        
+        questionsEs = []
+        responsesEs = []
+        
+        # TRADUCTOR ONLINE
+        print()
+        print("Traduciendo preguntas y respuestas................")
+        for w in questions:
+            traductor = GoogleTranslator(source='auto', target='es')
+            resultado = traductor.translate(w)
+            questionsEs.append(resultado)
+        print("Preguntas: " + questionsEs)
+
+        for w in responses:
+            traductor = GoogleTranslator(source='auto', target='es')
+            resultado = traductor.translate(w)
+            responsesEs.append(resultado)
+        print("Respuestas: "+ responsesEs)
+        ###########################
+
+        # Trabajando en Base de datos
+
+        db = client['rasa_File_DB']
+        collection = db['contenido']
+        post = {"asunto": asunto,
+                "user": user,
+                "texto": textinput,
+                "questions": questionsEs,
+                "responses": responsesEs,
+                }
+        posts = db.collection
+        post_id = collection.insert_one(post).inserted_id
+        print()
+        print("Operación finalizada con éxito, información guardada en su Base de Datos")
+        opcion(user)
+    except Exception as error:
+        print(error)
+        print("Error inesperado")
+        print("Intente nuevamente")

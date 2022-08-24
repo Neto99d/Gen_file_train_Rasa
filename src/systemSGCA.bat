@@ -1,4 +1,5 @@
 @echo off
+REM --> Verificar privilegios o permisos
 IF "%PROCESSOR_ARCHITECTURE%" EQU "amd64" (
 >nul 2>&1 "%SYSTEMROOT%\SysWOW64\cacls.exe" "%SYSTEMROOT%\SysWOW64\config\system"
 ) ELSE (
@@ -10,11 +11,19 @@ if '%errorlevel%' NEQ '0' (
     echo Corra el programa como Administrador.
 	echo De clic derecho sobre el ejecutable del programa y presione Ejecutar como Administrador.
 ) else (
-echo Abriendo......... ^
 
-
-"%~dp0\systemSGCA.py"
+call :AbrirPrograma
 pause
 )
-    
+
+REM --> Funcion para ejecutar el programa
+:AbrirPrograma
+ echo Abriendo.........
+ "%~dp0\systemSGCA.py"
+ cls
+ call :AbrirPrograma
+ pause
+
+cls
+call :AbrirPrograma    
 pause

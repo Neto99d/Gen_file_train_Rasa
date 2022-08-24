@@ -43,3 +43,13 @@ Paquetes de python que serán instalados
 
   *Ejecutar el archivo (Requiere Internet) que está en la carpeta `src`*
    - systemSGCA.bat
+
+**Para usuarios avanzados, uso del módulo de Telegram para conectar su Asistente a su bot de Telegram**
+
+*Requisitos*
+ - Saber como crear bots de Telegram
+ - Saber trabajar con ngrok o similares (Servicios o webhook para escuchar peticiones web)
+
+*Ejecute el archivo*
+ - Ejecute `Conectar con su Telegram-Bot.bat` y proporcione los datos que se le piden.
+ - Una vez configurado inicie el servidor de su Asistente Virtual y podrá interactuar desde Telegram con su asistente.

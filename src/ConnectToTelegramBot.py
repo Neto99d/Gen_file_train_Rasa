@@ -37,6 +37,7 @@ def credentYaml():
             yaml.indent(mapping=2, sequence=4, offset=2)  # Sangria y margen
             yaml.dump(rest, yaml_file)
             yaml.dump(rasa, yaml_file)
+            print()
             print("Para conectar su Asistente a su bot de Telegram")
             print("Entre el token de su bot de Telegram: ")
             token = input()
@@ -44,7 +45,7 @@ def credentYaml():
                 "Entre el nombre de usuario (sin el @) que aparece en el perfil (no el nombre normal) de su bot de Telegram: ")
             nombre = input()
             print(
-                "Entre la direccion Webhook desde donde recibira las peticiones (Solo https): ")
+                "Entre la direccion Webhook desde donde recibirá las peticiones (Solo https): ")
             webhook = input()
 
             telegram['telegram']['access_token'] = token
@@ -72,7 +73,7 @@ if credentYaml():
         dirname, filename = os.path.split(os.path.abspath(__file__))
         print("Se moverá el archivo a la carpeta del Asistente")
         print(
-            "Entre la direccion del directorio donde esta el Asistente y luego presione ENTER")
+            "Entre la direccion del directorio o carpeta donde esta el Asistente y luego presione ENTER")
         dir = input()
         os.chdir(dir)
         print()
@@ -81,6 +82,8 @@ if credentYaml():
         shutil.move(dirname + os.path.sep + "Archivos_generados" + os.path.sep + "credentials.yml",
                     os.path.join(dir, "credentials.yml"))
         print("Movido con Exito :)")
+        print()
+        print("Operacón para la configuración de conexión con Telegram-Bot finalizada con éxito")
     except Exception as error:
         print()
         print("Error: No existe el archivo")

@@ -1,9 +1,5 @@
 from pymongo import MongoClient
-import questES
 import subprocess
-import entrenarAsistenteES
-import createAVirtualES
-import correrServerAsistente
 import os
 
 
@@ -12,38 +8,11 @@ client = MongoClient()
 
 # BASE DE DATOS
 db = client['rasa_File_DB']
-collection = db['contenido']
-
-
-def cargaDatos(user):
-   #################################################################
-    print("OPCIONES" + "\n" "1. Crear Asistente Virtual" +
-          "\n" "2. Generar Conocimiento" + "\n" + "3. Entrenar Asistente" + "\n"  "4. Probar Asistente" + "\n" "5. Correr servidor de un Asistente (Sólo para uso remoto, por ejemplo si está conectado a un Telegram-Bot)")
-
-    no = input("Entre el número de la opción: ")
-    if(no == '1'):
-        os.system("cls")
-        createAVirtualES.creaAsistente(user)
-    elif(no == '2'):
-        os.system("cls")
-        questES.main(user)
-    elif (no == '3'):
-        os.system("cls")
-        entrenarAsistenteES.entrenar(user)
-    elif (no == '4'):
-        os.system("cls")
-        mostrarAsistentes(user)
-    elif (no == '5'):
-       os.system("cls")
-       correrServerAsistente.mostrarAsistentes(user)
-    else:
-        print()
-        print()
-        print("Sólo los valores 1 al 5")
-        cargaDatos(user)
 
 
 def mostrarAsistentes(user):
+    print("- Si desea cancelar cualquier operación y salir a la pantalla principal del Sistema presione Ctrl + C" + "\n" + "- Si le sale al presionar Ctrl +C: " +
+          "¿Desea terminar el trabajo por lotes (S/N)?, " + "presione s para cerrar o n para iniciar nuevamente el sistema")
     print()
     cont = 0
     collection = db['bots_virtuales']
@@ -57,14 +26,14 @@ def mostrarAsistentes(user):
             result = cont = cont + 1
             print(str(result) + "." + " " + item['nombre'])
         print()
-        probarAsistentes(user)
+        cargarAsistentes(user)
     else:
         print()
         print('Aún no tiene Asistentes creados.' + "\n")
         cargaDatos(user)
 
 
-def probarAsistentes(user):
+def cargarAsistentes(user):
     print()
     collection = db['bots_virtuales']
     nombre_asistente = input(
@@ -97,12 +66,9 @@ def probarAsistentes(user):
                     print()
                     os.system("cls")
                     os.chdir(str(asistente['alojado_en']))
-                    print("Estableciendo conversación de prueba......")
+                    print("Iniciando servidor......")
                     print()
-                    print(
-                        "Para terminar la conversación con el asistente envíele un mensaje que diga   /stop")
-                    print()
-                    os.system("rasa shell")
+                    os.system("rasa run")
                 else:
                     print("Entre la dirección del directorio o carpeta actual donde está el Asistente (Está información se actualizará en la base de datos) y luego presione ENTER")
                 dir = input()
@@ -112,17 +78,14 @@ def probarAsistentes(user):
                         '$push': {'alojado_en': dir}}
                 )
                 os.system("cls")
-                print("Estableciendo conversación de prueba......")
+                print("Iniciando servidor......")
                 print()
-                print(
-                    "Para terminar la conversación con el asistente envíele un mensaje que diga   /stop")
-                print()
-                os.system("rasa shell")
+                os.system("rasa run")
             else:
                 print()
                 mostrarAsistentes(user)
         except Exception as error:
-            print(error)
+            print()
             print("Este asistente virtual no está entre los que tiene creados")
             print()
             mostrarAsistentes(user)
