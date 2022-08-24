@@ -1,21 +1,24 @@
-# Guía de Instalación 
+# Guía de Instalación
+
 ---
 
 *Sólo para Sistema Operativo Windows 7,8,10,11*
 
 *Requiere python 3.8 (Recomendado) en adelante*
 
-- Descarga python 3.8 aquí: https://www.python.org/ftp/python/3.8.0/python-3.8.0-amd64.exe 
+- Descarga python 3.8 aquí: <https://www.python.org/ftp/python/3.8.0/python-3.8.0-amd64.exe>
 
 ---
 
 **Instalar dependencias de la herramienta con un click**
 
 Ejecutar (Requiere Internet) para instalar todos los paquetes de python requeridos.
-- `Instalar requerimientos python.bat` 
+
+- `Instalar requerimientos python.bat`
 
 ---
 Paquetes de python que serán instalados
+
 - rasa==3.0.0
 - nltk==3.4.5
 - textblob==0.15.0
@@ -25,6 +28,7 @@ Paquetes de python que serán instalados
 - deep-translator==1.7.0
 - pymongo==3.10.1
 - bcrypt==3.2.2
+
 ---
 
 **Instalar MongoDb para Base de Datos**
@@ -34,22 +38,24 @@ Paquetes de python que serán instalados
 
 - `(Opcional)` Para administrar la base de datos puede usar el RoboMongo 3T: <https://studio3t.com/download-studio3t-free>
 
-
 ---
 
 **Al tener todo listo Ejecutar el programa :)**
 
-   - *Ojo, ejecutar como Administrador*
+- *Ojo, ejecutar como Administrador*
 
   *Ejecutar el archivo (Requiere Internet) que está en la carpeta `src`*
-   - systemSGCA.bat
+
+- systemSGCA.bat
 
 **Para usuarios avanzados, uso del módulo de Telegram para conectar su Asistente a su bot de Telegram**
 
 *Requisitos*
- - Saber como crear bots de Telegram
- - Saber trabajar con ngrok o similares (Servicios o webhook para escuchar peticiones web)
+
+- Saber como crear bots de Telegram
+- Saber trabajar con ngrok o similares (Servicios o webhook para escuchar peticiones web)
 
 *Ejecute el archivo*
- - Ejecute `Conectar con su Telegram-Bot.bat` y proporcione los datos que se le piden.
- - Una vez configurado inicie el servidor de su Asistente Virtual y podrá interactuar desde Telegram con su asistente.
+
+- Ejecute `Conectar con su Telegram-Bot.bat` y proporcione los datos que se le piden.
+- Una vez configurado inicie el servidor de su Asistente Virtual y podrá interactuar desde Telegram con su asistente.
