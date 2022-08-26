@@ -6,7 +6,4 @@ ruamel.yaml.clib==0.2.6
 six==1.15.0
 deep-translator==1.7.0
 pymongo==3.10.1
-spacy==3.1.0
-en-core-web-md==3.1.0
-es-core-news-md==3.1.0
 bcrypt==3.2.2

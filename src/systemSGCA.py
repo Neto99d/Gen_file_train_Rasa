@@ -1,11 +1,9 @@
 from pymongo import MongoClient
 import bcrypt
 from datetime import datetime
-#import quest
-import questES
 import cargaDatos
 import socket
-
+import os
 
 
 client = MongoClient()
@@ -18,7 +16,9 @@ collection = db['users']
 
 
 def register():
-    #### PIDIENDO DATOS PARA REGISTRO ####
+    print()
+    # PIDIENDO DATOS PARA REGISTRO ####
+    print()
     print("REGISTRARSE EN EL SISTEMA.")
     name = input('Cree su nombre de usuario : ')
     password = input('Cree su contraseña : ')
@@ -46,8 +46,6 @@ def register():
 
 
 def login():
-    #generateEN = quest
-    generateES = questES
     #### PIDIENDO DATOS PARA REGISTRO ####
     print()
     print("INICIAR SESIÓN PARA USAR LA APLICACIÓN")
@@ -66,8 +64,9 @@ def login():
                 '$push': {'fechas_Inicio_sesion': datetime.today().strftime('%Y-%m-%d %I:%M %p')+"  IP: " + IPAddr}}
         )
         print()
+        os.system("cls")
         cargaDatos.cargaDatos(login_user['nombre'])
-      
+
     else:
         print()
         print("ERROR de Usuario o contraseña" + '\n')
@@ -75,6 +74,7 @@ def login():
 
 
 def opciones():
+    print()
    #################################################################
     print("OPCIONES" + "\n" "1. Registrarse" + "\n" "2. Iniciar Sesión")
 
@@ -91,8 +91,12 @@ def opciones():
         opciones()
 
 
+print()
 print("Recuerde que los datos entrados para la construcción del conocimiento una vez este dentro del sistema deben ser en Inglés.")
+print()
 print("A partir de los datos en Inglés se ejecutará el módulo de la herramienta para generar el conocimiento del asistente virtual en idioma español.")
-print("OJO >>>> REQUIERE INTERNET")
+print()
+print("- Si desea cancelar cualquier operación y salir a la pantalla principal del Sistema presione Ctrl + C" + "\n" + "- Si le sale al presionar Ctrl +C: " +
+          "¿Desea terminar el trabajo por lotes (S/N)?, " + "presione s para cerrar o n para iniciar nuevamente el sistema")
 print()
 opciones()

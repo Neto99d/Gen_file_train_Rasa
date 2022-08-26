@@ -1,28 +1,4 @@
-# Automáticamente :: Crear bots de Rasa y generar archivos de entrenamiento para ellos, a partir de datos proporcionados con los que se construye el conocimiento
-
-**Instalar dependencias de la herramienta vía línea de comandos (cmd)**
-
-- `pip install -r requirements.txt` para instalar todo de una vez
-
-- O puede Instalar dependencias una a una ejecutando
-
-     `pip install <package_name>`
-
-  **nombres de paquetes**
-  - rasa==3.0.0
-  - nltk==3.4.5
-  - textblob==0.15.0
-  - ruamel.yaml==0.16.13
-  - ruamel.yaml.clib==0.2.6
-  - six==1.15.0
-  - deep-translator==1.7.0
-  - pymongo==3.10.1
-  - spacy==3.1.0
-  - en-core-web-md==3.1.0
-  - es-core-news-md==3.1.0
-  - bcrypt==3.2.2
-
----
+# Crear bots de Rasa y generar archivos de entrenamiento para ellos de forma automática, a partir de datos proporcionados con los que se construye el conocimiento
 
 **Código Personal**
 
@@ -32,74 +8,59 @@
 - fileNLU.py
 - fileRules.py
 - fileStories.py  
-- createAVirtual.py
-- entrenarAsistente.py
+- createAVirtualES.py
+- generarArchivosEntrenamiento.py
+- correrServerAsistente.py
+- entrenarAsistenteES.py
 - ConnectToTelegramBot.py
-- ConfigToSpacyNLP_ES.py
 
-**- Instalar MongoDb para Base de Datos**
-
-- Descarga MongoDB desde: <https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-5.0.9-signed.msi>
-- Para administrar la base de datos el RoboMongo 3T: <https://studio3t.com/download-studio3t-free>
-
+*El algoritmo de generación de preguntas (`Archivo questES.py`) fue hasta cierto punto modificado, el código original está más abajo (Automatic Question Generation)*
 ---
 
-El algoritmo de generación de preguntas fue levemente modificado, el código original está más abajo (Automatic Question Generation)
----
+**Ejecutar programa (Ver primero INSTALL.md como guía de instalación)**
 
-**Ejecutar programa por vía CMD**
+  Ojo, ejecutar como Administrador
 
   Ejecutar el archivo (Requiere Internet)
 
-- python systemSGCA.py
+- systemSGCA.bat
+
 ---
 
 **Funcionamiento**
 
 - Deberá crear una cuenta con un nombre de usuario y contraseña para entrar al sistema.
 - Luego podrá iniciar sesión con sus credenciales y usar el programa.
-- El sistema le mostrará dos opciones, cargar un nuevo contenido o cargar un contenido que haya guardado o usado anteriormente (el guardado es automático), en caso de elegir un nuevo contenido se le pedira que proporcione un asunto o título que servirá como identificador para cuando se reutilicen los datos.
-- Luego ejecutará por defecto el módulo (questES.py) para Asistente Virtual en Español. Requiere Internet.
-- En caso de cargar un contenido nuevo se le pedirá entrar la dirección del fichero de texto con el contenido (solo inglés de momento) y luego de entrar la dirección presionar ENTER.
-- Cómo se ejecuta el módulo para asistente virtual en español (este usa un traductor por el momento) igualmente el contenido entrado debe ser en inglés, se trabaja para cambiar a español, pero de momento es en inglés.
-- Si se carga un contenido ya guardado este ya está en español (sólo las preguntas y respuestas). También antes de empezar el proceso se le muestra el contenido para que confirme si es el que desea cargar.
+- El sistema le mostrará varias opciones:
+   1. Crear Asistente Virtual
+   2. Generar Conocimiento
+   3. Entrenar Asistente
+   4. Probar Asistente
+   5. Correr servidor de un Asistente (Sólo para uso remoto, por ejemplo si está conectado a un Telegram-Bot)
 
-  **Automaticamente el programa hace lo siguiente:**
-  - Se extraen las preguntas y respuestas (questions, responses).
-  - Las respuestas son las oraciones del texto, exactamente se crea un par pregunta _ respuesta.
-  - Se le envía esa información extraída a los diferentes ficheros mencionados que tienen la lógica de contrucción del conocimiento, además de tener las funciones para la generación del archivo en el formato que el asistente virtual de Rasa  maneja.
-  - Se crearán los archivos de entrenamiento en la carpeta `Archivos_generados`.
-  - Luego se creará y entrenará el Asistente Virtual siguiendo los pasos que se le pondrán. En este proceso los archivos de  entrenamiento se moverán automáticamente de `Archivos_generados` a la carpeta elegida por usted, que es donde tiene el  asistente virtual. (Los archivos irán exactamente a los directorios correspondientes para el funcionamiento).  
-  - Luego podrá establecer una conversación de prueba con el Asistente Virtual.
+ *En cada una de las opciones el sistema lo guiará paso a paso, y le dirá que tiene que hacer*
 
+  **El programa hace lo siguiente en cada número de opción:**
+
+  1. Es dónde se crea el Asistente Virtual `(deberá proporcionar un nombre y una descripción para el mismo)`, después de crear uno puede elegir si crear otro o no.
+  2. Es dónde se generan datos de entrenamiento o el conocimiento en sí, y se hace primeramente el análisis del contenido (un texto o un archivo de texto con infomracón) que se le pedirá. Se extraen las preguntas y las respuestas (el contenido entrado por el momento debe ser en inglés, se busca una solución para idioma español), estas preguntas y respuestas serán traducidas en línea (online) al español y guardadas en una base de datos automáticamente las cuáles se usarán para los archivos de entrenamiento. Al finalizar tendrá la posibilidad de elegir cargar otro contenido o no. Tiene la ventaja de generar datos de entrenamiento y guardarlos sin tener aún asistentes creados, los cuales podrá entrenar luego con los datos que ha generado.
+  3. Es dónde se realiza el proceso de entrenamiento del asistente virtual. Se cargan los datos que el usuario tenga guardados y podrá elegir que contenido cargará para generar los archivos de entrenamiento para el asistente (Se crearán los archivos de entrenamiento en la carpeta `Archivos_generados`), luego saldrá una lista de los asistentes virtuales que el usuario haya creado (Mostrará el nombre del asistente y si este ha sido entrenado o no) y elegirá que asistente quiere entrenar con dichos archivos los cuáles se moverán automáticamente una vez empiece el entrenamiento (verá la información completa de dicho asistente y confirmará que es ese el que desea cargar). También se mostrará después del entrenamiento en el navegador, un *gráfico con el conocimiento del Asistente donde podrá apreciar si las preguntas corresponden con las respuestas inferidas después del entrenamiento `(pregunta -> utter_pregunta (respuesta inferida))`*, y si es correcto el bot tendrá alta probabilidad de responder correctamente. (Puede ver el gráfico en cualquier momento si va a la carpeta correspondiente al asistente virtual que quiere y ejecutar el archivo `graph.html`).
+  4. Esta parte como bien dice es para probar el asistente, se mostrará una lista con los asistentes virtuales del usuario y podrá elegir cuál quiere probar, luego podrá establecer una conversación con el asistente elegido.
+  5. En esta opción en caso de que vaya a usar su asistente de forma remota tendrá la posibilidad de correr el servidor de este para que pueda escuchar las peticiones que se le envien.
+  
 ---
-**Módulo de conexión con Telegram. Si tiene un bot de Telegram y desea conectar este a su Asistente Virtual y poder interactuar desde esa plataforma**
+**Módulo de conexión con Telegram. Si tiene un bot de Telegram y desea conectar este a su Asistente Virtual y poder interactuar desde esa plataforma (Usuario Avanzado)**
 
-- Ejecute `ConnectToTelegramBot.py` y proporcione los datos que se le piden.
-- Modo de ejecución vía CMD:
-  - `python ConnectToTelegramBot.py`
-
----
----
-
-También en la carpeta `output` puede ver ejemplos de cómo quedan los archivos de entrenamiento en el formato del asistente virtual de Rasa usando la  herramienta
----
+- Ejecute `Conectar con su Telegram-Bot.bat` y proporcione los datos que se le piden.
 
 ---
 
-También en la carpeta `Tesis\Capturas de pantalla` puede ver ejemplos de la herramienta funcionando o ver el video que está en la carpeta Tesis
----
+*También en la carpeta `output` puede ver ejemplos de cómo quedan los archivos de entrenamiento en el formato del asistente virtual de Rasa usando la  herramienta*
 
 ---
-**Probar entrenamiento del Asistente**
 
-- **Ejecutar estos comandos vía cmd a la carpeta donde se creó el bot de Rasa**
-  - Ejecutar comando `rasa visualize` para ver la gráfica de aprendizaje y verificar entrenamiento.
-  - Ejecutar comando `rasa shell`  para conversar con el bot.
-  - Ejecutar comando `rasa run`  para correr el servidor de Rasa y pueda conversar con el bot por los canales que lo tenga conectado, como por ejemplo Telegram en caso de que haya habilitado la conexión a esta plataforma con el módulo antes mencionado.
-
+*También en la carpeta `Tesis` puede ver videos y capturas del programa*
 ---
-------
 ------
 ------
 ---
