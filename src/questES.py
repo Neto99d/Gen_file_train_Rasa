@@ -9,6 +9,8 @@ from pymongo import MongoClient
 client = MongoClient()
 
 OUTPUT_DIRECTORY = "output"
+db = client['rasa_File_DB']
+collection = db['contenido']
 
 
 def parse(string):
@@ -183,20 +185,27 @@ def main(user):
 
     print("Ponga brevemente un Asunto (es como un Título) de que trata el contenido que va a entrar, esto servirá para guardar e identificar los datos y ser usados nuevamente cuando desee: ")
     asunto = input()
-    print("Asunto: " + asunto)
-    print()
-    print("Proporcione un contenido (un texto o un archivo de texto) para extraer las posibles preguntas y respuestas" + "\n")
-    print("OPCIONES" + "\n" "1. Cargar contenido con texto entrado directamente" +
-          "\n" "2. Cargar contenido poniendo la direccion del archivo de texto (extensión .txt)")
-    noOpcion = input(
-        "Escriba el número de la opción: ")
-    if (noOpcion == '1'):
-        os.system("cls")
-        cargaFicheroText(asunto, user)
-       # cargatextoDirecto()
+    existe_asunto = collection.find_one({'asunto': asunto})
+    if existe_asunto is None:
+        print("Asunto: " + asunto)
+        print()
+        print("Proporcione un contenido (un texto o un archivo de texto) para extraer las posibles preguntas y respuestas" + "\n")
+        print("OPCIONES" + "\n" "1. Cargar contenido con texto entrado directamente" +
+              "\n" "2. Cargar contenido poniendo la direccion del archivo de texto (extensión .txt)")
+        noOpcion = input(
+            "Escriba el número de la opción: ")
+        if (noOpcion == '1'):
+            os.system("cls")
+            cargaFicheroText(asunto, user)
+           # cargatextoDirecto()
+        else:
+            os.system("cls")
+            cargaFicheroText(asunto, user)
     else:
         os.system("cls")
-        cargaFicheroText(asunto, user)
+        print("<<<<<<< Este asunto ya existe, proporcione otro diferente. >>>>>>>>")
+        print()
+        main(user)
 
 ####################################################################################
 
@@ -240,7 +249,7 @@ def cargatextoDirecto(asunto, user):
             questionsEs.append(resultado)
         print("Preguntas: " + str(questionsEs))
         print()
-        
+
         for w in responses:
             traductor = GoogleTranslator(source='auto', target='es')
             resultado = traductor.translate(w)
@@ -250,15 +259,12 @@ def cargatextoDirecto(asunto, user):
 
         # Trabajando en Base de datos
 
-        db = client['rasa_File_DB']
-        collection = db['contenido']
         post = {"asunto": asunto,
                 "user": user,
                 "texto": textinput,
                 "questions": questionsEs,
                 "responses": responsesEs,
                 }
-        posts = db.collection
         post_id = collection.insert_one(post).inserted_id
         print()
         print("Operación finalizada con éxito, información guardada en su Base de Datos")
@@ -305,7 +311,7 @@ def cargaFicheroText(asunto, user):
             questionsEs.append(resultado)
         print("Preguntas: " + str(questionsEs))
         print()
-        
+
         for w in responses:
             traductor = GoogleTranslator(source='auto', target='es')
             resultado = traductor.translate(w)
@@ -314,16 +320,12 @@ def cargaFicheroText(asunto, user):
         ###########################
 
         # Trabajando en Base de datos
-
-        db = client['rasa_File_DB']
-        collection = db['contenido']
         post = {"asunto": asunto,
                 "user": user,
                 "texto": textinput,
                 "questions": questionsEs,
                 "responses": responsesEs,
                 }
-        posts = db.collection
         post_id = collection.insert_one(post).inserted_id
         print()
         print("Operación finalizada con éxito, información guardada en su Base de Datos")
