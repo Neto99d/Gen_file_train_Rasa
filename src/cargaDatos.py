@@ -17,36 +17,37 @@ collection = db['contenido']
 
 def cargaDatos(user):
    #################################################################
- print("OPCIONES" + "\n" "1. Crear Asistente Virtual" +
+    print("OPCIONES" + "\n" "1. Crear Asistente Virtual" +
           "\n" "2. Generar Conocimiento" + "\n" + "3. Entrenar Asistente" + "\n"  "4. Probar Asistente" + "\n" "5. Correr servidor de un Asistente (Sólo para uso remoto, por ejemplo si está conectado a un Telegram-Bot)")
- try:
-    no = input("Entre el número de la opción: ")
-    if(no == '1'):
-        os.system("cls")
-        createAVirtualES.creaAsistente(user)
-    elif(no == '2'):
-        os.system("cls")
-        questES.main(user)
-    elif (no == '3'):
-        os.system("cls")
-        entrenarAsistenteES.entrenar(user)
-    elif (no == '4'):
-        os.system("cls")
-        mostrarAsistentes(user)
-    elif (no == '5'):
-       os.system("cls")
-       correrServerAsistente.mostrarAsistentes(user)
-    else:
-        print()
-        print()
-        print("Sólo los valores 1 al 5")
-        cargaDatos(user)
- except Exception as error:
-            print(error)
+    try:
+        no = input("Entre el número de la opción: ")
+        if(no == '1'):
             os.system("cls")
-            print("Error al iniciar opción deseada")
+            createAVirtualES.creaAsistente(user)
+        elif(no == '2'):
+            os.system("cls")
+            questES.main(user)
+        elif (no == '3'):
+            os.system("cls")
+            entrenarAsistenteES.entrenar(user)
+        elif (no == '4'):
+            os.system("cls")
+            mostrarAsistentes(user)
+        elif (no == '5'):
+            os.system("cls")
+            correrServerAsistente.mostrarAsistentes(user)
+        else:
             print()
+            print()
+            print("Sólo los valores 1 al 5")
             cargaDatos(user)
+    except Exception as error:
+        os.system("cls")
+        print(error)
+        print("Error al iniciar opción deseada")
+        print()
+        cargaDatos(user)
+
 
 def mostrarAsistentes(user):
     print()
@@ -62,10 +63,11 @@ def mostrarAsistentes(user):
         for item in collection.find({'creado_por': user}):
             result = cont = cont + 1
             if (item['entrenado']):
-              entrenado = "Sí"
+                entrenado = "Sí"
             else:
-             entrenado = "No"
-            print(str(result) + "." + " " + item['nombre'] + "      " + "Ha sido entrenado?: " + entrenado)
+                entrenado = "No"
+            print(str(result) + "." + " " +
+                  item['nombre'] + "      " + "Ha sido entrenado?: " + entrenado)
         print()
         probarAsistentes(user)
     else:
@@ -94,11 +96,11 @@ def probarAsistentes(user):
             print('Alojado en: ' + str(asistente['alojado_en']))
             print()
             if (asistente['entrenado']):
-              print('Ha sido entrenado: ' + "Sí" )
-              print()
+                print('Ha sido entrenado: ' + "Sí")
+                print()
             else:
-              print('Ha sido entrenado: ' + "No" )
-              print()
+                print('Ha sido entrenado: ' + "No")
+                print()
             print('Se creó en la fecha: ' + str(asistente['fecha_creado']))
             print()
             confirmar = input(

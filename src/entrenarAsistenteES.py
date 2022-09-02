@@ -38,6 +38,16 @@ def mover(dir):
         print("Ejecute la herramienta nuevamente")
         return False
 
+def opcion(user):
+    confirmar = input(
+        "Desea entrenar otro Asistente: Escriba si o no: ")
+    if (confirmar == 'si'):
+            print()
+            entrenar(user)
+    else:
+        print()
+        os.system("cls")
+        cargaDatos.cargaDatos(user)
 
 def entrenar(user):
     print()
@@ -176,7 +186,7 @@ def cargarAsistentes(user):
                         print("Espere......... Esta cargando....")
                         os.chdir(str(
                             asistente['alojado_en']))
-                        os.system(train)
+                        os.system(train)    # ENTRENANDO
                         print()
                         collection.update_one(
                             {'nombre': nombre_asistente, 'creado_por': user}, {
@@ -186,9 +196,9 @@ def cargarAsistentes(user):
                         print("Se le mostrará un gráfico en su navegador donde podrá ver las preguntas y las respuestas inferidas a cada pregunta (utter_pregunta) después del entrenamiento, para verificar que el Asistente tendrá alta probabilidad de responder correctamente.")
                         print()
                         print("Cargando............")
-                        os.system(visualConocimiento)
+                        os.system(visualConocimiento) # MOSTRANDO GRAFICO CONOCIMIENTO
                         print()
-                        cargaDatos.cargaDatos(user)
+                        opcion(user)
                 else:
                     print()
                     print("Entre la dirección del directorio o carpeta actual donde está el Asistente (Está información se actualizará en la base de datos) y luego presione ENTER")
@@ -216,7 +226,7 @@ def cargarAsistentes(user):
                         print("Cargando............")
                         os.system(visualConocimiento)
                         print()
-                        cargaDatos.cargaDatos(user)
+                        opcion(user)
             else:
                 print()
                 mostrarAsistentes(user)
