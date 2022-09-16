@@ -1,38 +1,57 @@
-El video te quedo SUPER y a secuencia de pasos
-eso es lo que se quiere en el sistema como idea 
-general. 
-
-Ten muy en cuenta que no todas las personas se llevan muy bien con 
-las interfaces de comando y quizas alguna interfaz gráfica que 
-mejore el proceso o lo haga más cómodo mejore las cosas. 
-Los que evaluarán el software no son yo que estoy acostumbrado 
-a las cosas de Linux. Seguro entiendes la idea???
-
-
+ 
 Dudas y sugerencias: 
+
 
 1- En el ejemplo que pones primero hay un texto en inglés y después pones datos 
 de las preguntas extraidas y el texto en español. Estas usando algún servicio de traducción intermedio. 
 
+
+
+
+✅(Diagramas echos, el de estructura fue mejorado e hice uno de arquitectura mediante la pagina que recomendo) 
+
+
    Si es así, crea un diagrama de actividades y otro de secuencia donde se vean los pasos
 del proceso para que visualmente se pueda tener una mejor idea  y lo pones en el Cap 2. 
+
+
+
+
+❌ (Esto no lo tomo en consideración) 
+
 
   En algun momento si quieres puedes poner o subir el video a Youtube y lo pones como una referencia correcta
 en la tesis para que también lo puedan consultar (Lo puedes colgar en tu cuenta).
 
 
+✅
 2- Has un documento INSTALL.md donde describas desde los requerimientos mínimos que se necesita para desplegar todo el sistema,
 dependencias y los pasos para instalar RASA y las depenencias del código python. 
 
+
+✅
     Has un archivo de extención .BAT que haga todo este proceso automáticamente si se ejecuta como administrador (Pruebalo siembre).
-    De esta forma es que se ejecutan los software de los grandes y el tuyo va en camino a ello.
+    De esta forma es que se ejecutan los software de los grandes y el tuyo va en camino a ello. 
 
 
+✅
 3- En la secuencia de pasos (que está buenísima) de la ejecución (Hazla un archivo .BAT también o recuerda las sugerencias de la Interfaz Gráfica).
+
+
+⚠️
+✅ De esto lo que pude hacer fue mostrar el gráfico de conocimiento una vez entrenado el asistente. 
+
+
 Antes de proponerle al usuario que interactue con el BOT , haz un paso de prueba automática del envio de respuesta para todas las preguntas generadas. 
 Para garantizar de forma automática que dada las respuestas generadas el bot siempre responde y después el usuario interactúa con el.
 
+
+✅
 4- Recuerda dejar en un README cuando se crea el bot (Que el usuario le ponga un nombre y una descripción de su propósito)
+
+
+⚠️ Aún no he logrado lo de los correos electrónicos y para realizar peticiones de Internet ya escribí que hace falta en cuanto a telegram por ejemplo. 
+
+
 que diga como se puede interactuar con este BOT por peticiones de Internet o usando correos electrónicos (Fíjate en la idea de 
 la tesis de Yusnier Sierra que implementa esto).
-
