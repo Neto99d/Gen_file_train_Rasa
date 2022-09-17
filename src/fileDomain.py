@@ -37,7 +37,7 @@ def domYaml(ques, res):  # Recibe preguntas y respuestas
 
                        {'utter_soybot':
                         [{'text': "Soy un bot, creado por Rasa."}]}]
-        versionRasa = {'version': "3.0"}
+        versionRasa = {'version': "3.1"}
         intent = {'intents': saludo + ques}
         config = {'session_config': {
             'session_expiration_time': 60,

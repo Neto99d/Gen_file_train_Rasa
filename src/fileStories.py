@@ -37,7 +37,7 @@ def storiesYaml(ques, res):  # Recibe preguntas y respuestas
 
         for iUtter in auxutter:
             stories['stories'].append(iUtter)
-        versionRasa = {'version': "3.0"}
+        versionRasa = {'version': "3.1"}
         #################################################################
 
         try:

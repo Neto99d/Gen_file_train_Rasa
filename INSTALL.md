@@ -19,7 +19,7 @@ Ejecutar (Requiere Internet) para instalar todos los paquetes de python requerid
 ---
 Paquetes de python que serán instalados
 
-- rasa==3.0.0
+- rasa==3.2.8
 - nltk==3.4.5
 - textblob==0.15.0
 - ruamel.yaml==0.16.13

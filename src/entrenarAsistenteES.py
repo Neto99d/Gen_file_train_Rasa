@@ -1,5 +1,6 @@
 import shutil
 import os
+from ruamel.yaml import YAML
 import generarArchivosEntrenamiento
 from pymongo import MongoClient
 import subprocess
@@ -11,6 +12,7 @@ client = MongoClient()
 # BASE DE DATOS
 db = client['rasa_File_DB']
 collection = db['contenido']
+GENERATE_FILE = "Archivos_generados"
 
 
 def mover(dir):
@@ -19,6 +21,7 @@ def mover(dir):
         dirname, filename = os.path.split(os.path.abspath(__file__))
         #######################################
         print()
+        crearCredentialsFile()
         print("Moviendo Archivos..........." + '\n')
 
         shutil.move(dirname + os.path.sep + "Archivos_generados" + os.path.sep + "domain.yml",
@@ -29,6 +32,8 @@ def mover(dir):
                     os.path.join(dir + "\data", "stories.yml"))
         shutil.move(dirname + os.path.sep + "Archivos_generados" + os.path.sep + "rules.yml",
                     os.path.join(dir + "\data", "rules.yml"))
+        shutil.move(dirname + os.path.sep + "Archivos_generados" + os.path.sep + "credentials.yml",
+                    os.path.join(dir, "credentials.yml"))
         print("Archivos movidos a la carpeta del Asistente para ser entrenado" + '\n')
         return True
 
@@ -38,16 +43,18 @@ def mover(dir):
         print("Ejecute la herramienta nuevamente")
         return False
 
+
 def opcion(user):
     confirmar = input(
         "Desea entrenar otro Asistente: Escriba si o no: ")
     if (confirmar == 'si'):
-            print()
-            entrenar(user)
+        print()
+        entrenar(user)
     else:
         print()
         os.system("cls")
         cargaDatos.cargaDatos(user)
+
 
 def entrenar(user):
     print()
@@ -196,7 +203,8 @@ def cargarAsistentes(user):
                         print("Se le mostrará un gráfico en su navegador donde podrá ver las preguntas y las respuestas inferidas a cada pregunta (utter_pregunta) después del entrenamiento, para verificar que el Asistente tendrá alta probabilidad de responder correctamente.")
                         print()
                         print("Cargando............")
-                        os.system(visualConocimiento) # MOSTRANDO GRAFICO CONOCIMIENTO
+                        # MOSTRANDO GRAFICO CONOCIMIENTO
+                        os.system(visualConocimiento)
                         print()
                         opcion(user)
                 else:
@@ -235,3 +243,44 @@ def cargarAsistentes(user):
             print("Este asistente virtual no está entre los que tiene creados")
             print()
             mostrarAsistentes(user)
+
+
+def crearCredentialsFile():
+    try:
+        #######################################################
+        # PLANTILLA para Archivo RASA
+        rest = {'rest': None}
+        socketIO = {'socketio': {'user_message_evt': 'user_uttered',
+                                 'bot_message_evt': 'bot_uttered', 'session_persistence': 'false'}}
+        rasa = {'rasa': {'url': 'http://localhost:5002/api'}}
+        
+
+        #################################################################
+
+        try:
+            # Crear el Archivo
+            dirname, filename = os.path.split(os.path.abspath(__file__))
+            if os.path.exists(dirname + os.path.sep + GENERATE_FILE) == False:
+                os.makedirs(dirname + os.path.sep + GENERATE_FILE)
+            yaml_file = open(dirname + os.path.sep + GENERATE_FILE + os.path.sep + "credentials.yml",
+                             mode="w+")
+
+            #########################################
+            # Escribiendo la plantilla en el archivo
+
+            yaml = YAML()
+            yaml.indent(mapping=2, sequence=4, offset=2)  # Sangria y margen
+            yaml.dump(rest, yaml_file)
+            yaml.dump(socketIO, yaml_file)
+            yaml.dump(rasa, yaml_file)
+        ############################################
+        # Validacion para posibles errores
+
+        except Exception as error:
+            print("Error al crear archivo o se creó pero está mal")
+            print("Error: ", error)
+        return True
+    except Exception as error:
+        print("Error al crear plantilla, archivo Rasa no creado")
+        print("Error: ", error)
+        return False

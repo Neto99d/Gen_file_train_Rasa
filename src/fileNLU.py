@@ -86,7 +86,7 @@ def nluYaml(ques, res):  # Recibe preguntas y respuestas
 
         for iUtter in auxutter:
             nlu['nlu'].append(iUtter)
-        versionRasa = {'version': "3.0"}
+        versionRasa = {'version': "3.1"}
 
         #################################################################
 

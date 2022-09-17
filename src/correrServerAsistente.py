@@ -8,6 +8,7 @@ client = MongoClient()
 
 # BASE DE DATOS
 db = client['rasa_File_DB']
+dirname, filename = os.path.split(os.path.abspath(__file__))
 
 
 def mostrarAsistentes(user):
@@ -25,10 +26,11 @@ def mostrarAsistentes(user):
         for item in collection.find({'creado_por': user}):
             result = cont = cont + 1
             if (item['entrenado']):
-              entrenado = "Sí"
+                entrenado = "Sí"
             else:
-             entrenado = "No"
-            print(str(result) + "." + " " + item['nombre'] + "      " + "Ha sido entrenado?: " + entrenado)
+                entrenado = "No"
+            print(str(result) + "." + " " +
+                  item['nombre'] + "      " + "Ha sido entrenado?: " + entrenado)
         print()
         cargarAsistentes(user)
     else:
@@ -57,11 +59,11 @@ def cargarAsistentes(user):
             print('Alojado en: ' + str(asistente['alojado_en']))
             print()
             if (asistente['entrenado']):
-              print('Ha sido entrenado: ' + "Sí" )
-              print()
+                print('Ha sido entrenado: ' + "Sí")
+                print()
             else:
-              print('Ha sido entrenado: ' + "No" )
-              print()
+                print('Ha sido entrenado: ' + "No")
+                print()
             print('Se creó en la fecha: ' + str(asistente['fecha_creado']))
             print()
             confirmar = input(
@@ -76,9 +78,16 @@ def cargarAsistentes(user):
                     print()
                     os.system("cls")
                     os.chdir(str(asistente['alojado_en']))
-                    print("Iniciando servidor......")
+                    print("Iniciando servidor Rasa......")
                     print()
-                    os.system("rasa run")
+                    print()
+                    print(
+                        "Una vez que el servidor este corriendo puede ejecutar el archivo  IniciarWebChat.bat  para interactuar con el Asistente Virtual")
+                    print()
+                    print(
+                        "Cuando vea que pone este mensaje <<< root  - Rasa server is up and running. >>> Es que ya el servidor está corriendo")
+                    print()
+                    os.system("rasa run --cors *") # para que rasa escuche desde el servidor web
                 else:
                     print()
                     print("Entre la dirección del directorio o carpeta actual donde está el Asistente (Está información se actualizará en la base de datos) y luego presione ENTER")
@@ -89,9 +98,16 @@ def cargarAsistentes(user):
                         '$set': {'alojado_en': os.getcwd()}}
                 )
                 os.system("cls")
-                print("Iniciando servidor......")
+                os.chdir(str(asistente['alojado_en']))
+                print("Iniciando servidor Rasa......")
                 print()
-                os.system("rasa run")
+                print(
+                    "Una vez que el servidor este corriendo puede ejecutar el archivo  IniciarWebChat.bat  para interactuar con el Asistente Virtual")
+                print()
+                print("Cuando vea que pone este mensaje <<< root  - Rasa server is up and running. >>> Es que ya el servidor está corriendo")
+                print()
+                os.system("rasa run --cors *")
+
             else:
                 print()
                 mostrarAsistentes(user)

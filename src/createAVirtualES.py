@@ -57,7 +57,7 @@ def creaAsistente(user):  # Recibe el usuario logueado
         print("El directorio es: ", os.getcwd() + '\n')
         print("Ejecutando comando para crear el Asistente" + '\n')
         print("Rasa le hara una primera pregunta a la que debe responder presionando la tecla ENTER" + '\n')
-        print("Rasa le hara una segunda pregunta a la que debe responder presionando la tecla N y luego ENTER" + '\n')
+        print("Rasa le hara una segunda pregunta a la que debe responder presionando la tecla N" + '\n')
         subprocess.run(cmd)  # CREANDO ASISTENTE
         print()
         os.system("cls")

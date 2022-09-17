@@ -16,6 +16,8 @@ def credentYaml():
         #######################################################
         # PLANTILLA para Archivo RASA
         rest = {'rest': None}
+        socketIO = {'socketio': {'user_message_evt': 'user_uttered',
+                                 'bot_message_evt': 'bot_uttered', 'session_persistence': 'false'}}
         rasa = {'rasa': {'url': 'http://localhost:5002/api'}}
         telegram = {'telegram': {'access_token': None,
                                  'verify': None, 'webhook_url': None}}
@@ -28,7 +30,7 @@ def credentYaml():
             if os.path.exists(dirname + os.path.sep + GENERATE_FILE) == False:
                 os.makedirs(dirname + os.path.sep + GENERATE_FILE)
             yaml_file = open(dirname + os.path.sep + GENERATE_FILE + os.path.sep + "credentials.yml",
-                             mode="a+")
+                             mode="w+")
 
             #########################################
             # Escribiendo la plantilla en el archivo
@@ -36,6 +38,7 @@ def credentYaml():
             yaml = YAML()
             yaml.indent(mapping=2, sequence=4, offset=2)  # Sangria y margen
             yaml.dump(rest, yaml_file)
+            yaml.dump(socketIO, yaml_file)
             yaml.dump(rasa, yaml_file)
             print()
             print("Para conectar su Asistente a su bot de Telegram")
