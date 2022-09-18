@@ -50,6 +50,10 @@
 - Priemero una vez elegida esta opción y el asistente a probar, espere a que el servidor corra; cuando vea el mensaje `root  - Rasa server is up and running.` es que ya esta corriendo.
 - Luego al ver este mensaje puede ejecutar el archivo `IniciarWebChat.bat` que le abrirá automáticamente en su navegador un sitio web con un componente de Chat para conversar con su Asistente.
 
+*Vista del sitio web de interacción con el Asistente Virtual*
+
+[![Watch the video]()](https://1drv.ms/v/s!AkDgBZZ19SdVgmxTgf_b7NOvaQYj)
+
 ---
 **Módulo de conexión con Telegram. Si tiene un bot de Telegram y desea conectar este a su Asistente Virtual y poder interactuar desde esa plataforma (Usuario Avanzado)**
 
