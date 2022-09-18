@@ -52,7 +52,9 @@
 
 Vista del sitio web de interacción con el Asistente Virtual:
 
-[https://1drv.ms/v/s!AkDgBZZ19SdVgmxTgf_b7NOvaQYj](https://github.com/Neto99d/Gen_file_train_Rasa/blob/develop_neto/Tesis/4.1%20Chat%20Web%20con%20Asistente%20(Interaccion).mp4)
+
+https://user-images.githubusercontent.com/68437647/190913068-8f71a379-ff2a-40ef-bd78-5229d485dbeb.mp4
+
 
 
 
