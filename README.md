@@ -94,11 +94,6 @@ https://user-images.githubusercontent.com/68437647/190913068-8f71a379-ff2a-40ef-
 - Ejecute `Conectar con su Telegram-Bot.bat` y proporcione los datos que se le piden.
 
 
----
-
-*También en la carpeta `Tesis` puede ver videos y capturas del programa*
----
-
 ------
 ------
 ---
