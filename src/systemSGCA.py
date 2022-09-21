@@ -2,6 +2,7 @@ from pymongo import MongoClient
 import bcrypt
 from datetime import datetime
 import cargaDatos
+import getpass
 import socket
 import os
 
@@ -50,7 +51,7 @@ def login():
     print()
     print("INICIAR SESIÓN PARA USAR LA APLICACIÓN")
     name = input('Entre su nombre de usuario : ')
-    password = input('Entre su contraseña : ')
+    password = getpass.getpass('Entre su contraseña : ') # getpass es para no mostrar la contraseña al escribirla
     login_user = collection.find_one({'nombre': name})
 
     if login_user and bcrypt.checkpw(

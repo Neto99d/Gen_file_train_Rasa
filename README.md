@@ -32,6 +32,7 @@
 
 - Deberá crear una cuenta con un nombre de usuario y contraseña para entrar al sistema.
 - Luego podrá iniciar sesión con sus credenciales y usar el programa.
+- Actualización respecto al video de muestra: Ahora la contraseña al iniciar sesión no se ve al escribir.
 
 
 https://user-images.githubusercontent.com/68437647/190913817-73b16916-c35a-474c-ab33-94da97b475af.mp4
