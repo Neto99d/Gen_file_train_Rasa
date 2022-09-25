@@ -39,6 +39,15 @@ Paquetes de python que serán instalados
 - `(Opcional)` Para administrar la base de datos puede usar el RoboMongo 3T: <https://studio3t.com/download-studio3t-free>
 
 ---
+**Instalar datos del paquete nltk**
+- Descomprimir el archivo nltk_data.zip en el disco C: 
+
+**Instalar las dll de Microsoft Visual para el funcionamiento del paquete Tensorflow**
+(Si no se instala puede dar error este paquete)
+
+- Instalar el archivo vc_redist.x64.exe que esta dentro del comprimido de mismo nombre.
+
+---
 
 **Al tener todo listo Ejecutar el programa :)**
 
