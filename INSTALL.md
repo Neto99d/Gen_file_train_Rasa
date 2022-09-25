@@ -2,7 +2,7 @@
 
 ---
 
-*Sólo para Sistema Operativo Windows 7,8,10,11*
+*Sólo para Sistema Operativo Windows 7,8,10,11 con arquitectura x64*
 
 *Requiere python 3.8 (Recomendado) en adelante*
 
