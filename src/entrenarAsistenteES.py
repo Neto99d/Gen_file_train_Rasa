@@ -11,7 +11,7 @@ client = MongoClient()
 
 # BASE DE DATOS
 db = client['rasa_File_DB']
-collection = db['contenido']
+collection = db['temas']
 GENERATE_FILE = "Archivos_generados"
 
 
@@ -66,15 +66,15 @@ def entrenar(user):
 #########################################
 
 def mostrarAsuntos(user):
-    collectionUser = db['users']
-    userFind = collectionUser.find_one({'nombre': user})
+    collectionUser = db['usuarios']
+    userFind = collectionUser.find_one({"_id": user})
     datosFind = collection.find_one({'user': user})
     cont = 0
     if(userFind and datosFind):  # Si existen
         print(
             'Contenidos guardados para entrenamiento, se muestran por Asunto del contenido.')
         # Listar los asuntos segun el usuario logueado
-        for item in collection.find({'user': user}):
+        for item in collection.find({"user": user}):
             result = cont = cont + 1
             print(str(result) + "." + " " + item['asunto'])
         print()
@@ -124,7 +124,7 @@ def cargarAsunto(user):
 def mostrarAsistentes(user):
     print()
     cont = 0
-    collection = db['bots_virtuales']
+    collection = db['asistentes_virtuales']
     entrenado = ""
     asistentes = collection.find_one(
         {'creado_por': user})  # Comprobar que el usuario corresponde al usuario actual, si no se corresponde se genera una excepcion o error
@@ -150,7 +150,7 @@ def mostrarAsistentes(user):
 
 def cargarAsistentes(user):
     print()
-    collection = db['bots_virtuales']
+    collection = db['asistentes_virtuales']
     nombre_asistente = input(
         "Escriba el nombre del asistente que desee entrenar: ")
     if (nombre_asistente):

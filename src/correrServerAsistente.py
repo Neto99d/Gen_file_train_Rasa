@@ -16,7 +16,7 @@ def mostrarAsistentes(user):
           "¿Desea terminar el trabajo por lotes (S/N)?, " + "presione s para cerrar o n para iniciar nuevamente el sistema")
     print()
     cont = 0
-    collection = db['bots_virtuales']
+    collection = db['asistentes_virtuales']
     entrenado = ""
     asistentes = collection.find_one(
         {'creado_por': user})  # Comprobar que el usuario corresponde al usuario actual, si no se corresponde se genera una excepcion o error
@@ -41,7 +41,7 @@ def mostrarAsistentes(user):
 
 def cargarAsistentes(user):
     print()
-    collection = db['bots_virtuales']
+    collection = db['asistentes_virtuales']
     nombre_asistente = input(
         "Escriba el nombre del asistente que desee probar: ")
     if (nombre_asistente):

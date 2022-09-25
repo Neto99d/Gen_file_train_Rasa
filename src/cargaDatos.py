@@ -1,4 +1,3 @@
-from pymongo import MongoClient
 import questES
 import subprocess
 import entrenarAsistenteES
@@ -7,12 +6,7 @@ import correrServerAsistente
 import os
 
 
-client = MongoClient()
 
-
-# BASE DE DATOS
-db = client['rasa_File_DB']
-collection = db['contenido']
 
 
 def cargaDatos(user):

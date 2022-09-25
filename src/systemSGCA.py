@@ -12,8 +12,8 @@ client = MongoClient()
 
 # BASE DE DATOS
 db = client['rasa_File_DB']
-# COLECCION USERS
-collection = db['users']
+# COLECCION usuarios
+collection = db['usuarios']
 
 
 def register():
@@ -66,7 +66,7 @@ def login():
         )
         print()
         os.system("cls")
-        cargaDatos.cargaDatos(login_user['nombre'])
+        cargaDatos.cargaDatos(login_user["_id"]) # Paso el id del usuario actual a todas las funciones
 
     else:
         print()

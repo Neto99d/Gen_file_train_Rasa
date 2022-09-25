@@ -11,8 +11,8 @@ client = MongoClient()
 
 # BASE DE DATOS
 db = client['rasa_File_DB']
-# COLECCION USERS
-collection = db['bots_virtuales']
+# COLECCION de asistentes virtuales
+collection = db['asistentes_virtuales']
 
 
 def opcion(user):

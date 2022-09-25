@@ -10,7 +10,7 @@ client = MongoClient()
 
 OUTPUT_DIRECTORY = "output"
 db = client['rasa_File_DB']
-collection = db['contenido']
+collection = db['temas']
 
 
 def parse(string):
