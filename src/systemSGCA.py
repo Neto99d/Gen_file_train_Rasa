@@ -77,7 +77,7 @@ def login():
         # Actualizando acciones
         collection_accion.update_one(
             {'userID': login_user['_id']}, {
-                '$push': {'inicios_de_sesion': {"fecha": datetime.today().strftime('%Y-%m-%d %I:%M %p'), "direc_IP": IPAddr}}}
+                '$push': {'inicios_de_sesion': {"userID": login_user["_id"], "fecha": datetime.today().strftime('%Y-%m-%d %I:%M %p'), "direc_IP": IPAddr}}}
         )
         print()
         os.system("cls")
