@@ -3,6 +3,7 @@ from collections import OrderedDict
 import sys
 import os
 import cargaDatos
+from datetime import datetime
 from deep_translator import GoogleTranslator
 from pymongo import MongoClient
 
@@ -11,6 +12,7 @@ client = MongoClient()
 OUTPUT_DIRECTORY = "output"
 db = client['rasa_File_DB']
 collection = db['temas']
+collection_accion = db['acciones']
 
 
 def parse(string):
@@ -258,7 +260,7 @@ def cargatextoDirecto(asunto, user):
         ###########################
 
         # Trabajando en Base de datos
-
+        # Insertando Temas
         post = {"asunto": asunto,
                 "user": user,
                 "texto": textinput,
@@ -268,6 +270,13 @@ def cargatextoDirecto(asunto, user):
         post_id = collection.insert_one(post).inserted_id
         print()
         print("Operación finalizada con éxito, información guardada en su Base de Datos")
+        
+        # Actualizando acciones
+        collection_accion.update_one(
+            {'userID': user}, {
+                '$push': {"generaste_temas": {"asunto_tema": asunto, "temaID": post_id, "fecha_creado": datetime.today().strftime('%Y-%m-%d %I:%M %p')}}}
+        )
+
         opcion(user)
     except Exception as error:
         print(error)
@@ -320,6 +329,7 @@ def cargaFicheroText(asunto, user):
         ###########################
 
         # Trabajando en Base de datos
+        # Insertando temas
         post = {"asunto": asunto,
                 "user": user,
                 "texto": textinput,
@@ -329,6 +339,12 @@ def cargaFicheroText(asunto, user):
         post_id = collection.insert_one(post).inserted_id
         print()
         print("Operación finalizada con éxito, información guardada en su Base de Datos")
+
+        # Actualizando acciones
+        collection_accion.update_one(
+            {'userID': user}, {
+                '$push': {"generaste_temas": {"asunto_tema": asunto, "temaID": post_id, "fecha_creado": datetime.today().strftime('%Y-%m-%d %I:%M %p')}}}
+        )
         opcion(user)
     except Exception as error:
         print(error)

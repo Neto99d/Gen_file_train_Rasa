@@ -1,6 +1,7 @@
 from pymongo import MongoClient
 import subprocess
 import os
+from datetime import datetime
 import cargaDatos
 
 client = MongoClient()
@@ -9,7 +10,7 @@ client = MongoClient()
 # BASE DE DATOS
 db = client['rasa_File_DB']
 dirname, filename = os.path.split(os.path.abspath(__file__))
-
+collection_accion = db['acciones']
 
 def mostrarAsistentes(user):
     print("- Si desea cancelar cualquier operación y salir a la pantalla principal del Sistema presione Ctrl + C" + "\n" + "- Si le sale al presionar Ctrl +C: " +
@@ -87,7 +88,13 @@ def cargarAsistentes(user):
                     print(
                         "Cuando vea que pone este mensaje <<< root  - Rasa server is up and running. >>> Es que ya el servidor está corriendo")
                     print()
-                    os.system("rasa run --cors *") # para que rasa escuche desde el servidor web
+                    # Actualizando acciones
+                    collection_accion.update_one(
+                        {'userID': user}, {
+                            '$push': {"iniaciaste_Server_Bot": {"nombre_asistente": asistente['nombre'], "asistenteID": asistente['_id'], "fecha_inicio_Bot": datetime.today().strftime('%Y-%m-%d %I:%M %p')}}}
+                    )
+                    # para que rasa escuche desde el servidor web
+                    os.system("rasa run --cors *")
                 else:
                     print()
                     print("Entre la dirección del directorio o carpeta actual donde está el Asistente (Está información se actualizará en la base de datos) y luego presione ENTER")
@@ -106,6 +113,11 @@ def cargarAsistentes(user):
                 print()
                 print("Cuando vea que pone este mensaje <<< root  - Rasa server is up and running. >>> Es que ya el servidor está corriendo")
                 print()
+                # Actualizando acciones
+                collection_accion.update_one(
+                    {'userID': user}, {
+                        '$push': {"iniaciaste_Server_Bot": {"nombre_asistente": asistente['nombre'], "asistenteID": asistente['_id'], "fecha_inicio_Bot": datetime.today().strftime('%Y-%m-%d %I:%M %p')}}}
+                )
                 os.system("rasa run --cors *")
 
             else:

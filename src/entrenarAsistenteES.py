@@ -3,6 +3,7 @@ import os
 from ruamel.yaml import YAML
 import generarArchivosEntrenamiento
 from pymongo import MongoClient
+from datetime import datetime
 import subprocess
 import cargaDatos
 
@@ -12,6 +13,7 @@ client = MongoClient()
 # BASE DE DATOS
 db = client['rasa_File_DB']
 collection = db['temas']
+collection_accion = db['acciones']
 GENERATE_FILE = "Archivos_generados"
 
 
@@ -148,7 +150,7 @@ def mostrarAsistentes(user):
         cargaDatos.cargaDatos(user)
 
 
-def cargarAsistentes(user):
+def cargarAsistentes(user):    # Entrenar Asistente
     print()
     collection = db['asistentes_virtuales']
     nombre_asistente = input(
@@ -199,6 +201,12 @@ def cargarAsistentes(user):
                             {'nombre': nombre_asistente, 'creado_por': user}, {
                                 '$set': {'entrenado': True}}
                         )
+
+                        # Actualizando acciones
+                        collection_accion.update_one(
+                            {'userID': user}, {
+                                '$push': {"entrenaste_asistentesVirt": {"nombre_asistente": asistente['nombre'], "asistenteID": asistente['_id'], "fecha_entrenamiento": datetime.today().strftime('%Y-%m-%d %I:%M %p')}}}
+                        )
                         os.system("cls")
                         print("Se le mostrará un gráfico en su navegador donde podrá ver las preguntas y las respuestas inferidas a cada pregunta (utter_pregunta) después del entrenamiento, para verificar que el Asistente tendrá alta probabilidad de responder correctamente.")
                         print()
@@ -227,6 +235,13 @@ def cargarAsistentes(user):
                             {'nombre': nombre_asistente, 'creado_por': user}, {
                                 '$set': {'entrenado': True}}
                         )
+
+                        # Actualizando acciones
+                        collection_accion.update_one(
+                            {'userID': user}, {
+                                '$push': {"entrenaste_asistentesVirt": {"nombre_asistente": asistente['nombre'], "asistenteID": asistente['_id'], "fecha_entrenamiento": datetime.today().strftime('%Y-%m-%d %I:%M %p')}}}
+                        )
+
                         print()
                         os.system("cls")
                         print("Se le mostrará un gráfico en su navegador donde podrá ver las preguntas y las respuestas inferidas a cada pregunta (utter_pregunta) después del entrenamiento, para verificar que el Asistente tendrá alta probabilidad de responder correctamente.")
@@ -253,7 +268,6 @@ def crearCredentialsFile():
         socketIO = {'socketio': {'user_message_evt': 'user_uttered',
                                  'bot_message_evt': 'bot_uttered', 'session_persistence': 'false'}}
         rasa = {'rasa': {'url': 'http://localhost:5002/api'}}
-        
 
         #################################################################
 

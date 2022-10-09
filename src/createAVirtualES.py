@@ -13,7 +13,7 @@ client = MongoClient()
 db = client['rasa_File_DB']
 # COLECCION de asistentes virtuales
 collection = db['asistentes_virtuales']
-
+collection_accion = db['acciones']
 
 def opcion(user):
     confirmar = input(
@@ -44,15 +44,7 @@ def creaAsistente(user):  # Recibe el usuario logueado
         print("Entre la dirección del directorio o carpeta donde desea crear el Asistente y luego presione ENTER")
         dir = input()
         os.chdir(dir)
-        # Insertando datos
-        post = {"nombre": nombre,
-                "descripcion": descripcion,
-                "creado_por": user,
-                "alojado_en": dir,
-                "entrenado": False,
-                "fecha_creado": datetime.today().strftime('%Y-%m-%d %I:%M %p')
-                }
-        post_id = collection.insert_one(post).inserted_id
+        
         print()
         print("El directorio es: ", os.getcwd() + '\n')
         print("Ejecutando comando para crear el Asistente" + '\n')
@@ -61,6 +53,22 @@ def creaAsistente(user):  # Recibe el usuario logueado
         subprocess.run(cmd)  # CREANDO ASISTENTE
         print()
         os.system("cls")
+        
+        # Insertando datos de asistente
+        post = {"nombre": nombre,
+                "descripcion": descripcion,
+                "creado_por": user,
+                "alojado_en": dir,
+                "entrenado": False,
+                "fecha_creado": datetime.today().strftime('%Y-%m-%d %I:%M %p')
+                }
+        post_id = collection.insert_one(post).inserted_id
+        
+        # Actualizando acciones
+        collection_accion.update_one(
+            {'userID': user}, {
+                '$push': {'creaste_asistentesVirt': {"nombre_asistente": nombre, "asistenteID": post_id, "fecha_creado": datetime.today().strftime('%Y-%m-%d %I:%M %p')}}}
+        )
         opcion(user)
     else:
         print()
