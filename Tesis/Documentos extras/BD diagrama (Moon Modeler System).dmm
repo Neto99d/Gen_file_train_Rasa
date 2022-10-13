@@ -774,7 +774,7 @@
 			],
 			"validationAction": "na",
 			"validationLevel": "na",
-			"visible": true,
+			"visible": false,
 			"afterScript": "",
 			"charset": "",
 			"cols": [
@@ -877,7 +877,7 @@
 			],
 			"validationAction": "na",
 			"validationLevel": "na",
-			"visible": true,
+			"visible": false,
 			"afterScript": "",
 			"charset": "",
 			"cols": [
@@ -980,7 +980,7 @@
 			],
 			"validationAction": "na",
 			"validationLevel": "na",
-			"visible": true,
+			"visible": false,
 			"afterScript": "",
 			"charset": "",
 			"cols": [
@@ -1083,7 +1083,7 @@
 			],
 			"validationAction": "na",
 			"validationLevel": "na",
-			"visible": true,
+			"visible": false,
 			"afterScript": "",
 			"charset": "",
 			"cols": [
@@ -1186,7 +1186,7 @@
 			],
 			"validationAction": "na",
 			"validationLevel": "na",
-			"visible": true,
+			"visible": false,
 			"afterScript": "",
 			"charset": "",
 			"cols": [
@@ -1521,7 +1521,7 @@
 		"def_rowformat": "na",
 		"reversed": true,
 		"def_others": "",
-		"lastSaved": "",
+		"lastSaved": "Sun Oct 09 2022 18:44:21 GMT-0400 (hora de verano de Cuba)",
 		"embeddedInParentsIsDisplayed": true,
 		"schemaContainerIsDisplayed": false,
 		"cardinalityIsDisplayed": false,
@@ -1536,8 +1536,8 @@
 			"description": "",
 			"diagramItems": {
 				"6915196d-0acc-420e-9019-96f28b0d6b14": {
-					"x": 454,
-					"y": 30,
+					"x": 1054,
+					"y": 111,
 					"gHeight": 135,
 					"gWidth": 197,
 					"background": "#03a9f4",
@@ -1547,8 +1547,8 @@
 					"autoExpand": true
 				},
 				"0baa6004-115d-4fbe-bbe7-40ad0a23a643": {
-					"x": 681,
-					"y": 300,
+					"x": 709,
+					"y": 318,
 					"gHeight": 153,
 					"gWidth": 209,
 					"background": "#03a9f4",
@@ -1558,8 +1558,8 @@
 					"autoExpand": true
 				},
 				"d803fb42-5a26-470f-8f93-cbd1b4e183dd": {
-					"x": 45,
-					"y": 222,
+					"x": 107,
+					"y": 52,
 					"gHeight": 459,
 					"gWidth": 440,
 					"background": "#03a9f4",
@@ -1569,8 +1569,8 @@
 					"autoExpand": true
 				},
 				"59b9540a-ffb9-47ff-b5c0-763394d67691": {
-					"x": 800,
-					"y": 30,
+					"x": 733,
+					"y": 36,
 					"gHeight": 81,
 					"gWidth": 208,
 					"background": "#03a9f4",
@@ -1594,7 +1594,7 @@
 					"x": 1066,
 					"y": 201,
 					"gHeight": 81,
-					"gWidth": 262,
+					"gWidth": 234,
 					"background": "#8bc34a",
 					"color": "#ffffff",
 					"referencedItemId": "9227957b-33ca-4ac8-ba00-986bfd76c1b6",
