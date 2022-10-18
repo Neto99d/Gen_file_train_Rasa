@@ -24,6 +24,7 @@ def mover(dir):
         #######################################
         print()
         crearCredentialsFile()
+        crearConfigFile()
         print("Moviendo Archivos..........." + '\n')
 
         shutil.move(dirname + os.path.sep + "Archivos_generados" + os.path.sep + "domain.yml",
@@ -36,6 +37,8 @@ def mover(dir):
                     os.path.join(dir + "\data", "rules.yml"))
         shutil.move(dirname + os.path.sep + "Archivos_generados" + os.path.sep + "credentials.yml",
                     os.path.join(dir, "credentials.yml"))
+        shutil.move(dirname + os.path.sep + "Archivos_generados" + os.path.sep + "config.yml",
+                    os.path.join(dir, "config.yml"))
         print("Archivos movidos a la carpeta del Asistente para ser entrenado" + '\n')
         return True
 
@@ -254,13 +257,15 @@ def cargarAsistentes(user):    # Entrenar Asistente
                 print()
                 mostrarAsistentes(user)
         except Exception as error:
-            print(error)
+           # print(error)
             print("Este asistente virtual no está entre los que tiene creados")
             print()
             mostrarAsistentes(user)
 
 
-def crearCredentialsFile():
+# ARCHIVOS DE CONFIGURACIÓN ·······································
+
+def crearCredentialsFile():             # Crear archivo credentials
     try:
         #######################################################
         # PLANTILLA para Archivo RASA
@@ -287,6 +292,52 @@ def crearCredentialsFile():
             yaml.dump(rest, yaml_file)
             yaml.dump(socketIO, yaml_file)
             yaml.dump(rasa, yaml_file)
+        ############################################
+        # Validacion para posibles errores
+
+        except Exception as error:
+            print("Error al crear archivo o se creó pero está mal")
+            print("Error: ", error)
+        return True
+    except Exception as error:
+        print("Error al crear plantilla, archivo Rasa no creado")
+        print("Error: ", error)
+        return False
+
+
+def crearConfigFile():   # Crear archivo Configuración
+    try:
+        #######################################################
+        # PLANTILLA para Archivo RASA
+        recipe = {'recipe': 'default.v1'}
+        lenguaje = {'language': 'es'}
+        pipeline = {'pipeline': [{'name': "WhitespaceTokenizer"},
+                                 {'name': "CountVectorsFeaturizer"},
+                                 {'name': "DIETClassifier"},
+                                 {'name': 'FallbackClassifier',
+                                 'threshold': 0.7,
+                                  'ambiguity_threshold': 0.1}]}
+        policies = {'policies': None}
+
+        #################################################################
+
+        try:
+            # Crear el Archivo
+            dirname, filename = os.path.split(os.path.abspath(__file__))
+            if os.path.exists(dirname + os.path.sep + GENERATE_FILE) == False:
+                os.makedirs(dirname + os.path.sep + GENERATE_FILE)
+            yaml_file = open(dirname + os.path.sep + GENERATE_FILE + os.path.sep + "config.yml",
+                             mode="w+")
+
+            #########################################
+            # Escribiendo la plantilla en el archivo
+
+            yaml = YAML()
+            yaml.indent(mapping=2, sequence=4, offset=2)  # Sangria y margen
+            yaml.dump(recipe, yaml_file)
+            yaml.dump(lenguaje, yaml_file)
+            yaml.dump(pipeline, yaml_file)
+            yaml.dump(policies, yaml_file)
         ############################################
         # Validacion para posibles errores
 

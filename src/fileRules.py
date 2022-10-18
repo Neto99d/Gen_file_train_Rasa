@@ -22,10 +22,15 @@ def rulesYaml(ques, res):  # Recibe preguntas y respuestas
                  'steps': [{"intent": ques[i]}, {"action": 'utter_{}'.format(ques[i])}]})'''
 
         rules = {
-            'rules': [{'rule': 'Diga adiós cada vez que el usuario se despida',
+            'rules': [{'rule': 'Diga "adiós" cada vez que el usuario se despida',
                        'steps': [{'intent': 'despedir'}, {'action': 'utter_adios'}]},
-                      {'rule': "Diga 'Soy un bot' cada vez que el usuario desafíe",
-                       'steps': [{'intent': 'bot'}, {'action': 'utter_soybot'}]}]}
+                      {'rule': "Diga 'Soy un bot' si el usuario duda de con quién conversa",
+                       'steps': [{'intent': 'bot'}, {'action': 'utter_soybot'}]},
+                      {'rule': "Diga 'no entiendo' si no reconoce una pregunta",
+                       'steps': [{'intent': 'fuera_contexto'}, {'action': 'utter_fuera_contexto'}]},
+                      {'rule': "Diga 'no entiendo' si una pregunta cae por debajo del umbral de confianza configurado (0.7)",
+                       'steps': [{'intent': 'nlu_fallback'}, {'action': 'utter_fuera_contexto'}]}
+                      ]}
 
         # for iUtter in auxutter:
         # rules['rules'].append(iUtter)

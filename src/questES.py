@@ -198,8 +198,10 @@ def main(user):
             "Escriba el número de la opción: ")
         if (noOpcion == '1'):
             os.system("cls")
+            print()
+            print("Opción no disponible en estos momentos, por lo que se elegirá la numero 2 automáticamente")
             cargaFicheroText(asunto, user)
-           # cargatextoDirecto()
+           # cargatextoDirecto(asunto, user)
         else:
             os.system("cls")
             cargaFicheroText(asunto, user)
@@ -227,10 +229,10 @@ def opcion(user):
 #############################################################################
 
 
-def cargatextoDirecto(asunto, user):
+def cargatextoDirecto(asunto, user):     # NO PEGA todo EL TEXTO, OPCION INHABILITADA
     try:
         print()
-        print("Copie su texto y presione ENTER")
+        print("Copie y Pegue su texto y presione ENTER: ")
         textinput = input()
 
         # Send the content of text file as string to function parse()
@@ -294,8 +296,7 @@ def cargaFicheroText(asunto, user):
         # if os.path.exists(dirname+ os.path.sep + OUTPUT_DIRECTORY) == False:
         # os.makedirs(dirname+ os.path.sep + OUTPUT_DIRECTORY)
 
-        filehandle = open(dirname + os.path.sep + "file.txt",
-                          'r')  # cambiado input()
+        filehandle = open(input(), encoding="utf-8")  # manual input() o directo open(directo dirname + os.path.sep + "file.txt",'r', encoding="utf-8")
         textinput = filehandle.read()
         print('\n-----------INPUT TEXT-------------\n')
         print(textinput, '\n')

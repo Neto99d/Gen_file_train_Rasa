@@ -1,0 +1,5 @@
+- Mejorar la explicacion de la situacion problemica.
+- Ejemplificar mejor hacia que sector va dirigido los asistentes vrituales que se desarrollan con la herramienta. (por una pregunta de que si los asistentes creados podian de alguna forma hacer diagnosticos medicos por ejemplo, algunos de los presentes no entendio hacia que sector estaban destinados y pensó que los asistentes creados con la herramienta podian hacer este tipo de analisis de toma de decisiones y dar un veredicto)
+- Poner mas requisitos funcionales que tiene la herramienta (los tengo muy general con solo 4)
+- Explicar mas detalladamente y con ejemplos el proceso de generacion de preguntas. Poner más contenido técnico y ejemplos en cada caso de como se lleva cabo el proceso (no poner la estructura sino desglosarla en diapos)
+- evidenciar más el trabajo con la metodologia usada.

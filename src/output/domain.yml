@@ -1,63 +1,40 @@
-version: "3.0"
+version: '3.1'
 intents:
-    - greet
-    - goodbye
-    - affirm
-    - deny
-    - mood_great
-    - mood_unhappy
-    - bot_challenge
-    - What is Bansoori?
-    - What does Akhil play?
-    - What is Puliyogare?
-    - What does Priya write?
-    - What is Osmosis?
-    - What is solvent?
-    - What is cell?
-    - What is example?
-    - What is Raja-Yoga?
-    - What is Niyama?
+  - saludar
+  - despedir
+  - afirmar
+  - negar
+  - animo
+  - no_animo
+  - bot
+  - fuera_contexto
+  - ¿Qué es Criptomoneda?
+  - ¿Qué es Bitcoin?
+  - ¿Qué es Monedero Digital?
+  - ¿Qué es Ciudad-Inteligente?
 responses:
-    utter_greet:
-        - text: Hey! How are you?
-    utter_did_that_help:
-        - text: Did that help you?
-    utter_happy:
-        - text: Great, carry on!
-    utter_goodbye:
-        - text: Bye
-    utter_iamabot:
-        - text: I am a bot, powered by Rasa.
-    utter_What is Bansoori?:
-        - text: Bansoori is an Indian classical instrument.
-    utter_What does Akhil play?:
-        - text: Akhil plays Bansoori and Guitar.
-    utter_What is Puliyogare?:
-        - text: Puliyogare is a South Indian dish made of rice and tamarind.
-    utter_What does Priya write?:
-        - text: Priya writes poems.
-    utter_What is Osmosis?:
-        - text:
-              Osmosis is the movement of a solvent across a semipermeable membrane toward
-              a higher concentration of solute.
-    utter_What is solvent?:
-        - text:
-              In biological systems, the solvent is typically water, but osmosis can occur
-              in other liquids, supercritical liquids, and even gases.
-    utter_What is cell?:
-        - text:
-              When a cell is submerged in water, the water molecules pass through the
-              cell membrane from an area of low solute concentration to high solute concentration.
-    utter_What is example?:
-        - text:
-              For example, if the cell is submerged in saltwater, water molecules move
-              out of the cell.
-    utter_What is Raja-Yoga?:
-        - text: If a cell is submerged in freshwater, water molecules move into the cell.
-    utter_What is Niyama?:
-        - text:
-              Raja-Yoga is divided into eight steps, the first is Yama -- non - killing,
-              truthfulness, non - stealing, continence, and non - receiving of any gifts.
+  utter_saludar:
+  - text: ¿Cómo estás?
+  utter_ayuda:
+  - text: ¿En qué puedo ayudarte?
+  utter_feliz:
+  - text: ¡Genial, continúa!
+  utter_adios:
+  - text: Adiós, puedes consultarme cuando quieras
+  utter_soybot:
+  - text: Soy un bot, creado por Rasa.
+  utter_fuera_contexto:
+  - text: Lo siento, no puedo entender o manejar lo que acabas de decir.
+  utter_¿Qué es Criptomoneda?:
+  - text: Criptomoneda es una moneda virtual para asegurar transacciones.
+  utter_¿Qué es Bitcoin?:
+  - text: Bitcoin es una criptodivisa descentralizada.
+  utter_¿Qué es Monedero Digital?:
+  - text: Digital-Wallet es una aplicación donde es posible almacenar, enviar y recibir
+      criptomonedas.
+  utter_¿Qué es Ciudad-Inteligente?:
+  - text: La Ciudad-Inteligente es un tipo de desarrollo urbano basado en la sostenibilidad
+      para las necesidades básicas de instituciones, empresas y de los propios habitantes.
 session_config:
-    session_expiration_time: 60
-    carry_over_slots_to_new_session: true
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

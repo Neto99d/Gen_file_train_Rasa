@@ -1,64 +1,40 @@
-version: "3.0"
+version: '3.1'
 stories:
-  - story: happy path
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: mood_great
-      - action: utter_happy
-  - story: sad path 1
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: mood_unhappy
-      - action: utter_did_that_help
-      - intent: affirm
-      - action: utter_happy
-  - story: sad path 2
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: mood_unhappy
-      - action: utter_did_that_help
-      - intent: deny
-      - action: utter_goodbye
-  - story: option 1
-    steps:
-      - intent: What is Bansoori?
-      - action: utter_What is Bansoori?
-  - story: option 2
-    steps:
-      - intent: What does Akhil play?
-      - action: utter_What does Akhil play?
-  - story: option 3
-    steps:
-      - intent: What is Puliyogare?
-      - action: utter_What is Puliyogare?
-  - story: option 4
-    steps:
-      - intent: What does Priya write?
-      - action: utter_What does Priya write?
-  - story: option 5
-    steps:
-      - intent: What is Osmosis?
-      - action: utter_What is Osmosis?
-  - story: option 6
-    steps:
-      - intent: What is solvent?
-      - action: utter_What is solvent?
-  - story: option 7
-    steps:
-      - intent: What is cell?
-      - action: utter_What is cell?
-  - story: option 8
-    steps:
-      - intent: What is example?
-      - action: utter_What is example?
-  - story: option 9
-    steps:
-      - intent: What is Raja-Yoga?
-      - action: utter_What is Raja-Yoga?
-  - story: option 10
-    steps:
-      - intent: What is Niyama?
-      - action: utter_What is Niyama?
+- story: camino feliz
+  steps:
+  - intent: saludar
+  - action: utter_saludar
+  - intent: animo
+  - action: utter_feliz
+- story: camino triste 1
+  steps:
+  - intent: saludar
+  - action: utter_saludar
+  - intent: no_animo
+  - action: utter_ayuda
+  - intent: afirmar
+  - action: utter_feliz
+- story: camino triste 2
+  steps:
+  - intent: saludar
+  - action: utter_saludar
+  - intent: no_animo
+  - action: utter_ayuda
+  - intent: negar
+  - action: utter_adios
+- story: option 1
+  steps:
+  - intent: ¿Qué es Criptomoneda?
+  - action: utter_¿Qué es Criptomoneda?
+- story: option 2
+  steps:
+  - intent: ¿Qué es Bitcoin?
+  - action: utter_¿Qué es Bitcoin?
+- story: option 3
+  steps:
+  - intent: ¿Qué es Monedero Digital?
+  - action: utter_¿Qué es Monedero Digital?
+- story: option 4
+  steps:
+  - intent: ¿Qué es Ciudad-Inteligente?
+  - action: utter_¿Qué es Ciudad-Inteligente?

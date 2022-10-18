@@ -1,87 +1,73 @@
-version: "3.0"
+version: '3.1'
 nlu:
-  - intent: greet
-    examples: |
-      - hey
-      - hello
-      - hi
-      - hello there
-      - good morning
-      - good evening
-  - intent: goodbye
-    examples: |
-      - good bye
-      - good night
-      - bye
-      - goodbye
-      - bye bye
-      - see you later
-  - intent: affirm
-    examples: |
-      - yes
-      - of course
-      - correct
-  - intent: deny
-    examples: |
-      - no
-      - never
-      - no way
-      - not really
-  - intent: mood_great
-    examples: |
-      - perfect
-      - great
-      - amazing
-      - I am feeling very good
-      - I am great
-      - I am amazing
-      - I am going to save the world
-      - I am ok
-      - ok
-  - intent: mood_unhappy
-    examples: |
-      - my day was horrible
-      - I am sad
-      - I am disappointed
-      - super sad
-      - I am so sad
-      - sad
-      - very sad
-      - unhappy
-      - not good
-  - intent: bot_challenge
-    examples: |
-      - are you a bot?
-      - are you a human?
-      - am I talking to a bot?
-      - am I talking to a human?
-  - intent: What is Bansoori?
-    examples: |-
-      - What is Bansoori?
-  - intent: What does Akhil play?
-    examples: |-
-      - What does Akhil play?
-  - intent: What is Puliyogare?
-    examples: |-
-      - What is Puliyogare?
-  - intent: What does Priya write?
-    examples: |-
-      - What does Priya write?
-  - intent: What is Osmosis?
-    examples: |-
-      - What is Osmosis?
-  - intent: What is solvent?
-    examples: |-
-      - What is solvent?
-  - intent: What is cell?
-    examples: |-
-      - What is cell?
-  - intent: What is example?
-    examples: |-
-      - What is example?
-  - intent: What is Raja-Yoga?
-    examples: |-
-      - What is Raja-Yoga?
-  - intent: What is Niyama?
-    examples: |-
-      - What is Niyama?
+ - intent: saludar
+   examples: |
+     - Hola
+     - que tal
+     - buenos días
+     - buenas noches
+     - buenas tardes
+ - intent: despedir
+   examples: |
+     - adiós
+     - buenas noches
+     - hasta luego
+ - intent: afirmar
+   examples: |
+     - Sí
+     - por supuesto
+     - correcto
+ - intent: negar
+   examples: |
+     - no
+     - nunca
+     - de ninguna manera
+     - no realmente
+ - intent: animo
+   examples: |
+     - perfecto
+     - genial
+     - increíble
+     - Me siento muy bien
+     - Estoy genial
+     - Estoy increíble
+     - Estoy bien
+     - De acuerdo
+ - intent: no_animo
+   examples: |
+     - mi día fue horrible
+     - Estoy triste
+     - Estoy decepcionado
+     - súper triste
+     - necesito ayuda
+     - ayuda
+     - Estoy tan triste
+     - triste
+     - muy triste
+     - infeliz
+     - no es bueno
+ - intent: bot
+   examples: |
+     - ¿Eres un bot?
+     - ¿Eres un humano?
+     - ¿Estoy hablando con un bot?
+     - ¿Estoy hablando con un humano?
+ - intent: fuera_contexto
+   examples: |
+     - quiero comida
+     - puedes decirme que tengo basado en mi estado de salud
+     - que es un unicornio
+     - puedes tomar una decisión si te digo una situación
+     - cuanto es calcular 1+1
+ - intent: ¿Qué es Criptomoneda?
+   examples: |-
+     - ¿Qué es Criptomoneda?
+ - intent: ¿Qué es Bitcoin?
+   examples: |-
+     - ¿Qué es Bitcoin?
+ - intent: ¿Qué es Monedero Digital?
+   examples: |-
+     - ¿Qué es Monedero Digital?
+ - intent: ¿Qué es Ciudad-Inteligente?
+   examples: |-
+     - ¿Qué es Ciudad-Inteligente?

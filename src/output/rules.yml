@@ -1,50 +1,19 @@
-version: "3.0"
+version: '3.1'
 rules:
-  - rule: Say goodbye anytime the user says goodbye
-    steps:
-      - intent: goodbye
-      - action: utter_goodbye
-  - rule: Say 'I am a bot' anytime the user challenges
-    steps:
-      - intent: bot_challenge
-      - action: utter_iamabot
-  - rule: option 1
-    steps:
-      - intent: What is Bansoori?
-      - action: utter_What is Bansoori?
-  - rule: option 2
-    steps:
-      - intent: What does Akhil play?
-      - action: utter_What does Akhil play?
-  - rule: option 3
-    steps:
-      - intent: What is Puliyogare?
-      - action: utter_What is Puliyogare?
-  - rule: option 4
-    steps:
-      - intent: What does Priya write?
-      - action: utter_What does Priya write?
-  - rule: option 5
-    steps:
-      - intent: What is Osmosis?
-      - action: utter_What is Osmosis?
-  - rule: option 6
-    steps:
-      - intent: What is solvent?
-      - action: utter_What is solvent?
-  - rule: option 7
-    steps:
-      - intent: What is cell?
-      - action: utter_What is cell?
-  - rule: option 8
-    steps:
-      - intent: What is example?
-      - action: utter_What is example?
-  - rule: option 9
-    steps:
-      - intent: What is Raja-Yoga?
-      - action: utter_What is Raja-Yoga?
-  - rule: option 10
-    steps:
-      - intent: What is Niyama?
-      - action: utter_What is Niyama?
+- rule: Diga "adiós" cada vez que el usuario se despida
+  steps:
+  - intent: despedir
+  - action: utter_adios
+- rule: Diga 'Soy un bot' si el usuario duda de con quién conversa
+  steps:
+  - intent: bot
+  - action: utter_soybot
+- rule: Diga 'no entiendo' si no reconoce una pregunta
+  steps:
+  - intent: fuera_contexto
+  - action: utter_fuera_contexto
+- rule: Diga 'no entiendo' si una pregunta cae por debajo del umbral de confianza
+    configurado (0.7)
+  steps:
+  - intent: nlu_fallback
+  - action: utter_fuera_contexto
