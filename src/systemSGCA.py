@@ -91,6 +91,16 @@ def login():
 
 
 def opciones():
+
+    os.system("cls")
+    print("Bienvenido al Sistema de Generación de Conocimiento Automático para Asistentes Virtuales de Rasa")
+    print()
+    print()
+    print("Recuerde que los datos entrados para la construcción del conocimiento una vez este dentro del sistema deben ser en Inglés. Los resultados serán dados en español.")
+    print()
+    print("- Si desea cancelar cualquier operación y salir a la pantalla principal del Sistema presione Ctrl + C" + "\n" + "- Si le sale al presionar Ctrl +C: " +
+          "¿Desea terminar el trabajo por lotes (S/N)?, " + "presione s para cerrar o n para iniciar nuevamente el sistema")
+    print()
     print()
    #################################################################
     print("OPCIONES" + "\n" "1. Registrarse" + "\n" "2. Iniciar Sesión")
@@ -107,15 +117,5 @@ def opciones():
         print("Sólo los valores 1 o 2")
         opciones()
 
-
-os.system("cls")
-print("Bienvenido al Sistema de Generación de Conocimiento Automático para Asistentes Virtuales de Rasa")
-print()
-print()
-print("Recuerde que los datos entrados para la construcción del conocimiento una vez este dentro del sistema deben ser en Inglés. Los resultados serán dados en español.")
-print()
-print("- Si desea cancelar cualquier operación y salir a la pantalla principal del Sistema presione Ctrl + C" + "\n" + "- Si le sale al presionar Ctrl +C: " +
-      "¿Desea terminar el trabajo por lotes (S/N)?, " + "presione s para cerrar o n para iniciar nuevamente el sistema")
-print()
 
 opciones()
