@@ -86,8 +86,17 @@ Vista del sitio web y la interacción con el Asistente Virtual:
 
 https://user-images.githubusercontent.com/68437647/190913068-8f71a379-ff2a-40ef-bd78-5229d485dbeb.mp4
 
+---
+**Agregue el widget chat oficial de Rasa al código de su página web (requiere internet para funcionar)**
+- En el atributo `data-websocket-url` recibe la dirección desde donde corre el servidor del asistente virtual, en este caso corre en modo local por el puerto 5005.
 
-
+`<!-- Widget Rasa Bot-->
+    <div class="position-relative" id="rasa-chat-widget" data-websocket-url="http://localhost:5005"></div>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+    <!-- CIERRE Widget Rasa Bot-->`
 
 ---
 **Módulo de conexión con Telegram. Si tiene un bot de Telegram y desea conectar este a su Asistente Virtual y poder interactuar desde esa plataforma (Usuario Avanzado)**
