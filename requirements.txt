@@ -7,3 +7,6 @@ six==1.15.0
 deep-translator==1.7.0
 pymongo==3.10.1
 bcrypt==3.2.2
+spacy==3.4.0
+es-core-news-lg
+en-core-web-lg
