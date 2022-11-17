@@ -1,7 +1,7 @@
 # Crear bots de Rasa y generar archivos de entrenamiento para ellos de forma automática, a partir de datos proporcionados con los que se construye el conocimiento
 
 
-*Esta rama del proyecto fucniona con entrada de datos en Español, no hace falta entrar datos en inglés*
+*Esta rama del proyecto funciona con entrada de datos en Español, no hace falta entrar datos en inglés*
 ---
 
 **Ejecutar programa (Ver primero INSTALL.md como guía de instalación) o puede Montarlo en Google Colab (RECOMENDADO) paso a paso, la guía está en la carpeta `Montar proyecto en Google Colab`**
