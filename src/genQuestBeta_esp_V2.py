@@ -19,7 +19,7 @@ collection = db['temas']
 collection_accion = db['acciones']
 
 # modelo de spacy
-nlp = spacy.load("es_core_news_md")
+nlp = spacy.load("es_core_news_md") #es_core_news_lg
 
 # modelo Generador de respuestas
 qa_pipeline = pipeline(
