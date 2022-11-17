@@ -20,15 +20,17 @@ Ejecutar (Requiere Internet) para instalar todos los paquetes de python requerid
 Paquetes de python que serán instalados
 
 - rasa==3.2.8
-- nltk==3.4.5
-- textblob==0.15.0
 - ruamel.yaml==0.16.13
 - ruamel.yaml.clib==0.2.6
 - six==1.15.0
-- deep-translator==1.7.0
 - pymongo==3.10.1
 - bcrypt==3.2.2
+- spacy==3.4.0
+- transformers
+- sentence_transformers
 
+Puede que tenga que actualizar el tensorflow despues de instalar a la versión 2.9, use el comando
+- pip install tensorflow==2.9
 ---
 
 **Instalar MongoDb para Base de Datos**
