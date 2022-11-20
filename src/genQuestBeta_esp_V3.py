@@ -152,12 +152,15 @@ def genQuest(asunto, user):
         Question = dec[0].replace("question:", "")
         Question = Question.strip()
        # print(Question)
-        '''result = qa_pipeline({
+       # Modelo genera respuestas
+        result = qa_pipeline({
                     'context': str(sent),
-                    'question': Question})'''
+                    'question': Question})
         questionsResult.append(Question)
-        #answersResult.append(result['answer'])
-        answersResult.append(str(sent))
+        answersResult.append(result['answer']) # Guardar respuestas del modelo en una lista
+        
+        # Oraciones como respuesta y guardar en una lista
+        #answersResult.append(str(sent)) 
         
     # Mostrando resultado final
     os.system("cls")
