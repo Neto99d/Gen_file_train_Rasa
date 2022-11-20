@@ -1,7 +1,6 @@
 # Crear bots de Rasa y generar archivos de entrenamiento para ellos de forma automática, a partir de datos proporcionados con los que se construye el conocimiento
 
 
-*Esta rama del proyecto funciona con entrada de datos en Español, no hace falta entrar datos en inglés*
 ---
 
 **Ejecutar programa (Ver primero INSTALL.md como guía de instalación) o puede Montarlo en Google Colab (RECOMENDADO) paso a paso, la guía está en la carpeta `Montar proyecto en Google Colab`**
@@ -33,6 +32,8 @@ El sistema le mostrará varias opciones:
 
  *En cada una de las opciones el sistema lo guiará paso a paso, y le dirá que tiene que hacer*
  - *En los videos salen 5 opciones, esta 5ta opción fue eliminada*
+ - *Y en los videos se entran datos en ingles, esto ya no es necesario, no debe entrar datos en ese idioma*
+ - *La primera vez que se corra la herramienta descargará archivos necesarios para funcionar*
 
   **El programa hace lo siguiente en cada número de opción:**
 
@@ -41,7 +42,7 @@ El sistema le mostrará varias opciones:
 https://user-images.githubusercontent.com/68437647/190913895-a6f56fc5-d3c2-4654-9b17-1650ee56ce62.mp4
 
 
-  2. Es dónde se generan datos de entrenamiento o el conocimiento en sí, y se hace primeramente el análisis del contenido (un texto o un archivo de texto con infomracón) que se le pedirá. Se extraen las preguntas y las respuestas (el contenido entrado por el momento debe ser en inglés, se busca una solución para idioma español), estas preguntas y respuestas serán traducidas en línea (online) al español y guardadas en una base de datos automáticamente las cuáles se usarán para los archivos de entrenamiento. Al finalizar tendrá la posibilidad de elegir cargar otro contenido o no. Tiene la ventaja de generar datos de entrenamiento y guardarlos sin tener aún asistentes creados, los cuales podrá entrenar luego con los datos que ha generado.
+  2. Es dónde se generan datos de entrenamiento o el conocimiento en sí, y se hace primeramente el análisis del contenido (un texto o un archivo de texto con infomracón) que se le pedirá. Se extraen las preguntas y las respuestas y guardadas en una base de datos automáticamente las cuáles se usarán para los archivos de entrenamiento. Al finalizar tendrá la posibilidad de elegir cargar otro contenido o no. Tiene la ventaja de generar datos de entrenamiento y guardarlos sin tener aún asistentes creados, los cuales podrá entrenar luego con los datos que ha generado.
   
 
 https://user-images.githubusercontent.com/68437647/190913946-2de837d9-e1c4-4a8c-b278-94c5ad6b69b2.mp4
