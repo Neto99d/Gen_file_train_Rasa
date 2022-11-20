@@ -53,6 +53,8 @@ Puede que tenga que actualizar el tensorflow despues de instalar a la versión 2
 - *Ojo, ejecutar como Administrador*
 
   *Ejecutar el archivo (Requiere Internet) que está en la carpeta `src`. Ver `Readme.md` para entender funcionamiento.*
+  
+  *La primera vez que se corra la herramienta descargará archivos necesarios para funcionar*
 
 - systemSGCA.bat
 
