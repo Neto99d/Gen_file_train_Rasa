@@ -17,7 +17,7 @@
 
 *El algoritmo de generación de preguntas (`Archivo questES.py`) fue hasta cierto punto modificado, el código original está más abajo (Automatic Question Generation)*
 ---
-`En la rama del proyecto [develop_neto_FullES] el sistema usa o experimenta entrada de datos en español por lo que no necesita servicio de traducción como en la rama principal y develop. Los algoritmos implementados están explicados en la carpeta [Betas de generar preguntas-respuestas]`
+`En la rama principal [main] y en la rama de desarrollo [develop_neto_FullES] el sistema usa o experimenta entrada de datos en español por lo que no necesita servicio de traducción como en esta rama.`
 ---
 **Ejecutar programa (Ver primero INSTALL.md como guía de instalación)**
 
