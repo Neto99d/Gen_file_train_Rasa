@@ -153,14 +153,14 @@ def genQuest(asunto, user):
         Question = Question.strip()
        # print(Question)
        # Modelo genera respuestas y guarda en una lista
-        '''result = qa_pipeline({
+        result = qa_pipeline({
                     'context': str(sent),
-                    'question': Question})'''
+                    'question': Question})
         questionsResult.append(Question)
-        #answersResult.append(result['answer']) # Guarda respuestas en una lista
+        answersResult.append(result['answer']) # Guarda respuestas en una lista
         
         # Oraciones como respuesta y Guarda en una lista
-        answersResult.append(str(sent))
+        # answersResult.append(str(sent))
         
     # Mostrando resultado final
     os.system("cls")
