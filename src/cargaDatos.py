@@ -23,9 +23,9 @@ def cargaDatos(user):
             createAVirtualES.creaAsistente(user)
         elif(no == '2'):
             os.system("cls")
-            #questES.main(user) # En desuso (Solo usado en la rama develop_neto del proyecto)
-            genQuesAnsw_v3.inicio(user) # Usando Modelos Pre-Entrenados para generar preguntas y respuestas
-            #genQuesAnsw_v2.inicio(user) # Usando Entidades nombradas para generar preguntas y para respuestas un modelo pre-entrenado y similitud entre oraciones
+            #questES.main(user) # En desuso (Solo usado en la rama develop_neto_EN_a_ES del proyecto)
+            #genQuesAnsw_v3.inicio(user) # Usando Modelos Pre-Entrenados para generar preguntas y respuestas
+            genQuesAnsw_v2.inicio(user) # Usando Entidades nombradas para generar preguntas y para respuestas un modelo pre-entrenado y modelo de similitud entre oraciones
         elif (no == '3'):
             os.system("cls")
             entrenarAsistenteES.entrenar(user)
