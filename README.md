@@ -4,7 +4,8 @@
 ---
 **En la carpeta `Versiones generar preguntas-respuestas` están los algoritmos implementados para generar preguntas y respuestas en español, además dentro hay un documento `Generacion de preguntas y respuestas x Texto` donde se explica cada uno. `Por defecto se usa el algoritmo versión 1 (En el código fuente (carpeta `src`) es el archivo genQuesAnsw_v3.py).**
 
-*Para usar el algoritmo versión 2 use la rama `develop_ES_Spacy_ModelSimilarity` del proyecto
+*Para usar el algoritmo versión 2 use la rama `develop_ES_Spacy_ModelSimilarity` del proyecto*
+*El algoritmo versión 3 no se uso aunque está en el codigo fuente (carpeta `src`) como el archivo genQuesAnsw_v1.py*
 
 **Ejecutar programa (Ver primero INSTALL.md como guía de instalación) o puede Montarlo en Google Colab paso a paso, la guía está en la carpeta `Montar proyecto en Google Colab`**
 
