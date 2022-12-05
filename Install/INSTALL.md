@@ -12,7 +12,7 @@
 **Ramas del proyecto**
 - main `Esta rama funciona con Modelos pre-entrenados para generar preguntas y respuestas en español` por lo que si se instala desde esta rama funcionará con dichos Modelos por defecto.
 - develop_neto_ES_ModelsQA `Rama develop de la principal MAIN.
-- develop_ES_Spacy_ModelSimilarity `Esta rama funciona con Modelos pre-entrenados para generar respuestas y análisis de similitud entre textos u oraciones, y Spacy para generar preguntas mediante entidades nombradas en español`.
+- develop_ES_Spacy_ModelSimilarity `Esta rama funciona con Modelos pre-entrenados para generar respuestas y otro para análisis de similitud entre textos u oraciones, y Spacy para generar preguntas mediante entidades nombradas en español`.
 - develop_neto_EN_a_ES `Esta rama funciona con algoritmo de tercero que funciona con datos de entrada en inglés generando preguntas en dicho idioma. Se hace una traduccion al español de los datos y las preguntas`.
 
 **Opcionalmente en la carpeta Tools/Montar proyecto en Google Colab se puede tomar el archivo que contiene y correrlo en Google Colab, este archivo es para probar el proyecto en dicha plataforma, permite instalar paso a paso**
