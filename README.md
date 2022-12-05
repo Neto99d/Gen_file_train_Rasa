@@ -1,14 +1,67 @@
 # Crear bots de Rasa y generar archivos de entrenamiento para ellos de forma automática, a partir de datos proporcionados con los que se construye el conocimiento
 
+**Información de la Tesis**
 
+- Título: Herramienta digital para la construcción de conocimiento automático para un Asistente Virtual.
+- Autor: Jorge Ernesto Duvalón Hernández
+- Fecha de defensa de la Tesis: 21 de noviembre de 2022
+- Tutor: MSc. Dionis López Ramos
+
+```
+Resumen
+La población requiere respuestas inmediatas y acciones en tiempo real de 
+diferentes servicios institucionales (Ej.: Salud, Legalidad, Seguridad, entre otros).
+En los momentos actuales de desarrollo tecnológico y científico, los canales 
+tradicionales de gestión no pueden satisfacer la demanda pico de búsqueda de 
+información por parte de la población. Para resolver esta necesidad han sido 
+creados los asistentes virtuales (Agentes Conversacionales) o robots 
+conversacionales. Los asistentes virtuales son programas que intenta imitar la 
+conversación que puede proveer un ser humano, además de concebirse como 
+herramientas digitales que permiten la interacción hombre máquina. Los mismos 
+son ampliamente utilizados en el sector empresarial, salud y gobierno porque 
+garantizan una atención al usuario las 24 horas. 
+A pesar de los grandes beneficios que proporcionan los asistentes virtuales, la 
+creación del conocimiento que usan para dar respuestas a las preguntas y la 
+interacción con los usuarios es laboriosa y costosa. Esto es debido a la 
+necesidad de reunir especialistas y aglutinar la información necesaria para estos 
+asistentes virtuales, además de que este arduo proceso puede dificultar la 
+creación de los asistentes virtuales. 
+En esta investigación se propone el diseño e implementación de una herramienta 
+para la creación, entrenamiento y despliegue de asistentes virtuales, reduciendo 
+la necesidad de la interacción con especialistas. Para la creación de esta 
+herramienta y el despliegue de los asistentes virtuales se emplea el lenguaje de 
+programación Python y el marco de trabajo Rasa especializado en la creación 
+de asistentes virtuales.
+```
 ---
-**En la carpeta `Versiones generar preguntas-respuestas` están los algoritmos implementados para generar preguntas y respuestas en español, además dentro hay un documento `Generacion de preguntas y respuestas x Texto` donde se explica cada uno. `Por defecto se usa el algoritmo versión 1 (En el código fuente (carpeta `src`) es el archivo genQuesAnsw_v3.py).**
-
-- *Para usar el algoritmo versión 2 use la rama `develop_ES_Spacy_ModelSimilarity` del proyecto*
-- *El algoritmo versión 3 no se uso aunque está en el codigo fuente (carpeta `src`) como el archivo genQuesAnsw_v1.py*
-
-**Ejecutar programa (Ver primero INSTALL.md como guía de instalación) o puede Montarlo en Google Colab paso a paso, la guía está en la carpeta `Montar proyecto en Google Colab`**
-
+`Abstract`
+```Title: “Digital tool for automatic building of a Virtual Assistants knowledge”.
+The population requires immediate responses and real-time actions from different 
+institutional services (eg, Health, Legality, Security, among others). In the current 
+moments of technological and scientific development, the traditional 
+management channels cannot satisfy the peak demand and the search for 
+information. To solve this need, virtual assistants (Conversational Agents) or 
+conversational robots have been created. Virtual assistants are programs that try 
+to imitate the conversation that a human being can provide, in addition to being 
+conceived as digital tools that allow human-machine interaction. They are widely 
+used in the business, health and government sectors because they guarantee 
+24-hour customer service. 
+Despite the great benefits virtual assistants provide, creating the knowledge they 
+use to answer questions and interact with users is time-consuming and 
+expensive. This is due to the need to gather specialists and bring together the 
+necessary information for these virtual assistants, in addition to the fact that this 
+arduous process can make it difficult to create virtual assistants. 
+This research proposes the design and implementation of a tool for the creation, 
+training and deployment of virtual assistants, reducing the need for interaction 
+with specialists. For the creation of this tool and the deployment of virtual 
+assistants, the Python programming language and the Rasa framework 
+specialized in the creation of virtual assistants are used```
+---
+`Para instalar y desplegar la herramienta necesita instalar las dependencias (paquetes de Python), entre las dependencias más importantes: Rasa Framework para crear Asistentes Virtuales y Spacy para procesamiento del lenguaje natural. También requiere conexión a Internet ya que necesita descargar algunos datos para funcionar. Necesita instalar MongoDb para la base de datos de la aplicación.`
+---
+**Para instalar la herramienta ver el archivo Install.md en la carpeta Install**
+---
+---
   Ojo, ejecutar como Administrador
 
   Ejecutar el archivo (Requiere Internet). Se aconseja que tenga internet para usar la herramienta.
