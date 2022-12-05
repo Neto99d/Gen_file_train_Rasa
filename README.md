@@ -59,7 +59,9 @@ assistants, the Python programming language and the Rasa framework
 specialized in the creation of virtual assistants are used
 ```
 ---
-`Para instalar y desplegar la herramienta necesita instalar las dependencias (paquetes de Python), entre las dependencias más importantes: Rasa Framework para crear Asistentes Virtuales y Spacy para procesamiento del lenguaje natural. También requiere conexión a Internet ya que necesita descargar algunos datos para funcionar. Necesita instalar MongoDb para la base de datos de la aplicación.`
+```
+Para instalar y desplegar la herramienta necesita instalar las dependencias (paquetes de Python), entre las dependencias más importantes: Rasa Framework para crear Asistentes Virtuales y Spacy para procesamiento del lenguaje natural. También requiere conexión a Internet ya que necesita descargar algunos datos para funcionar. Necesita instalar MongoDb para la base de datos de la aplicación.
+```
 ---
 **Para instalar la herramienta ver el archivo Install.md en la carpeta Install**
 ---
