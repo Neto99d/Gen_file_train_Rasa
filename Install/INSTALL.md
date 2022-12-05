@@ -36,8 +36,13 @@ Paquetes de python que serán instalados
 - transformers
 - sentence_transformers
 
-Puede que tenga que actualizar el tensorflow despues de instalar a la versión 2.9, use el comando
-- pip install tensorflow==2.9
+Puede que si tiene problemas con el paquete tensorflow, tenga que actualizar el mismo a la versión 2.9, ejecute el archivo de la carpeta Install:
+- Actualizar Tensorflow.bat
+---
+**Instalar las dll de Microsoft Visual para el funcionamiento del paquete Tensorflow**
+(Si no se instala puede dar error este paquete)
+
+- Instalar el archivo vc_redist.x64.exe que esta dentro del comprimido de mismo nombre que está en la carpeta Tools.
 ---
 
 **Instalar MongoDb para Base de Datos**
@@ -45,13 +50,7 @@ Puede que tenga que actualizar el tensorflow despues de instalar a la versión 2
 - Descarga MongoDB desde: <https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-5.0.9-signed.msi>
   - *Al instalar MongoDB solo siga los pasos de instalación sin cambiar nada*
 
-- `(Opcional)` Para administrar la base de datos puede usar el RoboMongo Studio 3T: Descargar ultima versión: <https://studio3t.com/download-studio3t-free> o instalar Robo3T versión antigua pero más simple que está en la carpeta Tools.
-
----
-**Instalar las dll de Microsoft Visual para el funcionamiento del paquete Tensorflow**
-(Si no se instala puede dar error este paquete)
-
-- Instalar el archivo vc_redist.x64.exe que esta dentro del comprimido de mismo nombre que está en la carpeta Tools.
+- `(Opcional)` Para administrar la base de datos puede usar el RoboMongo Studio 3T: Descargar ultima versión: <https://studio3t.com/download-studio3t-free> o instalar Robo3T versión antigua pero más simple de usar que está en la carpeta Tools.
 
 ---
 
