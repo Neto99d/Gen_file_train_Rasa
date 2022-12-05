@@ -66,6 +66,8 @@ Para instalar y desplegar la herramienta necesita instalar las dependencias (paq
 **Para instalar la herramienta ver el archivo Install.md en la carpeta Install**
 ---
 ---
+**Ejecución de la Aplicación Informática**
+
   Ojo, ejecutar como Administrador
 
   Ejecutar el archivo (Requiere Internet). Se aconseja que tenga internet para usar la herramienta.
