@@ -34,8 +34,9 @@ programación Python y el marco de trabajo Rasa especializado en la creación
 de asistentes virtuales.
 ```
 ---
-`Abstract`
-```Title: “Digital tool for automatic building of a Virtual Assistants knowledge”.
+```
+Abstract
+Title: “Digital tool for automatic building of a Virtual Assistants knowledge”.
 The population requires immediate responses and real-time actions from different 
 institutional services (eg, Health, Legality, Security, among others). In the current 
 moments of technological and scientific development, the traditional 
@@ -55,7 +56,8 @@ This research proposes the design and implementation of a tool for the creation,
 training and deployment of virtual assistants, reducing the need for interaction 
 with specialists. For the creation of this tool and the deployment of virtual 
 assistants, the Python programming language and the Rasa framework 
-specialized in the creation of virtual assistants are used```
+specialized in the creation of virtual assistants are used
+```
 ---
 `Para instalar y desplegar la herramienta necesita instalar las dependencias (paquetes de Python), entre las dependencias más importantes: Rasa Framework para crear Asistentes Virtuales y Spacy para procesamiento del lenguaje natural. También requiere conexión a Internet ya que necesita descargar algunos datos para funcionar. Necesita instalar MongoDb para la base de datos de la aplicación.`
 ---
