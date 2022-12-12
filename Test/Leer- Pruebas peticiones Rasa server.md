@@ -29,18 +29,19 @@ Más Info: https://jmeter.apache.org/index.html
 - Peticiones simulando 50, 100 y 120 usuarios cada x tiempo en segundos va incrementando a estas cifras de usuarios aun cuando esta trabajando con el primer lote de usuarios.
 
 - El archivo statistics.csv y summary.csv muestra tabla con datos de las pruebas en cifras
-
+---
 **Muestras: Número total de muestras**
-Promedio: Tiempo promedio. (milisegundos, correr tres lugares la coma hacia la izquierda para convertir a segundos)
-Min: Este es el tiempo mínimo que ha tardado un muestreador en ir al servidor.
-Max : Esta es la solicitud de tiempo máximo que se tarda en ir al servidor.
-Error%: Número de muestreador de errores / Número total de muestreador.
-Rendimiento: El rendimiento es la muestra por segundo que recibe el servidor. 
-KB recibidos / segundo: Esto define cuántos kilobytes por segundo recibe el Cliente.
-KB enviados / segundo: Esto define cuántos kilobytes por segundo se envían al servidor.
-90% Línea: Representa que el 10% de los muestreadores han superado el tiempo para llegar al servidor.
-95% Línea: Representa que el 5% de los muestreadores han superado el tiempo para llegar al servidor.
-99% Línea: Representa que el 1% de los muestreadores ha excedido el tiempo para llegar al servidor.
- 
 
+- Promedio: Tiempo promedio. (milisegundos, correr tres lugares la coma hacia la izquierda para convertir a segundos)
+- Min: Este es el tiempo mínimo que ha tardado un muestreador en ir al servidor.
+- Max : Esta es la solicitud de tiempo máximo que se tarda en ir al servidor.
+- Error%: Número de muestreador de errores / Número total de muestreador.
+- Rendimiento: El rendimiento es la muestra por segundo que recibe el servidor. 
+- KB recibidos / segundo: Esto define cuántos kilobytes por segundo recibe el Cliente.
+- KB enviados / segundo: Esto define cuántos kilobytes por segundo se envían al servidor.
+- 90% Línea: Representa que el 10% de los muestreadores han superado el tiempo para llegar al servidor.
+- 95% Línea: Representa que el 5% de los muestreadores han superado el tiempo para llegar al servidor.
+- 99% Línea: Representa que el 1% de los muestreadores ha excedido el tiempo para llegar al servidor.
+ 
+---
 - EL grafico muestra la media de tiempo de respuesta, el pico en el 95% de prueba y el minimo de tiempo de respuesta alcanzado, todo esto para 50, 100 y 120 usuarios.
