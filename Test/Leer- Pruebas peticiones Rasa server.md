@@ -28,10 +28,9 @@ Más Info: https://jmeter.apache.org/index.html
 
 - Peticiones simulando 50, 100 y 120 usuarios cada x tiempo en segundos va incrementando a estas cifras de usuarios aun cuando esta trabajando con el primer lote de usuarios.
 
-- El archivo statistics.csv y summary.csv muestra tabla con datos de las pruebas en cifras
----
-**Muestras: Número total de muestras**
-
+**El archivo statistics.csv y summary.csv muestra tabla con datos de las pruebas en cifras**
+**Contienen:**
+- Muestras: Número total de muestras
 - Promedio: Tiempo promedio. (milisegundos, correr tres lugares la coma hacia la izquierda para convertir a segundos)
 - Min: Este es el tiempo mínimo que ha tardado un muestreador en ir al servidor.
 - Max : Esta es la solicitud de tiempo máximo que se tarda en ir al servidor.
